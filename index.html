@@ -57,6 +57,18 @@ body{font-family:-apple-system,"Segoe UI","PingFang SC","Microsoft YaHei",sans-s
 .topic-repos{display:flex;flex-wrap:wrap;gap:6px}
 .topic-chip{font-size:var(--fs-115);color:var(--c-blue);background:#eef4ff;border:1px solid #d5e3fb;border-radius:999px;padding:2px 9px;text-decoration:none;white-space:nowrap}
 .topic-chip:hover{background:var(--c-blue);color:#fff;border-color:var(--c-blue)}
+/* 方案 2：趋势信号 / 话题演化 / 数据健康 */
+.sig-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:10px;margin:12px 0}
+.sig-card{border:1px solid var(--line);border-radius:12px;padding:11px 13px;background:var(--card)}
+.sig-head{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:7px}
+.sig-label{font-size:var(--fs-tag);font-weight:800;color:#fff;border-radius:6px;padding:2px 9px;white-space:nowrap}
+.sig-nova{background:#dc2626}.sig-ever{background:#1d4ed8}.sig-cool{background:#059669}.sig-flat{background:#64748b}.sig-few{background:#94a3b8;color:#1f2733}
+.sig-acc{font-size:var(--fs-12);color:var(--sub);font-variant-numeric:tabular-nums}
+.sig-repo{display:block;font-size:var(--fs-115);color:var(--c-blue);text-decoration:none;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.sig-repo:hover{text-decoration:underline}
+.evo-list{margin:8px 0;padding-left:20px;font-size:var(--fs-13);line-height:1.8}
+.evo-bar{height:16px;background:linear-gradient(90deg,var(--c-blue),#8ab4ff);border-radius:4px;min-width:4px;display:inline-block;vertical-align:middle}
+.note.warn-soft{background:#fff7e8;border-color:#f3dca0;color:#8a6400}
 /* 表格 */
 .tbl-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch;overscroll-behavior-x:contain;margin:14px 0 10px;scrollbar-width:thin;scrollbar-color:var(--ui-scroll-thumb) var(--ui-scroll-track)}
 .tbl-scroll::-webkit-scrollbar{height:9px}
@@ -160,6 +172,11 @@ footer{max-width:1180px;margin:14px auto;color:var(--c-muted);font-size:var(--fs
   .diff-s,.diff-legend{color:#93a0b4}
   .barrow.filter-on{background:#1d2a3d;box-shadow:inset 0 0 0 1px #2c4368}
   .c-repo a{color:#8ab4ff}
+  .sig-card{background:#141c28;border-color:#243044}
+  .sig-repo{color:#8ab4ff}
+  .sig-acc{color:#93a0b4}
+  .sig-few{background:#3a4658;color:#e5eaf2}
+  .note.warn-soft{background:#2a2113;border-color:#5c4a1d;color:#e0b95a}
   .up{color:#ff6b6b}.down{color:#4ade80}
 }
 /* 响应式 */
@@ -187,6 +204,8 @@ footer{max-width:1180px;margin:14px auto;color:var(--c-muted);font-size:var(--fs
 <nav class="toc" aria-label="页面目录">
   <span class="toc-title"><svg class="ico" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01"/></svg>目录</span>
   <a href="#s-topic">话题聚类</a>
+  <a href="#s-signal">趋势信号</a>
+  <a href="#s-evolve">话题演化</a>
   <a href="#s-main">总榜 Top 15</a>
   <a href="#s-lang">语言分布</a>
   <a href="#s-diff">两期对比</a>
@@ -207,10 +226,10 @@ footer{max-width:1180px;margin:14px auto;color:var(--c-muted);font-size:var(--fs
 
 <div class="doc">
   <h1 id="s-top"><svg class="ico" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22c4 0 7-3 7-7 0-5-4-6-4-11 0 0-3 2-3 6-1-1-2-2-2-4 0 0-5 4-5 9 0 4 3 7 7 7z"/></svg>GitHub 热门话题排行榜</h1>
-  <div class="meta">数据日期：<b>2026-11-06</b>（采集于 21:17） · 口径：GitHub Trending 日榜 · 榜单规模：Top 15 · 上期对比：2026-11-05</div>
+  <div class="meta">数据日期：<b>2026-11-06</b>（采集于 2026-11-06 21:46） · 口径：GitHub Trending 日榜 · 榜单规模：Top 15 · 上期对比：2026-11-05</div>
   <div class="datenav"><a class="datenav-link" href="archive/deliver-github-trending-2026-11-05.html">← 上一期 2026-11-05</a></div>
   
-  <div class="note concl"><b>核心结论：</b>榜首 <b>zed-industries/zed</b>（Rust，总 Star 93,052，今日新增 <b class="up">292</b>）；增速黑马为 <b>NVIDIA/auto-ontology</b>（今日新增 2,005）。语言面 Rust 占据 3 席居首；<b>NVIDIA/auto-ontology</b> 已连续在榜 3 天。与 2026-11-05 一期相比：<span class="up">新上榜 12</span>、<span class="down">跌出 12</span>、排名变动 3。</div>
+  <div class="note concl"><b>核心结论：</b>榜首 <b>zed-industries/zed</b>（Rust，总 Star 93,081，今日新增 <b class="up">292</b>）；增速黑马为 <b>NVIDIA/auto-ontology</b>（今日新增 2,005）。语言面 Rust 占据 3 席居首；<b>NVIDIA/auto-ontology</b> 已连续在榜 3 天。与 2026-11-05 一期相比：<span class="up">新上榜 12</span>、<span class="down">跌出 12</span>、排名变动 3。</div>
   
   <h2 id="s-topic"><svg class="ico" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.59 13.41 13.42 20.58a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/><circle cx="7" cy="7" r="1"/></svg> 话题聚类</h2>
   <div class="note">按当日榜单仓库的简介语义聚类（AI 生成，非 GitHub 官方分类），用于快速把握当日技术风向。</div>
@@ -239,6 +258,16 @@ footer{max-width:1180px;margin:14px auto;color:var(--c-muted);font-size:var(--fs
         <div class="topic-insight">NVIDIA/auto-ontology 面向 LLM 与智能体工作流构建图语义推理层（今日 +2005 为单日增星最多），google/skills 提供面向 Google 产品与技术的智能体技能，二者是本期仅有的 AI 主题且与上期重叠留榜的项目</div>
         <div class="topic-repos"><a class="topic-chip" href="https://github.com/NVIDIA/auto-ontology" target="_blank" rel="noopener">NVIDIA/auto-ontology</a><a class="topic-chip" href="https://github.com/google/skills" target="_blank" rel="noopener">google/skills</a></div>
       </div></div>
+  
+  <h2 id="s-signal"><svg class="ico" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 3v18h18"/><path d="M7 15l4-4 3 3 5-6"/></svg> 趋势信号</h2>
+  <div class="note">基于 <code>data/history.jsonl</code> 的 4 期快照，对当日榜单仓库按固定阈值分类：<b>新星</b>=在榜≤2 期且最近增星≥上期 2 倍；<b>长红</b>=在榜≥3 期且仍高于历史均值；<b>退烧</b>=最近增星≤峰值一半；<b>样本不足</b>=有效历史&lt;2 期，不推断。加速度为最近两期增星之差。</div>
+  <div class="sig-grid"><div class="sig-card"><div class="sig-head"><span class="sig-label sig-nova">新星</span><span class="sig-acc">2 个</span></div><a class="sig-repo" href="https://github.com/google/skills" target="_blank" rel="noopener" title="google/skills · 新星 · +333">google/skills <span class="sig-acc">+333</span></a><a class="sig-repo" href="https://github.com/lz4/lz4" target="_blank" rel="noopener" title="lz4/lz4 · 新星 · +297">lz4/lz4 <span class="sig-acc">+297</span></a></div><div class="sig-card"><div class="sig-head"><span class="sig-label sig-flat">平稳</span><span class="sig-acc">1 个</span></div><a class="sig-repo" href="https://github.com/NVIDIA/auto-ontology" target="_blank" rel="noopener" title="NVIDIA/auto-ontology · 平稳 · -702">NVIDIA/auto-ontology <span class="sig-acc">-702</span></a></div><div class="sig-card"><div class="sig-head"><span class="sig-label sig-few">样本不足</span><span class="sig-acc">12 个</span></div><a class="sig-repo" href="https://github.com/zed-industries/zed" target="_blank" rel="noopener" title="zed-industries/zed · 样本不足 · 样本不足">zed-industries/zed <span class="sig-acc">样本不足</span></a><a class="sig-repo" href="https://github.com/rails/rails" target="_blank" rel="noopener" title="rails/rails · 样本不足 · 样本不足">rails/rails <span class="sig-acc">样本不足</span></a><a class="sig-repo" href="https://github.com/mpv-player/mpv" target="_blank" rel="noopener" title="mpv-player/mpv · 样本不足 · 样本不足">mpv-player/mpv <span class="sig-acc">样本不足</span></a><a class="sig-repo" href="https://github.com/rust-lang/rust" target="_blank" rel="noopener" title="rust-lang/rust · 样本不足 · 样本不足">rust-lang/rust <span class="sig-acc">样本不足</span></a><a class="sig-repo" href="https://github.com/react/react" target="_blank" rel="noopener" title="react/react · 样本不足 · 样本不足">react/react <span class="sig-acc">样本不足</span></a><a class="sig-repo" href="https://github.com/angular/angular" target="_blank" rel="noopener" title="angular/angular · 样本不足 · 样本不足">angular/angular <span class="sig-acc">样本不足</span></a><a class="sig-repo" href="https://github.com/symfony/symfony" target="_blank" rel="noopener" title="symfony/symfony · 样本不足 · 样本不足">symfony/symfony <span class="sig-acc">样本不足</span></a><a class="sig-repo" href="https://github.com/prometheus/prometheus" target="_blank" rel="noopener" title="prometheus/prometheus · 样本不足 · 样本不足">prometheus/prometheus <span class="sig-acc">样本不足</span></a><a class="sig-repo" href="https://github.com/microsoft/vscode" target="_blank" rel="noopener" title="microsoft/vscode · 样本不足 · 样本不足">microsoft/vscode <span class="sig-acc">样本不足</span></a><a class="sig-repo" href="https://github.com/nushell/nushell" target="_blank" rel="noopener" title="nushell/nushell · 样本不足 · 样本不足">nushell/nushell <span class="sig-acc">样本不足</span></a><a class="sig-repo" href="https://github.com/etcd-io/etcd" target="_blank" rel="noopener" title="etcd-io/etcd · 样本不足 · 样本不足">etcd-io/etcd <span class="sig-acc">样本不足</span></a><a class="sig-repo" href="https://github.com/openssl/openssl" target="_blank" rel="noopener" title="openssl/openssl · 样本不足 · 样本不足">openssl/openssl <span class="sig-acc">样本不足</span></a></div></div>
+  <h2 id="s-evolve"><svg class="ico" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.59 13.41 13.42 20.58a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/><circle cx="7" cy="7" r="1"/></svg> 话题演化</h2>
+  <div class="note">按话题名跨期对齐（4 期）；「合并线索」由新话题与已消退话题的仓库交集判定，属事实线索而非语义推断。</div>
+  <ul class="evo-list"><li><b>新话题：</b>代码编辑器与开发工具、Web 应用框架与 UI 库、系统语言与底层基础库、可观测性与分布式存储、命令行与终端工具、AI 语义推理与智能体技能</li><li><b>消退话题：</b>AI 智能体工作流与记忆、本地推理与本地 AI、模型改造与垂直基座、数据抓取与实时监控、开发者与云基础设施、AI 智能体工具链、研发流程与代码评审工具、本地推理与本地开发、AI 内容生成与信息聚合、数据抓取与学习资源、智能体技能库（Skills）、网页抓取与监控应用、底层算法与本地开发工具、开源语音 AI</li><li><b>合并线索：</b>AI 语义推理与智能体技能（承接 AI 智能体工具链、智能体技能库（Skills））</li></ul>
+  <div class="sig-repo" style="margin:6px 0">AI 智能体工作流与记忆　<span class="evo-bar" style="width:50px" title="2026-11-03 · 5 席"></span></div><div class="sig-repo" style="margin:6px 0">本地推理与本地 AI　<span class="evo-bar" style="width:20px" title="2026-11-03 · 2 席"></span></div><div class="sig-repo" style="margin:6px 0">模型改造与垂直基座　<span class="evo-bar" style="width:20px" title="2026-11-03 · 2 席"></span></div><div class="sig-repo" style="margin:6px 0">数据抓取与实时监控　<span class="evo-bar" style="width:20px" title="2026-11-03 · 2 席"></span></div><div class="sig-repo" style="margin:6px 0">开发者与云基础设施　<span class="evo-bar" style="width:10px" title="2026-11-03 · 1 席"></span></div><div class="sig-repo" style="margin:6px 0">AI 智能体工具链　<span class="evo-bar" style="width:60px" title="2026-11-04 · 6 席"></span> <span class="evo-bar" style="width:50px" title="2026-11-05 · 5 席"></span></div><div class="sig-repo" style="margin:6px 0">研发流程与代码评审工具　<span class="evo-bar" style="width:20px" title="2026-11-04 · 2 席"></span></div><div class="sig-repo" style="margin:6px 0">本地推理与本地开发　<span class="evo-bar" style="width:20px" title="2026-11-04 · 2 席"></span></div>
+  <div class="note " id="s-health"><b>数据健康：</b><b>校验通过：</b>翻译覆盖 15/15（100%），聚类 6 类，无榜外仓库。</div>
+  <div class="note"><a href="explore.html" style="color:var(--c-blue);font-weight:700">跨期检索：按仓库 / 语言 / 话题查询 4 期历史 →</a></div>
 
   <h2 id="s-main"><svg class="ico" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22c4 0 7-3 7-7 0-5-4-6-4-11 0 0-3 2-3 6-1-1-2-2-2-4 0 0-5 4-5 9 0 4 3 7 7 7z"/></svg> 热门仓库总榜</h2>
   <div class="note">排序口径：GitHub Trending 官方算法（近 24 小时 Star 增速）。「今日新增」为该窗口内新增 Star 数；「在榜」为含当日在内的连续上榜天数（基于历史快照，≥2 天才显示）；「<span class="badge-focus"><svg class="ico" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></svg>关注</span>」表示命中 <code>config/domains.json</code> 关注领域关键词。</div>
@@ -254,7 +283,7 @@ footer{max-width:1180px;margin:14px auto;color:var(--c-muted);font-size:var(--fs
       <td class="c-repo"><a href="https://github.com/zed-industries/zed" target="_blank" rel="noopener">zed-industries/zed</a></td>
       <td class="c-desc"><span class="zh">以思维的速度编写代码——Zed 是来自 Atom 和 Tree-sitter 创作者的高性能、多人协作代码编辑器。</span><details class="orig"><summary>原文</summary><p>Code at the speed of thought – Zed is a high-performance, multiplayer code editor from the creators of Atom and Tree-sitter.</p></details></td>
       <td class="c-lang"><span class="tag t-lang" style="background:#dea584;color:#1a2332">Rust</span></td>
-      <td class="c-num" data-v="93052">93,052</td>
+      <td class="c-num" data-v="93081">93,081</td>
       <td class="c-num up" data-v="292"><b>292</b></td>
       <td class="c-streak"><span class="muted">—</span></td>
       <td class="c-trend"><span class="tbadge t-new">NEW</span></td>
@@ -264,7 +293,7 @@ footer{max-width:1180px;margin:14px auto;color:var(--c-muted);font-size:var(--fs
       <td class="c-repo"><a href="https://github.com/NVIDIA/auto-ontology" target="_blank" rel="noopener">NVIDIA/auto-ontology</a><span class="badge-focus" title="命中关注领域：AI / 智能体、开发工具 / 框架"><svg class="ico" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></svg>关注</span></td>
       <td class="c-desc"><span class="zh">Auto Ontology 是一个 Python 框架，用于在数据之上构建基于图的语义推理层。它支持确定性查询生成、更好的上下文检索，以及让 LLM 与智能体工作流中的 AI 更具可解释性。</span><details class="orig"><summary>原文</summary><p>Auto Ontology is a Python framework for building semantic, graph-based reasoning layers over data. It enables deterministic query generation, better context retrieval, and more explainable AI for LLM and agent workflows.</p></details></td>
       <td class="c-lang"><span class="tag t-lang" style="background:#3572A5;color:#ffffff">Python</span></td>
-      <td class="c-num" data-v="8388">8,388</td>
+      <td class="c-num" data-v="8413">8,413</td>
       <td class="c-num up" data-v="2005"><b>2,005</b></td>
       <td class="c-streak"><span class="streak">3 天</span></td>
       <td class="c-trend"><span class="tbadge t-flat">—</span></td>
@@ -274,7 +303,7 @@ footer{max-width:1180px;margin:14px auto;color:var(--c-muted);font-size:var(--fs
       <td class="c-repo"><a href="https://github.com/rails/rails" target="_blank" rel="noopener">rails/rails</a></td>
       <td class="c-desc"><span class="zh">Ruby on Rails</span><details class="orig"><summary>原文</summary><p>Ruby on Rails</p></details></td>
       <td class="c-lang"><span class="tag t-lang" style="background:#701516;color:#ffffff">Ruby</span></td>
-      <td class="c-num" data-v="58901">58,901</td>
+      <td class="c-num" data-v="58902">58,902</td>
       <td class="c-num up" data-v="44"><b>44</b></td>
       <td class="c-streak"><span class="muted">—</span></td>
       <td class="c-trend"><span class="tbadge t-new">NEW</span></td>
@@ -284,7 +313,7 @@ footer{max-width:1180px;margin:14px auto;color:var(--c-muted);font-size:var(--fs
       <td class="c-repo"><a href="https://github.com/mpv-player/mpv" target="_blank" rel="noopener">mpv-player/mpv</a></td>
       <td class="c-desc"><span class="zh">🎥 命令行媒体播放器</span><details class="orig"><summary>原文</summary><p>🎥 Command line media player</p></details></td>
       <td class="c-lang"><span class="tag t-lang" style="background:#555555;color:#ffffff">C</span></td>
-      <td class="c-num" data-v="37771">37,771</td>
+      <td class="c-num" data-v="37775">37,775</td>
       <td class="c-num up" data-v="36"><b>36</b></td>
       <td class="c-streak"><span class="muted">—</span></td>
       <td class="c-trend"><span class="tbadge t-new">NEW</span></td>
@@ -294,7 +323,7 @@ footer{max-width:1180px;margin:14px auto;color:var(--c-muted);font-size:var(--fs
       <td class="c-repo"><a href="https://github.com/rust-lang/rust" target="_blank" rel="noopener">rust-lang/rust</a></td>
       <td class="c-desc"><span class="zh">让每个人都能构建可靠且高效的软件。</span><details class="orig"><summary>原文</summary><p>Empowering everyone to build reliable and efficient software.</p></details></td>
       <td class="c-lang"><span class="tag t-lang" style="background:#dea584;color:#1a2332">Rust</span></td>
-      <td class="c-num" data-v="121196">121,196</td>
+      <td class="c-num" data-v="121215">121,215</td>
       <td class="c-num up" data-v="186"><b>186</b></td>
       <td class="c-streak"><span class="muted">—</span></td>
       <td class="c-trend"><span class="tbadge t-new">NEW</span></td>
@@ -304,7 +333,7 @@ footer{max-width:1180px;margin:14px auto;color:var(--c-muted);font-size:var(--fs
       <td class="c-repo"><a href="https://github.com/react/react" target="_blank" rel="noopener">react/react</a></td>
       <td class="c-desc"><span class="zh">用于构建 Web 与原生用户界面的库。</span><details class="orig"><summary>原文</summary><p>The library for web and native user interfaces.</p></details></td>
       <td class="c-lang"><span class="tag t-lang" style="background:#f1e05a;color:#1a2332">JavaScript</span></td>
-      <td class="c-num" data-v="252071">252,071</td>
+      <td class="c-num" data-v="252085">252,085</td>
       <td class="c-num up" data-v="244"><b>244</b></td>
       <td class="c-streak"><span class="muted">—</span></td>
       <td class="c-trend"><span class="tbadge t-new">NEW</span></td>
@@ -314,7 +343,7 @@ footer{max-width:1180px;margin:14px auto;color:var(--c-muted);font-size:var(--fs
       <td class="c-repo"><a href="https://github.com/angular/angular" target="_blank" rel="noopener">angular/angular</a></td>
       <td class="c-desc"><span class="zh">满怀信心地交付 Web 应用 🚀</span><details class="orig"><summary>原文</summary><p>Deliver web apps with confidence 🚀</p></details></td>
       <td class="c-lang"><span class="tag t-lang" style="background:#3178c6;color:#ffffff">TypeScript</span></td>
-      <td class="c-num" data-v="101156">101,156</td>
+      <td class="c-num" data-v="101159">101,159</td>
       <td class="c-num up" data-v="128"><b>128</b></td>
       <td class="c-streak"><span class="muted">—</span></td>
       <td class="c-trend"><span class="tbadge t-new">NEW</span></td>
@@ -324,7 +353,7 @@ footer{max-width:1180px;margin:14px auto;color:var(--c-muted);font-size:var(--fs
       <td class="c-repo"><a href="https://github.com/symfony/symfony" target="_blank" rel="noopener">symfony/symfony</a></td>
       <td class="c-desc"><span class="zh">Symfony PHP 框架</span><details class="orig"><summary>原文</summary><p>The Symfony PHP framework</p></details></td>
       <td class="c-lang"><span class="tag t-lang" style="background:#4F5D95;color:#ffffff">PHP</span></td>
-      <td class="c-num" data-v="31266">31,266</td>
+      <td class="c-num" data-v="31269">31,269</td>
       <td class="c-num up" data-v="89"><b>89</b></td>
       <td class="c-streak"><span class="muted">—</span></td>
       <td class="c-trend"><span class="tbadge t-new">NEW</span></td>
@@ -334,7 +363,7 @@ footer{max-width:1180px;margin:14px auto;color:var(--c-muted);font-size:var(--fs
       <td class="c-repo"><a href="https://github.com/prometheus/prometheus" target="_blank" rel="noopener">prometheus/prometheus</a></td>
       <td class="c-desc"><span class="zh">Prometheus 监控系统与时序数据库。</span><details class="orig"><summary>原文</summary><p>The Prometheus monitoring system and time series database.</p></details></td>
       <td class="c-lang"><span class="tag t-lang" style="background:#00ADD8;color:#ffffff">Go</span></td>
-      <td class="c-num" data-v="66998">66,998</td>
+      <td class="c-num" data-v="67002">67,002</td>
       <td class="c-num up" data-v="140"><b>140</b></td>
       <td class="c-streak"><span class="muted">—</span></td>
       <td class="c-trend"><span class="tbadge t-new">NEW</span></td>
@@ -344,7 +373,7 @@ footer{max-width:1180px;margin:14px auto;color:var(--c-muted);font-size:var(--fs
       <td class="c-repo"><a href="https://github.com/google/skills" target="_blank" rel="noopener">google/skills</a><span class="badge-focus" title="命中关注领域：AI / 智能体、开发工具 / 框架"><svg class="ico" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></svg>关注</span></td>
       <td class="c-desc"><span class="zh">面向 Google 产品与技术的智能体技能</span><details class="orig"><summary>原文</summary><p>Agent Skills for Google products and technologies</p></details></td>
       <td class="c-lang"><span class="tag t-lang" style="background:#3572A5;color:#ffffff">Python</span></td>
-      <td class="c-num" data-v="22641">22,641</td>
+      <td class="c-num" data-v="22651">22,651</td>
       <td class="c-num up" data-v="532"><b>532</b></td>
       <td class="c-streak"><span class="streak">2 天</span></td>
       <td class="c-trend"><span class="tbadge t-flat">—</span></td>
@@ -354,7 +383,7 @@ footer{max-width:1180px;margin:14px auto;color:var(--c-muted);font-size:var(--fs
       <td class="c-repo"><a href="https://github.com/microsoft/vscode" target="_blank" rel="noopener">microsoft/vscode</a></td>
       <td class="c-desc"><span class="zh">Visual Studio Code</span><details class="orig"><summary>原文</summary><p>Visual Studio Code</p></details></td>
       <td class="c-lang"><span class="tag t-lang" style="background:#3178c6;color:#ffffff">TypeScript</span></td>
-      <td class="c-num" data-v="194823">194,823</td>
+      <td class="c-num" data-v="194840">194,840</td>
       <td class="c-num up" data-v="295"><b>295</b></td>
       <td class="c-streak"><span class="muted">—</span></td>
       <td class="c-trend"><span class="tbadge t-new">NEW</span></td>
@@ -364,7 +393,7 @@ footer{max-width:1180px;margin:14px auto;color:var(--c-muted);font-size:var(--fs
       <td class="c-repo"><a href="https://github.com/lz4/lz4" target="_blank" rel="noopener">lz4/lz4</a></td>
       <td class="c-desc"><span class="zh">极速压缩算法</span><details class="orig"><summary>原文</summary><p>Extremely Fast Compression algorithm</p></details></td>
       <td class="c-lang"><span class="tag t-lang" style="background:#555555;color:#ffffff">C</span></td>
-      <td class="c-num" data-v="12543">12,543</td>
+      <td class="c-num" data-v="12549">12,549</td>
       <td class="c-num up" data-v="313"><b>313</b></td>
       <td class="c-streak"><span class="streak">2 天</span></td>
       <td class="c-trend"><span class="tbadge t-flat">—</span></td>
@@ -384,7 +413,7 @@ footer{max-width:1180px;margin:14px auto;color:var(--c-muted);font-size:var(--fs
       <td class="c-repo"><a href="https://github.com/etcd-io/etcd" target="_blank" rel="noopener">etcd-io/etcd</a></td>
       <td class="c-desc"><span class="zh">面向分布式系统中最关键数据的分布式可靠键值存储。</span><details class="orig"><summary>原文</summary><p>Distributed reliable key-value store for the most critical data of a distributed system</p></details></td>
       <td class="c-lang"><span class="tag t-lang" style="background:#00ADD8;color:#ffffff">Go</span></td>
-      <td class="c-num" data-v="52498">52,498</td>
+      <td class="c-num" data-v="52497">52,497</td>
       <td class="c-num up" data-v="123"><b>123</b></td>
       <td class="c-streak"><span class="muted">—</span></td>
       <td class="c-trend"><span class="tbadge t-new">NEW</span></td>
@@ -394,7 +423,7 @@ footer{max-width:1180px;margin:14px auto;color:var(--c-muted);font-size:var(--fs
       <td class="c-repo"><a href="https://github.com/openssl/openssl" target="_blank" rel="noopener">openssl/openssl</a></td>
       <td class="c-desc"><span class="zh">通用 TLS 与加密库</span><details class="orig"><summary>原文</summary><p>General purpose TLS and crypto library</p></details></td>
       <td class="c-lang"><span class="tag t-lang" style="background:#555555;color:#ffffff">C</span></td>
-      <td class="c-num" data-v="31209">31,209</td>
+      <td class="c-num" data-v="31212">31,212</td>
       <td class="c-num up" data-v="24"><b>24</b></td>
       <td class="c-streak"><span class="muted">—</span></td>
       <td class="c-trend"><span class="tbadge t-new">NEW</span></td>
@@ -588,12 +617,13 @@ footer{max-width:1180px;margin:14px auto;color:var(--c-muted);font-size:var(--fs
     <b>简介翻译：</b>上榜简介已由 AI 翻译为中文（点「原文」展开英文原文），语义以原文为准；翻译文件 <code>data/translations-2026-11-06.json</code>，未覆盖的条目显示英文原文。<br>
     <b>话题聚类：</b>聚类由 AI 按简介语义生成（非 GitHub 官方分类），文件 <code>data/topics-2026-11-06.json</code>；仅作风向参考。<br>
     <b>关注领域：</b>关键词匹配自 <code>config/domains.json</code>，仅作信息降噪提示，不代表质量评价。<br>
+    <b>趋势与演化：</b>由 <code>scripts/analytics.mjs</code> 基于 4 期历史快照派生（<code>data/analytics-2026-11-06.json</code>），阈值固定、可复现；样本不足一律标注，不推断填充。<br>
     <b>完整性纪律：</b>数据源未到位时页面以「待核实」占位，<b>禁止编造任何数据</b>；解析行数不足（&lt;5 行）视为失败。<br>
-    <b>生成信息：</b>本文件由 <code>scripts/daily_trending.mjs</code> 自动生成于 2026-11-06 21:16，同日重跑为覆盖写（dated + latest 双轨）。
+    <b>生成信息：</b>本文件由 <code>scripts/daily_trending.mjs</code> 自动生成于 2026-11-06 21:46，同日重跑为覆盖写（dated + latest 双轨）。
   </div>
 </div>
 
-<footer>GitHub 热门话题排行榜 · 每日 11:00 自动生成 · 数据版权归 GitHub 及各仓库作者所有 · 2026-11-06</footer>
+<footer>GitHub 热门话题排行榜 · 数据采集于 2026-11-06 21:46 · 数据版权归 GitHub 及各仓库作者所有 · 2026-11-06</footer>
 
 <script>
 (function(){
