@@ -146,7 +146,8 @@ td a{color:var(--c-blue);text-decoration:none;font-weight:600}td a:hover{text-de
   }
   function render(){
     var q=$('q').value.trim(),lg=$('lang').value,tp=$('topic').value,to=topicsOf();
-    var words=q.toLowerCase().split(/s+/).filter(Boolean);
+    // 模板字符串内必须双写反斜杠，否则 /s+/ 会退化成 /s+/（按字母 s 分词）
+    var words=q.toLowerCase().split(/\s+/).filter(Boolean);
     var rows=Object.keys(idx.repos).filter(function(r){
       var v=idx.repos[r];
       if(words.length){var s=String(v.search||r).toLowerCase();for(var i=0;i<words.length;i++)if(s.indexOf(words[i])<0)return false}
