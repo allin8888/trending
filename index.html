@@ -4,16 +4,30 @@
 <meta name="color-scheme" content="light dark">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%231e40af'/%3E%3Cpath d='M16 6a10 10 0 0 0-3.16 19.49c.5.09.68-.22.68-.48v-1.7c-2.78.6-3.37-1.34-3.37-1.34-.45-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.9 1.53 2.35 1.09 2.92.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.94 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.64 0 0 .84-.27 2.75 1.02a9.56 9.56 0 0 1 5 0c1.91-1.3 2.75-1.02 2.75-1.02.55 1.37.2 2.39.1 2.64.64.7 1.03 1.59 1.03 2.68 0 3.84-2.34 4.68-4.57 4.93.36.31.68.92.68 1.85V25c0 .27.18.58.69.48A10 10 0 0 0 16 6Z' fill='%23ffffff'/%3E%3C/svg%3E">
 <style>
-:root{--c-bg:#e7edf5;--c-ink:#1f2733;--c-muted:#6b7686;--c-line:#e2e8f0;--c-blue:#1d4ed8;--c-blue2:#3b82f6;--c-blue-dk:#1e40af;
+
+:root{
+  --c-bg:#e7edf5;--c-ink:#1f2733;--c-muted:#6b7686;--c-line:#e2e8f0;
+  --c-blue:#1d4ed8;--c-blue2:#3b82f6;--c-blue-dk:#1e40af;
   --c-up:#dc2626;--c-down:#15803d;--c-amber:#b45309;--c-slate:#475569;--c-focus:#7c3aed;
   --th-bg1:#2f5fd0;--th-bg2:#1e40af;--th-ink:#ffffff;--th-sub:#e8effc;--th-line:#1b3a94;
   --card:#ffffff;--card-line:#e2e8f0;--row-alt:#f8fafd;--row-hover:#eef4ff;--desc-zh:#1f2937;
-  --fs-125:12.5px;--fs-115:11.5px;--fs-13:13px;--fs-12:12px;--fs-table:13.5px;--fs-th:12.5px;--fs-tag:11px;--fs-sub:11px;--fs-note:12px;--fs-micro:10px;
-  --ui-scroll-thumb:rgba(59,130,246,.55);--ui-scroll-track:rgba(148,163,184,.16);}
+  --chip:#eef4ff;--radius-card:14px;--radius-ctl:8px;
+  --fs-125:12.5px;--fs-115:11.5px;--fs-13:13px;--fs-12:12px;--fs-table:13.5px;--fs-th:12.5px;
+  --fs-tag:11px;--fs-sub:11px;--fs-note:12px;--fs-micro:10px;
+  --ui-scroll-thumb:rgba(59,130,246,.55);--ui-scroll-track:rgba(148,163,184,.16);
+}
+@media (prefers-color-scheme: dark){
+  :root{--c-bg:#0f1620;--c-ink:#e5eaf2;--c-muted:#93a0b4;--c-line:#243044;--c-slate:#9db0c8;
+    --card:#141c28;--card-line:#243044;--row-alt:#182232;--row-hover:#1d2a3d;--desc-zh:#dbe4f0;
+    --c-focus:#a78bfa}
+}
+a:focus-visible,button:focus-visible,summary:focus-visible,[tabindex]:focus-visible{
+  outline:2px solid var(--c-blue2);outline-offset:2px;border-radius:6px
+}
+
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
 [id]{scroll-margin-top:88px}
-a:focus-visible,button:focus-visible,summary:focus-visible,[tabindex]:focus-visible{outline:2px solid var(--c-blue2);outline-offset:2px;border-radius:6px}
 a,button{-webkit-tap-highlight-color:transparent}
 body{font-family:-apple-system,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;color:var(--c-ink);background:var(--c-bg);margin:0;padding:24px;line-height:1.6}
 .ico{display:inline-block;vertical-align:-2px;margin-right:6px;flex-shrink:0}
@@ -67,7 +81,9 @@ body{font-family:-apple-system,"Segoe UI","PingFang SC","Microsoft YaHei",sans-s
 .sig-repo{display:block;font-size:var(--fs-115);color:var(--c-blue);text-decoration:none;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .sig-repo:hover{text-decoration:underline}
 .evo-list{margin:8px 0;padding-left:20px;font-size:var(--fs-13);line-height:1.8}
-.evo-bar{height:16px;background:linear-gradient(90deg,var(--c-blue),#8ab4ff);border-radius:4px;min-width:4px;display:inline-block;vertical-align:middle}
+.evo-bar{height:16px;background:linear-gradient(90deg,var(--c-blue),#8ab4ff);border-radius:4px;min-width:4px;display:inline-block;vertical-align:middle;color:#fff;font-size:var(--fs-micro);line-height:16px;text-align:center;font-weight:700}
+.evo-axis{display:flex;flex-wrap:wrap;gap:6px;font-size:var(--fs-micro);color:var(--c-muted);margin:4px 0 10px;font-variant-numeric:tabular-nums}
+.evo-legend{display:flex;align-items:center;gap:6px;font-size:var(--fs-micro);color:var(--c-muted);margin:8px 0}
 .note.warn-soft{background:#fff7e8;border-color:#f3dca0;color:#8a6400}
 /* 表格 */
 .tbl-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch;overscroll-behavior-x:contain;margin:14px 0 10px;scrollbar-width:thin;scrollbar-color:var(--ui-scroll-thumb) var(--ui-scroll-track)}
@@ -140,8 +156,6 @@ details.orig p{font-size:11px;color:var(--sub);margin:5px 0 0;line-height:1.5;ov
 footer{max-width:1180px;margin:14px auto;color:var(--c-muted);font-size:var(--fs-12);text-align:center}
 /* 暗色模式（跟随系统） */
 @media (prefers-color-scheme: dark){
-  :root{--c-bg:#0f1620;--c-ink:#e5eaf2;--c-muted:#93a0b4;--c-line:#243044;--c-slate:#9db0c8;
-    --card:#141c28;--card-line:#243044;--row-alt:#182232;--row-hover:#1d2a3d;--desc-zh:#dbe4f0;--c-focus:#a78bfa}
   body{background:var(--c-bg);color:var(--c-ink)}
   .toc{background:rgba(20,28,40,.94);border-color:#243044}
   .toc a{background:#1e2a3a;color:#c3cfdf}
@@ -265,7 +279,7 @@ footer{max-width:1180px;margin:14px auto;color:var(--c-muted);font-size:var(--fs
   <h2 id="s-evolve"><svg class="ico" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.59 13.41 13.42 20.58a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/><circle cx="7" cy="7" r="1"/></svg> 话题演化</h2>
   <div class="note">按话题名跨期对齐（4 期）；「合并线索」由新话题与已消退话题的仓库交集判定，属事实线索而非语义推断。</div>
   <ul class="evo-list"><li><b>新话题：</b>代码编辑器与开发工具、Web 应用框架与 UI 库、系统语言与底层基础库、可观测性与分布式存储、命令行与终端工具、AI 语义推理与智能体技能</li><li><b>消退话题：</b>AI 智能体工作流与记忆、本地推理与本地 AI、模型改造与垂直基座、数据抓取与实时监控、开发者与云基础设施、AI 智能体工具链、研发流程与代码评审工具、本地推理与本地开发、AI 内容生成与信息聚合、数据抓取与学习资源、智能体技能库（Skills）、网页抓取与监控应用、底层算法与本地开发工具、开源语音 AI</li><li><b>合并线索：</b>AI 语义推理与智能体技能（承接 AI 智能体工具链、智能体技能库（Skills））</li></ul>
-  <div class="sig-repo" style="margin:6px 0">AI 智能体工作流与记忆　<span class="evo-bar" style="width:50px" title="2026-11-03 · 5 席"></span></div><div class="sig-repo" style="margin:6px 0">本地推理与本地 AI　<span class="evo-bar" style="width:20px" title="2026-11-03 · 2 席"></span></div><div class="sig-repo" style="margin:6px 0">模型改造与垂直基座　<span class="evo-bar" style="width:20px" title="2026-11-03 · 2 席"></span></div><div class="sig-repo" style="margin:6px 0">数据抓取与实时监控　<span class="evo-bar" style="width:20px" title="2026-11-03 · 2 席"></span></div><div class="sig-repo" style="margin:6px 0">开发者与云基础设施　<span class="evo-bar" style="width:10px" title="2026-11-03 · 1 席"></span></div><div class="sig-repo" style="margin:6px 0">AI 智能体工具链　<span class="evo-bar" style="width:60px" title="2026-11-04 · 6 席"></span> <span class="evo-bar" style="width:50px" title="2026-11-05 · 5 席"></span></div><div class="sig-repo" style="margin:6px 0">研发流程与代码评审工具　<span class="evo-bar" style="width:20px" title="2026-11-04 · 2 席"></span></div><div class="sig-repo" style="margin:6px 0">本地推理与本地开发　<span class="evo-bar" style="width:20px" title="2026-11-04 · 2 席"></span></div>
+  <div class="evo-legend"><span class="evo-bar" style="width:24px"></span>方块宽度与数字 = 当期上榜席位数；横轴为快照日期（MM-DD）</div><div class="sig-repo" style="margin:6px 0">AI 智能体工作流与记忆　<span class="evo-bar" style="width:50px" title="2026-11-03 · 5 席">5</span></div><div class="sig-repo" style="margin:6px 0">本地推理与本地 AI　<span class="evo-bar" style="width:20px" title="2026-11-03 · 2 席">2</span></div><div class="sig-repo" style="margin:6px 0">模型改造与垂直基座　<span class="evo-bar" style="width:20px" title="2026-11-03 · 2 席">2</span></div><div class="sig-repo" style="margin:6px 0">数据抓取与实时监控　<span class="evo-bar" style="width:20px" title="2026-11-03 · 2 席">2</span></div><div class="sig-repo" style="margin:6px 0">开发者与云基础设施　<span class="evo-bar" style="width:16px" title="2026-11-03 · 1 席">1</span></div><div class="sig-repo" style="margin:6px 0">AI 智能体工具链　<span class="evo-bar" style="width:60px" title="2026-11-04 · 6 席">6</span> <span class="evo-bar" style="width:50px" title="2026-11-05 · 5 席">5</span></div><div class="sig-repo" style="margin:6px 0">研发流程与代码评审工具　<span class="evo-bar" style="width:20px" title="2026-11-04 · 2 席">2</span></div><div class="sig-repo" style="margin:6px 0">本地推理与本地开发　<span class="evo-bar" style="width:20px" title="2026-11-04 · 2 席">2</span></div><div class="evo-axis"><span>11-03</span><span>11-04</span><span>11-05</span><span>11-06</span></div>
   <div class="note " id="s-health"><b>数据健康：</b><b>校验通过：</b>翻译覆盖 15/15（100%），聚类 6 类，无榜外仓库。</div>
   <div class="note"><a href="explore.html" style="color:var(--c-blue);font-weight:700">跨期检索：按仓库 / 语言 / 话题查询 4 期历史 →</a></div>
 
