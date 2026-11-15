@@ -213,6 +213,34 @@ footer{max-width:1180px;margin:14px auto;color:var(--c-muted);font-size:var(--fs
 @media (hover:none){tbody tr:hover td{background:inherit}.barrow:hover{background:inherit}}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation-duration:.001ms!important;transition-duration:.001ms!important}}
 @media print{.toc{position:static}body{background:#fff;padding:0}.doc{box-shadow:none;border:none}.datenav{display:none}}
+
+/* 周榜板块 */
+.weekly-meta{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0 12px}
+.weekly-chip{font-size:var(--fs-12);background:var(--bg2);border:1px solid var(--line);border-radius:999px;padding:3px 11px;color:var(--sub)}
+.weekly-chip b{color:var(--c-blue-dk)}
+.wk-tbl td,.wk-tbl th{padding:8px 11px}
+.wk-tbl .c-desc{min-width:220px}
+.wk-tbl .c-num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+.wk-tbl .c-lang{white-space:nowrap}
+.wk-tbl .c-rank{text-align:center;color:var(--c-slate);width:44px}
+.wk-tbl .c-repo a{color:var(--c-blue);text-decoration:none;font-weight:600}
+.wk-tbl .c-repo a:hover{text-decoration:underline}
+.wk-tbl .zh{color:var(--desc-zh)}
+.wk-tbl details.orig{margin-top:3px}
+.wk-tbl details.orig summary{font-size:var(--fs-micro);color:var(--c-muted);cursor:pointer;list-style:none;display:inline-block;padding:1px 6px;border:1px solid var(--line);border-radius:5px;background:var(--bg2)}
+.wk-tbl details.orig summary::-webkit-details-marker{display:none}
+.wk-tbl details.orig p{font-size:11px;color:var(--sub);margin:5px 0 0;line-height:1.5;overflow-wrap:anywhere}
+.wk-tbl .tag{display:inline-block;font-size:var(--fs-tag);padding:2px 9px;border-radius:4px;font-weight:600;white-space:nowrap;box-shadow:0 1px 2px rgba(16,24,40,.08)}
+.wk-archives{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0 4px}
+.wk-archives a{font-size:var(--fs-125);color:var(--c-blue);text-decoration:none;background:var(--bg2);border:1px solid var(--line);border-radius:8px;padding:4px 10px}
+.wk-archives a:hover{background:var(--c-blue);color:#fff;border-color:var(--c-blue)}
+.wk-current{background:var(--c-blue)!important;color:#fff!important;border-color:var(--c-blue)!important}
+@media (prefers-color-scheme: dark){
+  .weekly-chip{background:#1b2a44;border-color:#2c4368;color:#9db0c8}
+  .wk-tbl details.orig summary{background:#1a2434;border-color:#2b3a4f;color:#93a0b4}
+  .wk-archives a{background:#1b2a44;border-color:#2c4368;color:#8ab4ff}
+}
+
 </style></head><body>
 
 <nav class="toc" aria-label="页面目录">
@@ -223,6 +251,7 @@ footer{max-width:1180px;margin:14px auto;color:var(--c-muted);font-size:var(--fs
   <a href="#s-main">总榜 Top 12</a>
   <a href="#s-lang">语言分布</a>
   <a href="#s-diff">两期对比</a>
+  <a href="#s-weekly">本周官方周榜</a>
   <a href="#s-src">数据说明</a>
   <span class="spacer"></span>
   <a class="datenav-link" href="deliver-github-trending-2026-11-14.html">← 2026-11-14</a>
@@ -541,11 +570,78 @@ footer{max-width:1180px;margin:14px auto;color:var(--c-muted);font-size:var(--fs
     </tr></tbody>
     </table></div>
 
+  
+  <h2 id="s-weekly"><svg class="ico" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22c4 0 7-3 7-7 0-5-4-6-4-11 0 0-3 2-3 6-1-1-2-2-2-4 0 0-5 4-5 9 0 4 3 7 7 7z"/></svg> 本周 GitHub 官方周榜</h2>
+  <div class="note">口径：<b>GitHub Trending 官方周榜</b>（<code>?since=weekly</code>），统计近一周新增 Star，与上方日榜为两套独立榜单、互不影响。<b>每周六 21:45 更新</b>；往期各周归档见本板块底部链接。数据由 <code>site/weekly-latest.js</code> 提供，未到位时显示「待核实」占位。</div>
+  <div id="weekly-root"><div class="note warn"><b>待核实：</b>周榜数据未到位（尚未生成或本期抓取失败）。禁止编造任何数据。</div></div>
+  <script src="../weekly-latest.js"></script>
+  <script>
+(function(){
+  var wkPrefix = '';
+  var root = document.getElementById('weekly-root');
+  if (!root) return;
+  var d = window.__WEEKLY_DATA__;
+  function e(s){ return String(s == null ? '' : s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&#39;'); }
+  function f(n){ return n == null ? '—' : Number(n).toLocaleString('en-US'); }
+  if (!d || !d.ok || !Array.isArray(d.rows) || !d.rows.length) {
+    root.innerHTML = '<div class="note warn"><b>待核实：</b>周榜数据未到位'
+      + (d && d.reason ? '（' + e(d.reason) + '）' : '')
+      + '。数据源按「待核实」纪律留空，禁止编造。每周六 21:45 更新。</div>';
+    return;
+  }
+  var meta = '<div class="weekly-meta">'
+    + '<span class="weekly-chip">数据日期 <b>' + e(d.date) + '</b></span>'
+    + '<span class="weekly-chip">本周新增 Star 合计 <b>' + f(d.stats && d.stats.totalPeriod) + '</b></span>'
+    + '<span class="weekly-chip">上榜 <b>' + (d.rows.length) + '</b> 个仓库</span>'
+    + '<span class="weekly-chip">中文简介 <b>' + (d.translated || 0) + '/' + d.rows.length + '</b></span>'
+    + '<span class="weekly-chip">话题聚类 <b>' + (d.topicsCount || 0) + '</b> 类</span>'
+    + '</div>';
+  var rows = d.rows.map(function(r){
+    var desc = r.zh
+      ? '<span class="zh">' + e(r.zh) + '</span><details class="orig"><summary>原文</summary><p>' + e(r.desc) + '</p></details>'
+      : e(r.desc);
+    var lang = r.lang
+      ? '<span class="tag" style="background:' + e(r.langBg || '#94a3b8') + ';color:' + e(r.langFg || '#fff') + '">' + e(r.lang) + '</span>'
+      : '<span class="muted">—</span>';
+    return '<tr><td class="c-rank">' + r.rank + '</td>'
+      + '<td class="c-repo"><a href="' + e(r.url) + '" target="_blank" rel="noopener">' + e(r.repo) + '</a></td>'
+      + '<td class="c-desc">' + desc + '</td>'
+      + '<td class="c-lang">' + lang + '</td>'
+      + '<td class="c-num">' + f(r.stars) + '</td>'
+      + '<td class="c-num"><b>' + f(r.periodStars) + '</b></td></tr>';
+  }).join('');
+  var table = '<div class="tbl-scroll"><table class="wk-tbl"><thead><tr>'
+    + '<th style="width:44px">排名</th><th style="width:200px">仓库</th><th>简介</th>'
+    + '<th style="width:104px">语言</th><th style="width:92px">Star 总数</th><th style="width:96px">本周新增</th>'
+    + '</tr></thead><tbody>' + rows + '</tbody></table></div>';
+  var topics = '';
+  if (d.topics && d.topics.categories && d.topics.categories.length) {
+    var cards = d.topics.categories.map(function(c){
+      var chips = (c.repos || []).map(function(rp){
+        return '<a class="topic-chip" href="https://github.com/' + e(rp) + '" target="_blank" rel="noopener">' + e(rp) + '</a>';
+      }).join('');
+      return '<div class="topic-card"><div class="topic-head"><span>' + e(c.name) + '</span><span>' + (c.repos || []).length + ' 席</span></div>'
+        + (c.insight ? '<div class="topic-insight">' + e(c.insight) + '</div>' : '')
+        + '<div class="topic-repos">' + (chips || '<span class="muted">本类仓库不在本期榜单</span>') + '</div></div>';
+    }).join('');
+    topics = '<h3 style="font-size:var(--fs-13);margin:18px 0 8px;color:var(--c-blue-dk)">周榜话题聚类</h3><div class="topic-grid">' + cards + '</div>';
+  }
+  var archives = '';
+  if (d.archives && d.archives.length) {
+    var links = d.archives.map(function(x){
+      return '<a href="' + wkPrefix + 'weekly-' + e(x) + '.html"' + (x === d.date ? ' class="wk-current"' : '') + '>' + e(x) + '</a>';
+    }).join('');
+    archives = '<h3 style="font-size:var(--fs-13);margin:18px 0 8px;color:var(--c-blue-dk)">往期周榜归档</h3><div class="wk-archives">' + links + '</div>';
+  }
+  root.innerHTML = meta + table + topics + archives;
+})();</script>
+
   <h2 id="s-src"><svg class="ico" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg> 数据说明</h2>
   <div class="note">
     <b>数据源：</b>GitHub Trending 日榜，公开页面抓取、无需认证。<br>
     <b>抓取策略：</b>单页请求，超时 45s，失败按 3s/8s/15s 退避重试 4 次；日榜连续失败自动降级为周榜口径并在页首标注。<br>
     <b>对比机制：</b>每日快照存于 <code>data/history.jsonl</code>，与最近一期做排名 diff；同日重跑覆盖当日快照（幂等可重复写）。<br>
+    <b>本周官方周榜：</b>独立的 GitHub Trending <code>?since=weekly</code> 口径（近一周新增 Star），每周六 21:45 更新，与上方日榜互不影响；数据由 <code>site/weekly-latest.js</code> 提供，各周归档于 <code>archive/weekly-&lt;date&gt;.html</code>。数据未到位时该板块显示「待核实」占位，禁止编造。<br>
     <b>简介翻译：</b>上榜简介已由 AI 翻译为中文（点「原文」展开英文原文），语义以原文为准；翻译文件 <code>data/translations-2026-11-15.json</code>，未覆盖的条目显示英文原文。<br>
     <b>话题聚类：</b>聚类由 AI 按简介语义生成（非 GitHub 官方分类），文件 <code>data/topics-2026-11-15.json</code>；仅作风向参考。<br>
     <b>关注领域：</b>关键词匹配自 <code>config/domains.json</code>，仅作信息降噪提示，不代表质量评价。<br>
