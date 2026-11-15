@@ -213,6 +213,87 @@ footer{max-width:1180px;margin:14px auto;color:var(--c-muted);font-size:var(--fs
 @media (hover:none){tbody tr:hover td{background:inherit}.barrow:hover{background:inherit}}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation-duration:.001ms!important;transition-duration:.001ms!important}}
 @media print{.toc{position:static}body{background:#fff;padding:0}.doc{box-shadow:none;border:none}.datenav{display:none}}
+
+/* ---- 周榜板块 ---- */
+.weekly-meta{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0 12px}
+.weekly-chip{font-size:var(--fs-12);background:var(--bg2);border:1px solid var(--line);border-radius:999px;padding:3px 11px;color:var(--sub)}
+.weekly-chip b{color:var(--c-blue-dk)}
+.wk-h3{font-size:var(--fs-13);margin:20px 0 8px;color:var(--c-blue-dk);font-weight:800}
+.wk-grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:12px;margin:12px 0}
+.wk-panel{background:var(--bg2);border:1px solid var(--line);border-radius:10px;padding:12px 14px}
+.wk-panel-t{font-size:var(--fs-13);font-weight:800;color:var(--c-blue-dk);margin:0 0 8px}
+.wk-bar{display:flex;align-items:center;gap:8px;margin:5px 0;font-size:var(--fs-12);cursor:pointer;user-select:none;color:var(--sub)}
+.wk-bar-l{width:96px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.wk-bar-t{flex:1;background:var(--c-line);border-radius:5px;height:15px;overflow:hidden}
+.wk-bar-f{height:100%;border-radius:5px;min-width:14px;font-size:var(--fs-micro);color:#fff;text-align:center;line-height:15px;font-weight:700}
+.wk-bar-n{width:52px;text-align:right;font-variant-numeric:tabular-nums}
+.wk-bar.filter-on{background:var(--chip);border-radius:6px}
+.wk-kpi{display:flex;gap:18px;flex-wrap:wrap;align-items:baseline}
+.wk-kpi-v{font-size:21px;font-weight:800;color:var(--c-up);font-variant-numeric:tabular-nums}
+.wk-kpi-l{font-size:var(--fs-115);color:var(--muted,#6b7686)}
+.wk-overlap{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:10px;margin:10px 0}
+.wk-ocol{background:var(--card);border:1px solid var(--line);border-radius:9px;padding:9px 11px}
+.wk-ocol h4{margin:0 0 7px;font-size:var(--fs-12);color:var(--c-slate)}
+.wk-ocol .n{font-weight:800;color:var(--c-blue-dk)}
+.wk-chips{display:flex;flex-wrap:wrap;gap:5px}
+.wk-chip2{font-size:var(--fs-micro);color:var(--c-blue);background:var(--chip);border:1px solid var(--line);border-radius:999px;padding:1px 7px;text-decoration:none;white-space:nowrap}
+.wk-chip2:hover{background:var(--c-blue);color:#fff}
+.wk-warn{background:#fff7e8;border-color:#f3dca0;color:#8a6400}
+.wk-toolbar{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin:14px 0 8px}
+.wk-btn{font-size:var(--fs-115);color:var(--c-slate);background:var(--bg2);border:1px solid var(--line);border-radius:7px;padding:4px 11px;cursor:pointer}
+.wk-btn:hover{border-color:var(--c-blue)}
+.wk-btn.on{background:var(--c-blue);color:#fff;border-color:var(--c-blue)}
+.wk-hint{font-size:var(--fs-micro);color:var(--muted,#6b7686)}
+.wk-tbl td,.wk-tbl th{padding:8px 11px}
+.wk-tbl th[data-sort]{cursor:pointer;user-select:none}
+.wk-tbl th[aria-sort="ascending"]::after{content:" ▲";font-size:9px}
+.wk-tbl th[aria-sort="descending"]::after{content:" ▼";font-size:9px}
+.wk-tbl .c-desc{min-width:220px}
+.wk-tbl .c-num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+.wk-tbl .c-lang{white-space:nowrap}
+.wk-tbl .c-rank{text-align:center;color:var(--c-slate);width:44px}
+.wk-tbl .c-repo a{color:var(--c-blue);text-decoration:none;font-weight:600}
+.wk-tbl .c-repo a:hover{text-decoration:underline}
+.wk-tbl .zh{color:var(--desc-zh)}
+.wk-tbl details.orig{margin-top:3px}
+.wk-tbl details.orig summary{font-size:var(--fs-micro);color:var(--c-muted);cursor:pointer;list-style:none;display:inline-block;padding:1px 6px;border:1px solid var(--line);border-radius:5px;background:var(--bg2)}
+.wk-tbl details.orig summary::-webkit-details-marker{display:none}
+.wk-tbl details.orig p{font-size:11px;color:var(--sub);margin:5px 0 0;line-height:1.5;overflow-wrap:anywhere}
+.wk-tbl .tag,.wk-card .tag{display:inline-block;font-size:var(--fs-tag);padding:2px 9px;border-radius:4px;font-weight:600;white-space:nowrap;box-shadow:0 1px 2px rgba(16,24,40,.08)}
+.badge-focus{display:inline-flex;align-items:center;vertical-align:1px;margin-left:6px;font-size:var(--fs-micro);font-weight:700;color:#fff;background:linear-gradient(180deg,#a78bfa,#7c3aed);border-radius:999px;padding:1px 7px;white-space:nowrap}
+.wk-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:10px;margin:12px 0}
+.wk-card{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:11px 13px}
+.wk-card-r{font-size:var(--fs-micro);color:var(--c-slate);margin-bottom:4px}
+.wk-card a.wk-card-t{font-size:var(--fs-13);font-weight:800;color:var(--c-blue);text-decoration:none}
+.wk-card a.wk-card-t:hover{text-decoration:underline}
+.wk-card-d{font-size:var(--fs-12);color:var(--desc-zh);margin:6px 0;line-height:1.5}
+.wk-card-m{display:flex;justify-content:space-between;font-size:var(--fs-micro);color:var(--c-slate);font-variant-numeric:tabular-nums}
+.wk-mini{font-size:var(--fs-12);width:100%;border-collapse:collapse}
+.wk-mini th,.wk-mini td{padding:5px 8px;border-bottom:1px solid var(--line);text-align:left}
+.wk-mini th{color:var(--c-slate);font-weight:700}
+.wk-mini .up{color:var(--c-up)}.wk-mini .down{color:var(--c-down)}
+.topic-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:10px;margin:12px 0}
+.topic-card{background:var(--bg2);border:1px solid var(--card-line);border-radius:10px;padding:12px 14px}
+.topic-head{display:flex;justify-content:space-between;font-weight:700;color:var(--c-blue-dk);font-size:var(--fs-13)}
+.topic-insight{font-size:var(--fs-12);color:var(--c-muted);margin:6px 0}
+.topic-repos{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+.topic-chip{font-size:var(--fs-115);color:var(--c-blue);background:#eef4ff;border:1px solid #d5e3fb;border-radius:999px;padding:2px 9px;text-decoration:none;white-space:nowrap}
+.wk-archives{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0 4px}
+.wk-archives a{font-size:var(--fs-125);color:var(--c-blue);text-decoration:none;background:var(--bg2);border:1px solid var(--line);border-radius:8px;padding:4px 10px}
+.wk-archives a:hover{background:var(--c-blue);color:#fff;border-color:var(--c-blue)}
+.wk-current{background:var(--c-blue)!important;color:#fff!important;border-color:var(--c-blue)!important}
+[hidden]{display:none!important}
+@media (prefers-color-scheme: dark){
+  .weekly-chip,.wk-panel{background:#1b2a44;border-color:#2c4368;color:#9db0c8}
+  .wk-btn,.wk-archives a,.wk-chip2{background:#1b2a44;border-color:#2c4368;color:#8ab4ff}
+  .wk-ocol{background:#141c28;border-color:#243044}
+  .wk-tbl details.orig summary{background:#1a2434;border-color:#2b3a4f;color:#93a0b4}
+  .topic-card{background:#182232;border-color:#243044}
+  .topic-chip{background:#1b2a44;border-color:#2c4368;color:#8ab4ff}
+  .wk-card{background:#141c28;border-color:#243044}
+  .wk-warn{background:#2a2313;border-color:#5a471b;color:#e8c477}
+}
+
 </style></head><body>
 
 <nav class="toc" aria-label="页面目录">
@@ -223,6 +304,7 @@ footer{max-width:1180px;margin:14px auto;color:var(--c-muted);font-size:var(--fs
   <a href="#s-main">总榜 Top 11</a>
   <a href="#s-lang">语言分布</a>
   <a href="#s-diff">两期对比</a>
+  <a href="#s-weekly">本周官方周榜</a>
   <a href="#s-src">数据说明</a>
   <span class="spacer"></span>
   <a class="datenav-link" href="deliver-github-trending-2026-11-08.html">← 2026-11-08</a>
@@ -240,47 +322,43 @@ footer{max-width:1180px;margin:14px auto;color:var(--c-muted);font-size:var(--fs
 
 <div class="doc">
   <h1 id="s-top"><svg class="ico" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22c4 0 7-3 7-7 0-5-4-6-4-11 0 0-3 2-3 6-1-1-2-2-2-4 0 0-5 4-5 9 0 4 3 7 7 7z"/></svg>GitHub 热门话题排行榜</h1>
-  <div class="meta">数据日期：<b>2026-11-09</b>（采集于 2026-11-09 13:45） · 口径：GitHub Trending 日榜 · 榜单规模：Top 11 · 上期对比：2026-11-08</div>
+  <div class="meta">数据日期：<b>2026-11-09</b>（采集于 2026-11-09 22:25） · 口径：GitHub Trending 日榜 · 榜单规模：Top 11 · 上期对比：2026-11-08</div>
   <div class="datenav"><a class="datenav-link" href="deliver-github-trending-2026-11-08.html">← 上一期 2026-11-08</a></div>
   
-  <div class="note concl"><b>核心结论：</b>榜首 <b>anthropics/skills</b>（Python，总 Star 190,280，今日新增 <b class="up">1,052</b>）；增速黑马为 <b>sherlock-project/sherlock</b>（今日新增 4,294）。语言面 Python 占据 5 席居首；<b>anthropics/skills</b> 已连续在榜 3 天。与 2026-11-08 一期相比：<span class="up">新上榜 6</span>、<span class="down">跌出 10</span>、排名变动 5。</div>
+  <div class="note concl"><b>核心结论：</b>榜首 <b>anthropics/skills</b>（Python，总 Star 190,328，今日新增 <b class="up">1,052</b>）；增速黑马为 <b>sherlock-project/sherlock</b>（今日新增 4,294）。语言面 Python 占据 5 席居首；<b>anthropics/skills</b> 已连续在榜 3 天。与 2026-11-08 一期相比：<span class="up">新上榜 4</span>、<span class="down">跌出 2</span>、排名变动 7。</div>
   
   <h2 id="s-topic"><svg class="ico" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.59 13.41 13.42 20.58a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/><circle cx="7" cy="7" r="1"/></svg> 话题聚类</h2>
   <div class="note">按当日榜单仓库的简介语义聚类（AI 生成，非 GitHub 官方分类），用于快速把握当日技术风向。</div>
   <div class="topic-grid"><div class="topic-card">
-        <div class="topic-head"><span class="topic-name">AI Agent 框架与工具</span><span class="topic-count">4 席</span></div>
-        <div class="topic-insight">Anthropic 主导 Agent 生态建设，Skills 公共库登顶；Vercel Labs、Garry Tan 跟进 Agent 运行时与大脑组件，反映 agent-first 开发范式加速落地。</div>
-        <div class="topic-repos"><a class="topic-chip" href="https://github.com/anthropics/skills" target="_blank" rel="noopener">anthropics/skills</a><a class="topic-chip" href="https://github.com/anthropics/claude-quickstarts" target="_blank" rel="noopener">anthropics/claude-quickstarts</a><a class="topic-chip" href="https://github.com/vercel-labs/agent-browser" target="_blank" rel="noopener">vercel-labs/agent-browser</a><a class="topic-chip" href="https://github.com/garrytan/gbrain" target="_blank" rel="noopener">garrytan/gbrain</a></div>
+        <div class="topic-head"><span class="topic-name">AI 智能体技能与开发脚手架</span><span class="topic-count">4 席</span></div>
+        <div class="topic-insight">从官方 Agent Skills 规范、Claude API 上手合集，到社区 Agent Brain 与开源 Bot 运行时，智能体能力的沉淀与脚手架占据本期 4 席。</div>
+        <div class="topic-repos"><a class="topic-chip" href="https://github.com/anthropics/skills" target="_blank" rel="noopener">anthropics/skills</a><a class="topic-chip" href="https://github.com/anthropics/claude-quickstarts" target="_blank" rel="noopener">anthropics/claude-quickstarts</a><a class="topic-chip" href="https://github.com/garrytan/gbrain" target="_blank" rel="noopener">garrytan/gbrain</a><a class="topic-chip" href="https://github.com/milind-soni/OpenMausBot" target="_blank" rel="noopener">milind-soni/OpenMausBot</a></div>
       </div><div class="topic-card">
-        <div class="topic-head"><span class="topic-name">智能家居与自动化</span><span class="topic-count">1 席</span></div>
-        <div class="topic-insight">Home Assistant + AI 助手集成进入趋势榜，反映消费级 IoT 与 LLM Agent 结合的早期需求释放。</div>
-        <div class="topic-repos"><a class="topic-chip" href="https://github.com/homeassistant-ai/ha-mcp" target="_blank" rel="noopener">homeassistant-ai/ha-mcp</a></div>
+        <div class="topic-head"><span class="topic-name">智能体工具链与外部世界接入</span><span class="topic-count">3 席</span></div>
+        <div class="topic-insight">浏览器自动化 CLI、Home Assistant 的 MCP 接入、agent-ready 设计系统，标志智能体正把操作边界从对话延伸到浏览器、智能家居与前端界面。</div>
+        <div class="topic-repos"><a class="topic-chip" href="https://github.com/vercel-labs/agent-browser" target="_blank" rel="noopener">vercel-labs/agent-browser</a><a class="topic-chip" href="https://github.com/homeassistant-ai/ha-mcp" target="_blank" rel="noopener">homeassistant-ai/ha-mcp</a><a class="topic-chip" href="https://github.com/meta/astryx" target="_blank" rel="noopener">meta/astryx</a></div>
       </div><div class="topic-card">
-        <div class="topic-head"><span class="topic-name">OSINT / 隐私侦查工具</span><span class="topic-count">1 席</span></div>
-        <div class="topic-insight">Sherlock 单日 +4,294 stars 跃居黑马，用户对跨平台身份溯源工具的持续关注可见一斑。</div>
-        <div class="topic-repos"><a class="topic-chip" href="https://github.com/sherlock-project/sherlock" target="_blank" rel="noopener">sherlock-project/sherlock</a></div>
-      </div><div class="topic-card">
-        <div class="topic-head"><span class="topic-name">AI 量化交易与金融数据</span><span class="topic-count">1 席</span></div>
-        <div class="topic-insight">大模型驱动的跨市场股票分析系统上榜，叠加 Meta 设计系统，显示 AI for Finance 赛道热度持续。</div>
+        <div class="topic-head"><span class="topic-name">LLM 垂直应用：智能投研</span><span class="topic-count">1 席</span></div>
+        <div class="topic-insight">把多源行情、实时新闻与自动推送串成可零成本定时运行的股票分析看板，是 LLM 落地具体业务场景的代表。</div>
         <div class="topic-repos"><a class="topic-chip" href="https://github.com/ZhuLinsen/daily_stock_analysis" target="_blank" rel="noopener">ZhuLinsen/daily_stock_analysis</a></div>
       </div><div class="topic-card">
-        <div class="topic-head"><span class="topic-name">计算机视觉与物理仿真</span><span class="topic-count">2 席</span></div>
-        <div class="topic-insight">Google DeepMind MuJoCo 物理引擎与 WiFi 感知的 RuView 同时上榜，非视觉多模态感知成为热点分支。</div>
-        <div class="topic-repos"><a class="topic-chip" href="https://github.com/google-deepmind/mujoco" target="_blank" rel="noopener">google-deepmind/mujoco</a><a class="topic-chip" href="https://github.com/ruvnet/RuView" target="_blank" rel="noopener">ruvnet/RuView</a></div>
+        <div class="topic-head"><span class="topic-name">物理世界感知与仿真</span><span class="topic-count">2 席</span></div>
+        <div class="topic-insight">一个用普通 WiFi 信号反推空间与生命体征，一个用多关节接触动力学做通用物理仿真，共同把连续物理世界转成可计算模型。</div>
+        <div class="topic-repos"><a class="topic-chip" href="https://github.com/ruvnet/RuView" target="_blank" rel="noopener">ruvnet/RuView</a><a class="topic-chip" href="https://github.com/google-deepmind/mujoco" target="_blank" rel="noopener">google-deepmind/mujoco</a></div>
       </div><div class="topic-card">
-        <div class="topic-head"><span class="topic-name">开源 Bot / VM 基础设施</span><span class="topic-count">1 席</span></div>
-        <div class="topic-insight">OpenMausBot 提供 Bot 虚拟机组件，填补轻量级 AI Bot 宿主的市场空白。</div>
-        <div class="topic-repos"><a class="topic-chip" href="https://github.com/milind-soni/OpenMausBot" target="_blank" rel="noopener">milind-soni/OpenMausBot</a></div>
+        <div class="topic-head"><span class="topic-name">开源情报与账号检索</span><span class="topic-count">1 席</span></div>
+        <div class="topic-insight">本期单日增星最高（+4294）的黑马，按用户名跨平台定位社交账号的经典 OSINT 工具再度爆发。</div>
+        <div class="topic-repos"><a class="topic-chip" href="https://github.com/sherlock-project/sherlock" target="_blank" rel="noopener">sherlock-project/sherlock</a></div>
       </div></div>
   
   <h2 id="s-signal"><svg class="ico" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 3v18h18"/><path d="M7 15l4-4 3 3 5-6"/></svg> 趋势信号</h2>
   <div class="note">基于 <code>data/history.jsonl</code> 的 7 期快照，对当日榜单仓库按固定阈值分类：<b>新星</b>=在榜≤2 期且最近增星≥上期 2 倍；<b>长红</b>=在榜≥3 期且仍高于历史均值；<b>退烧</b>=最近增星≤峰值一半；<b>样本不足</b>=有效历史&lt;2 期，不推断。加速度为最近两期增星之差。</div>
-  <div class="sig-grid"><div class="sig-card"><div class="sig-head"><span class="sig-label sig-ever">长红</span><span class="sig-acc">4 个</span></div><a class="sig-repo" href="https://github.com/anthropics/skills" target="_blank" rel="noopener" title="anthropics/skills · 长红 · +662">anthropics/skills <span class="sig-acc">+662</span></a><a class="sig-repo" href="https://github.com/meta/astryx" target="_blank" rel="noopener" title="meta/astryx · 长红 · +3,228">meta/astryx <span class="sig-acc">+3,228</span></a><a class="sig-repo" href="https://github.com/sherlock-project/sherlock" target="_blank" rel="noopener" title="sherlock-project/sherlock · 长红 · +2,528">sherlock-project/sherlock <span class="sig-acc">+2,528</span></a><a class="sig-repo" href="https://github.com/vercel-labs/agent-browser" target="_blank" rel="noopener" title="vercel-labs/agent-browser · 长红 · +724">vercel-labs/agent-browser <span class="sig-acc">+724</span></a></div><div class="sig-card"><div class="sig-head"><span class="sig-label sig-flat">平稳</span><span class="sig-acc">1 个</span></div><a class="sig-repo" href="https://github.com/milind-soni/OpenMausBot" target="_blank" rel="noopener" title="milind-soni/OpenMausBot · 平稳 · -366">milind-soni/OpenMausBot <span class="sig-acc">-366</span></a></div><div class="sig-card"><div class="sig-head"><span class="sig-label sig-few">样本不足</span><span class="sig-acc">6 个</span></div><a class="sig-repo" href="https://github.com/google-deepmind/mujoco" target="_blank" rel="noopener" title="google-deepmind/mujoco · 样本不足 · 样本不足">google-deepmind/mujoco <span class="sig-acc">样本不足</span></a><a class="sig-repo" href="https://github.com/anthropics/claude-quickstarts" target="_blank" rel="noopener" title="anthropics/claude-quickstarts · 样本不足 · 样本不足">anthropics/claude-quickstarts <span class="sig-acc">样本不足</span></a><a class="sig-repo" href="https://github.com/garrytan/gbrain" target="_blank" rel="noopener" title="garrytan/gbrain · 样本不足 · 样本不足">garrytan/gbrain <span class="sig-acc">样本不足</span></a><a class="sig-repo" href="https://github.com/ruvnet/RuView" target="_blank" rel="noopener" title="ruvnet/RuView · 样本不足 · 样本不足">ruvnet/RuView <span class="sig-acc">样本不足</span></a><a class="sig-repo" href="https://github.com/ZhuLinsen/daily_stock_analysis" target="_blank" rel="noopener" title="ZhuLinsen/daily_stock_analysis · 样本不足 · 样本不足">ZhuLinsen/daily_stock_analysis <span class="sig-acc">样本不足</span></a><a class="sig-repo" href="https://github.com/homeassistant-ai/ha-mcp" target="_blank" rel="noopener" title="homeassistant-ai/ha-mcp · 样本不足 · 样本不足">homeassistant-ai/ha-mcp <span class="sig-acc">样本不足</span></a></div></div>
+  <div class="sig-grid"><div class="sig-card"><div class="sig-head"><span class="sig-label sig-nova">新星</span><span class="sig-acc">2 个</span></div><a class="sig-repo" href="https://github.com/google-deepmind/mujoco" target="_blank" rel="noopener" title="google-deepmind/mujoco · 新星 · +553">google-deepmind/mujoco <span class="sig-acc">+553</span></a><a class="sig-repo" href="https://github.com/anthropics/claude-quickstarts" target="_blank" rel="noopener" title="anthropics/claude-quickstarts · 新星 · +532">anthropics/claude-quickstarts <span class="sig-acc">+532</span></a></div><div class="sig-card"><div class="sig-head"><span class="sig-label sig-ever">长红</span><span class="sig-acc">4 个</span></div><a class="sig-repo" href="https://github.com/anthropics/skills" target="_blank" rel="noopener" title="anthropics/skills · 长红 · +259">anthropics/skills <span class="sig-acc">+259</span></a><a class="sig-repo" href="https://github.com/meta/astryx" target="_blank" rel="noopener" title="meta/astryx · 长红 · +2,461">meta/astryx <span class="sig-acc">+2,461</span></a><a class="sig-repo" href="https://github.com/sherlock-project/sherlock" target="_blank" rel="noopener" title="sherlock-project/sherlock · 长红 · +1,922">sherlock-project/sherlock <span class="sig-acc">+1,922</span></a><a class="sig-repo" href="https://github.com/vercel-labs/agent-browser" target="_blank" rel="noopener" title="vercel-labs/agent-browser · 长红 · +102">vercel-labs/agent-browser <span class="sig-acc">+102</span></a></div><div class="sig-card"><div class="sig-head"><span class="sig-label sig-flat">平稳</span><span class="sig-acc">1 个</span></div><a class="sig-repo" href="https://github.com/milind-soni/OpenMausBot" target="_blank" rel="noopener" title="milind-soni/OpenMausBot · 平稳 · +152">milind-soni/OpenMausBot <span class="sig-acc">+152</span></a></div><div class="sig-card"><div class="sig-head"><span class="sig-label sig-few">样本不足</span><span class="sig-acc">4 个</span></div><a class="sig-repo" href="https://github.com/garrytan/gbrain" target="_blank" rel="noopener" title="garrytan/gbrain · 样本不足 · 样本不足">garrytan/gbrain <span class="sig-acc">样本不足</span></a><a class="sig-repo" href="https://github.com/ruvnet/RuView" target="_blank" rel="noopener" title="ruvnet/RuView · 样本不足 · 样本不足">ruvnet/RuView <span class="sig-acc">样本不足</span></a><a class="sig-repo" href="https://github.com/ZhuLinsen/daily_stock_analysis" target="_blank" rel="noopener" title="ZhuLinsen/daily_stock_analysis · 样本不足 · 样本不足">ZhuLinsen/daily_stock_analysis <span class="sig-acc">样本不足</span></a><a class="sig-repo" href="https://github.com/homeassistant-ai/ha-mcp" target="_blank" rel="noopener" title="homeassistant-ai/ha-mcp · 样本不足 · 样本不足">homeassistant-ai/ha-mcp <span class="sig-acc">样本不足</span></a></div></div>
   <h2 id="s-evolve"><svg class="ico" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.59 13.41 13.42 20.58a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/><circle cx="7" cy="7" r="1"/></svg> 话题演化</h2>
-  <div class="note">按话题名跨期对齐（6 期）；「合并线索」由新话题与已消退话题的仓库交集判定，属事实线索而非语义推断。</div>
-  <ul class="evo-list"><li><b>新话题：</b>AI Agent 框架与工具、智能家居与自动化、OSINT / 隐私侦查工具、AI 量化交易与金融数据、计算机视觉与物理仿真、开源 Bot / VM 基础设施</li><li><b>消退话题：</b>AI 智能体工作流与记忆、本地推理与本地 AI、模型改造与垂直基座、数据抓取与实时监控、开发者与云基础设施、AI 智能体工具链、研发流程与代码评审工具、本地推理与本地开发、AI 内容生成与信息聚合、数据抓取与学习资源、智能体技能库（Skills）、网页抓取与监控应用、底层算法与本地开发工具、开源语音 AI、代码编辑器与开发工具、Web 应用框架与 UI 库、系统语言与底层基础库、可观测性与分布式存储、命令行与终端工具、AI 语义推理与智能体技能、智能体技能（Agent Skills）、AI 智能体运行时与长上下文、前端设计系统与 CSS 框架、云原生基础设施与可观测性、检索与本地自托管工具</li><li><b>合并线索：</b>AI Agent 框架与工具（承接 AI 智能体工具链、智能体技能（Agent Skills）、AI 智能体运行时与长上下文）</li></ul>
-  <div class="evo-legend"><span class="evo-bar" style="width:24px"></span>方块宽度与数字 = 当期上榜席位数；横轴为快照日期（MM-DD）</div><div class="sig-repo" style="margin:6px 0">AI 智能体工作流与记忆　<span class="evo-bar" style="width:50px" title="2026-11-03 · 5 席">5</span></div><div class="sig-repo" style="margin:6px 0">本地推理与本地 AI　<span class="evo-bar" style="width:20px" title="2026-11-03 · 2 席">2</span></div><div class="sig-repo" style="margin:6px 0">模型改造与垂直基座　<span class="evo-bar" style="width:20px" title="2026-11-03 · 2 席">2</span></div><div class="sig-repo" style="margin:6px 0">数据抓取与实时监控　<span class="evo-bar" style="width:20px" title="2026-11-03 · 2 席">2</span></div><div class="sig-repo" style="margin:6px 0">开发者与云基础设施　<span class="evo-bar" style="width:16px" title="2026-11-03 · 1 席">1</span></div><div class="sig-repo" style="margin:6px 0">AI 智能体工具链　<span class="evo-bar" style="width:60px" title="2026-11-04 · 6 席">6</span> <span class="evo-bar" style="width:50px" title="2026-11-05 · 5 席">5</span></div><div class="sig-repo" style="margin:6px 0">研发流程与代码评审工具　<span class="evo-bar" style="width:20px" title="2026-11-04 · 2 席">2</span></div><div class="sig-repo" style="margin:6px 0">本地推理与本地开发　<span class="evo-bar" style="width:20px" title="2026-11-04 · 2 席">2</span></div><div class="evo-axis"><span>11-03</span><span>11-04</span><span>11-05</span><span>11-06</span><span>11-07</span><span>11-09</span></div>
-  <div class="note " id="s-health"><b>数据健康：</b><b>校验通过：</b>翻译覆盖 11/11（100%），聚类 6 类，无榜外仓库。</div>
+  <div class="note">按话题名跨期对齐（7 期）；「合并线索」由新话题与已消退话题的仓库交集判定，属事实线索而非语义推断。</div>
+  <ul class="evo-list"><li><b>新话题：</b>AI 智能体技能与开发脚手架、智能体工具链与外部世界接入、LLM 垂直应用：智能投研、物理世界感知与仿真、开源情报与账号检索</li><li><b>消退话题：</b>AI 智能体工作流与记忆、本地推理与本地 AI、模型改造与垂直基座、数据抓取与实时监控、开发者与云基础设施、AI 智能体工具链、研发流程与代码评审工具、本地推理与本地开发、AI 内容生成与信息聚合、数据抓取与学习资源、智能体技能库（Skills）、网页抓取与监控应用、底层算法与本地开发工具、开源语音 AI、代码编辑器与开发工具、Web 应用框架与 UI 库、系统语言与底层基础库、可观测性与分布式存储、命令行与终端工具、AI 语义推理与智能体技能、智能体技能（Agent Skills）、AI 智能体运行时与长上下文、前端设计系统与 CSS 框架、云原生基础设施与可观测性、检索与本地自托管工具、智能体工具与脚手架、智能体应用与设计系统、AI 基础设施与上下文、仿真与工程工具</li><li><b>合并线索：</b>AI 智能体技能与开发脚手架（承接 智能体技能（Agent Skills）、AI 智能体运行时与长上下文、智能体工具与脚手架、智能体应用与设计系统）；智能体工具链与外部世界接入（承接 AI 智能体工具链、AI 智能体运行时与长上下文、前端设计系统与 CSS 框架、智能体工具与脚手架、智能体应用与设计系统）；开源情报与账号检索（承接 检索与本地自托管工具、仿真与工程工具）</li></ul>
+  <div class="evo-legend"><span class="evo-bar" style="width:24px"></span>方块宽度与数字 = 当期上榜席位数；横轴为快照日期（MM-DD）</div><div class="sig-repo" style="margin:6px 0">AI 智能体工作流与记忆　<span class="evo-bar" style="width:50px" title="2026-11-03 · 5 席">5</span></div><div class="sig-repo" style="margin:6px 0">本地推理与本地 AI　<span class="evo-bar" style="width:20px" title="2026-11-03 · 2 席">2</span></div><div class="sig-repo" style="margin:6px 0">模型改造与垂直基座　<span class="evo-bar" style="width:20px" title="2026-11-03 · 2 席">2</span></div><div class="sig-repo" style="margin:6px 0">数据抓取与实时监控　<span class="evo-bar" style="width:20px" title="2026-11-03 · 2 席">2</span></div><div class="sig-repo" style="margin:6px 0">开发者与云基础设施　<span class="evo-bar" style="width:16px" title="2026-11-03 · 1 席">1</span></div><div class="sig-repo" style="margin:6px 0">AI 智能体工具链　<span class="evo-bar" style="width:60px" title="2026-11-04 · 6 席">6</span> <span class="evo-bar" style="width:50px" title="2026-11-05 · 5 席">5</span></div><div class="sig-repo" style="margin:6px 0">研发流程与代码评审工具　<span class="evo-bar" style="width:20px" title="2026-11-04 · 2 席">2</span></div><div class="sig-repo" style="margin:6px 0">本地推理与本地开发　<span class="evo-bar" style="width:20px" title="2026-11-04 · 2 席">2</span></div><div class="evo-axis"><span>11-03</span><span>11-04</span><span>11-05</span><span>11-06</span><span>11-07</span><span>11-08</span><span>11-09</span></div>
+  <div class="note " id="s-health"><b>数据健康：</b><b>校验通过：</b>翻译覆盖 11/11（100%），聚类 5 类，无榜外仓库。</div>
   <div class="note"><a href="../explore.html" style="color:var(--c-blue);font-weight:700">跨期检索：按仓库 / 语言 / 话题查询 7 期历史 →</a></div>
 
   <h2 id="s-main"><svg class="ico" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22c4 0 7-3 7-7 0-5-4-6-4-11 0 0-3 2-3 6-1-1-2-2-2-4 0 0-5 4-5 9 0 4 3 7 7 7z"/></svg> 热门仓库总榜</h2>
@@ -295,9 +373,9 @@ footer{max-width:1180px;margin:14px auto;color:var(--c-muted);font-size:var(--fs
     <tbody><tr data-lang="Python" data-focus="1">
       <td class="c-rank">1</td>
       <td class="c-repo"><a href="https://github.com/anthropics/skills" target="_blank" rel="noopener">anthropics/skills</a><span class="badge-focus" title="命中关注领域：AI / 智能体、开发工具 / 框架"><svg class="ico" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></svg>关注</span></td>
-      <td class="c-desc"><span class="zh">Agent Skills 的公共仓库</span><details class="orig"><summary>原文</summary><p>Public repository for Agent Skills</p></details></td>
+      <td class="c-desc"><span class="zh">Agent Skills 的公开仓库。</span><details class="orig"><summary>原文</summary><p>Public repository for Agent Skills</p></details></td>
       <td class="c-lang"><span class="tag t-lang" style="background:#3572A5;color:#ffffff">Python</span></td>
-      <td class="c-num" data-v="190280">190,280</td>
+      <td class="c-num" data-v="190328">190,328</td>
       <td class="c-num up" data-v="1052"><b>1,052</b></td>
       <td class="c-streak"><span class="streak">3 天</span></td>
       <td class="c-trend"><span class="tbadge t-flat">—</span></td>
@@ -305,9 +383,9 @@ footer{max-width:1180px;margin:14px auto;color:var(--c-muted);font-size:var(--fs
 <tr data-lang="TypeScript" data-focus="1">
       <td class="c-rank">2</td>
       <td class="c-repo"><a href="https://github.com/meta/astryx" target="_blank" rel="noopener">meta/astryx</a><span class="badge-focus" title="命中关注领域：AI / 智能体"><svg class="ico" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></svg>关注</span></td>
-      <td class="c-desc"><span class="zh">一个完全可定制且支持 AI Agent 的开源设计系统</span><details class="orig"><summary>原文</summary><p>An open source design system that's fully customizable and agent ready</p></details></td>
+      <td class="c-desc"><span class="zh">一套完全可定制、且为智能体（agent）就绪的开源设计系统。</span><details class="orig"><summary>原文</summary><p>An open source design system that's fully customizable and agent ready</p></details></td>
       <td class="c-lang"><span class="tag t-lang" style="background:#3178c6;color:#ffffff">TypeScript</span></td>
-      <td class="c-num" data-v="18586">18,586</td>
+      <td class="c-num" data-v="18709">18,709</td>
       <td class="c-num up" data-v="3324"><b>3,324</b></td>
       <td class="c-streak"><span class="streak">3 天</span></td>
       <td class="c-trend"><span class="tbadge t-flat">—</span></td>
@@ -315,9 +393,9 @@ footer{max-width:1180px;margin:14px auto;color:var(--c-muted);font-size:var(--fs
 <tr data-lang="Python">
       <td class="c-rank">3</td>
       <td class="c-repo"><a href="https://github.com/sherlock-project/sherlock" target="_blank" rel="noopener">sherlock-project/sherlock</a></td>
-      <td class="c-desc"><span class="zh">通过用户名在各大社交网络中查找对应账号的 OSINT 工具</span><details class="orig"><summary>原文</summary><p>Hunt down social media accounts by username across social networks</p></details></td>
+      <td class="c-desc"><span class="zh">通过用户名在各大社交网络上搜寻、定位社交媒体账号。</span><details class="orig"><summary>原文</summary><p>Hunt down social media accounts by username across social networks</p></details></td>
       <td class="c-lang"><span class="tag t-lang" style="background:#3572A5;color:#ffffff">Python</span></td>
-      <td class="c-num" data-v="106099">106,099</td>
+      <td class="c-num" data-v="106189">106,189</td>
       <td class="c-num up" data-v="4294"><b>4,294</b></td>
       <td class="c-streak"><span class="streak">3 天</span></td>
       <td class="c-trend"><span class="tbadge t-flat">—</span></td>
@@ -325,29 +403,29 @@ footer{max-width:1180px;margin:14px auto;color:var(--c-muted);font-size:var(--fs
 <tr data-lang="C++">
       <td class="c-rank">4</td>
       <td class="c-repo"><a href="https://github.com/google-deepmind/mujoco" target="_blank" rel="noopener">google-deepmind/mujoco</a></td>
-      <td class="c-desc"><span class="zh">多关节接触动力学（Multi-Joint dynamics with Contact）——一款通用物理仿真引擎</span><details class="orig"><summary>原文</summary><p>Multi-Joint dynamics with Contact. A general purpose physics simulator.</p></details></td>
+      <td class="c-desc"><span class="zh">多关节接触动力学（Multi-Joint dynamics with Contact）。一款通用物理模拟器。</span><details class="orig"><summary>原文</summary><p>Multi-Joint dynamics with Contact. A general purpose physics simulator.</p></details></td>
       <td class="c-lang"><span class="tag t-lang" style="background:#f34b7d;color:#ffffff">C++</span></td>
-      <td class="c-num" data-v="16752">16,752</td>
+      <td class="c-num" data-v="16761">16,761</td>
       <td class="c-num up" data-v="579"><b>579</b></td>
-      <td class="c-streak"><span class="muted">—</span></td>
-      <td class="c-trend"><span class="tbadge t-new">NEW</span></td>
+      <td class="c-streak"><span class="streak">2 天</span></td>
+      <td class="c-trend"><span class="tbadge t-flat">—</span></td>
     </tr>
 <tr data-lang="Python" data-focus="1">
       <td class="c-rank">5</td>
       <td class="c-repo"><a href="https://github.com/anthropics/claude-quickstarts" target="_blank" rel="noopener">anthropics/claude-quickstarts</a><span class="badge-focus" title="命中关注领域：AI / 智能体"><svg class="ico" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></svg>关注</span></td>
-      <td class="c-desc"><span class="zh">帮助开发者快速上手并使用 Claude API 构建可部署应用的示例项目集合</span><details class="orig"><summary>原文</summary><p>A collection of projects designed to help developers quickly get started with building deployable applications using the Claude API</p></details></td>
+      <td class="c-desc"><span class="zh">一系列项目合集，旨在帮助开发者快速上手，使用 Claude API 构建可部署的应用。</span><details class="orig"><summary>原文</summary><p>A collection of projects designed to help developers quickly get started with building deployable applications using the Claude API</p></details></td>
       <td class="c-lang"><span class="tag t-lang" style="background:#3572A5;color:#ffffff">Python</span></td>
-      <td class="c-num" data-v="19767">19,767</td>
+      <td class="c-num" data-v="19791">19,791</td>
       <td class="c-num up" data-v="560"><b>560</b></td>
-      <td class="c-streak"><span class="muted">—</span></td>
-      <td class="c-trend"><span class="tbadge t-new">NEW</span></td>
+      <td class="c-streak"><span class="streak">2 天</span></td>
+      <td class="c-trend"><span class="tbadge t-flat">—</span></td>
     </tr>
 <tr data-lang="TypeScript" data-focus="1">
       <td class="c-rank">6</td>
       <td class="c-repo"><a href="https://github.com/garrytan/gbrain" target="_blank" rel="noopener">garrytan/gbrain</a><span class="badge-focus" title="命中关注领域：AI / 智能体"><svg class="ico" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></svg>关注</span></td>
-      <td class="c-desc"><span class="zh">Garry 推荐的开放版 OpenClaw/Hermes Agent Brain（AI Agent 大脑配置）</span><details class="orig"><summary>原文</summary><p>Garry's Opinionated OpenClaw/Hermes Agent Brain</p></details></td>
+      <td class="c-desc"><span class="zh">Garry 带有个人技术主张的 OpenClaw/Hermes Agent Brain（智能体大脑）。</span><details class="orig"><summary>原文</summary><p>Garry's Opinionated OpenClaw/Hermes Agent Brain</p></details></td>
       <td class="c-lang"><span class="tag t-lang" style="background:#3178c6;color:#ffffff">TypeScript</span></td>
-      <td class="c-num" data-v="31910">31,910</td>
+      <td class="c-num" data-v="31927">31,927</td>
       <td class="c-num up" data-v="215"><b>215</b></td>
       <td class="c-streak"><span class="muted">—</span></td>
       <td class="c-trend"><span class="tbadge t-new">NEW</span></td>
@@ -355,9 +433,9 @@ footer{max-width:1180px;margin:14px auto;color:var(--c-muted);font-size:var(--fs
 <tr data-lang="Rust" data-focus="1">
       <td class="c-rank">7</td>
       <td class="c-repo"><a href="https://github.com/vercel-labs/agent-browser" target="_blank" rel="noopener">vercel-labs/agent-browser</a><span class="badge-focus" title="命中关注领域：AI / 智能体"><svg class="ico" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></svg>关注</span></td>
-      <td class="c-desc"><span class="zh">面向 AI Agent 的浏览器自动化命令行工具</span><details class="orig"><summary>原文</summary><p>Browser automation CLI for AI agents</p></details></td>
+      <td class="c-desc"><span class="zh">面向 AI 智能体（AI agents）的浏览器自动化命令行工具（CLI）。</span><details class="orig"><summary>原文</summary><p>Browser automation CLI for AI agents</p></details></td>
       <td class="c-lang"><span class="tag t-lang" style="background:#dea584;color:#1a2332">Rust</span></td>
-      <td class="c-num" data-v="48173">48,173</td>
+      <td class="c-num" data-v="48188">48,188</td>
       <td class="c-num up" data-v="914"><b>914</b></td>
       <td class="c-streak"><span class="streak">3 天</span></td>
       <td class="c-trend"><span class="tbadge t-flat">—</span></td>
@@ -365,9 +443,9 @@ footer{max-width:1180px;margin:14px auto;color:var(--c-muted);font-size:var(--fs
 <tr data-lang="Rust" data-focus="1">
       <td class="c-rank">8</td>
       <td class="c-repo"><a href="https://github.com/ruvnet/RuView" target="_blank" rel="noopener">ruvnet/RuView</a><span class="badge-focus" title="命中关注领域：数据 / 金融"><svg class="ico" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></svg>关注</span></td>
-      <td class="c-desc"><span class="zh">π RuView 利用普通 WiFi 信号实现实时空间感知、生命体征监测与存在检测，无需任何摄像头像素</span><details class="orig"><summary>原文</summary><p>π RuView turns commodity WiFi signals into real-time spatial intelligence, vital sign monitoring, and presence detection — all without a single pixel of video.</p></details></td>
+      <td class="c-desc"><span class="zh">π RuView 把普通商用 WiFi 信号转化为实时空间智能、生命体征监测与存在检测——全程无需任何一像素视频。</span><details class="orig"><summary>原文</summary><p>π RuView turns commodity WiFi signals into real-time spatial intelligence, vital sign monitoring, and presence detection — all without a single pixel of video.</p></details></td>
       <td class="c-lang"><span class="tag t-lang" style="background:#dea584;color:#1a2332">Rust</span></td>
-      <td class="c-num" data-v="103191">103,191</td>
+      <td class="c-num" data-v="103214">103,214</td>
       <td class="c-num up" data-v="203"><b>203</b></td>
       <td class="c-streak"><span class="muted">—</span></td>
       <td class="c-trend"><span class="tbadge t-new">NEW</span></td>
@@ -375,9 +453,9 @@ footer{max-width:1180px;margin:14px auto;color:var(--c-muted);font-size:var(--fs
 <tr data-lang="Python" data-focus="1">
       <td class="c-rank">9</td>
       <td class="c-repo"><a href="https://github.com/ZhuLinsen/daily_stock_analysis" target="_blank" rel="noopener">ZhuLinsen/daily_stock_analysis</a><span class="badge-focus" title="命中关注领域：AI / 智能体、数据 / 金融"><svg class="ico" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></svg>关注</span></td>
-      <td class="c-desc"><span class="zh">LLM 驱动的多市场股票智能分析系统：多源行情、实时新闻、决策看板与自动推送，支持零成本定时运行</span><details class="orig"><summary>原文</summary><p>LLM 驱动的多市场股票智能分析系统：多源行情、实时新闻、决策看板与自动推送，支持零成本定时运行。 LLM-powered multi-market stock analysis system with multi-source market data, real-time news, decision dashboard, automated notifications, and cost-free scheduled runs.</p></details></td>
+      <td class="c-desc"><span class="zh">LLM 驱动的多市场股票智能分析系统：多源行情、实时新闻、决策看板与自动推送，支持零成本定时运行。</span><details class="orig"><summary>原文</summary><p>LLM 驱动的多市场股票智能分析系统：多源行情、实时新闻、决策看板与自动推送，支持零成本定时运行。 LLM-powered multi-market stock analysis system with multi-source market data, real-time news, decision dashboard, automated notifications, and cost-free scheduled runs.</p></details></td>
       <td class="c-lang"><span class="tag t-lang" style="background:#3572A5;color:#ffffff">Python</span></td>
-      <td class="c-num" data-v="68517">68,517</td>
+      <td class="c-num" data-v="68547">68,547</td>
       <td class="c-num up" data-v="505"><b>505</b></td>
       <td class="c-streak"><span class="muted">—</span></td>
       <td class="c-trend"><span class="tbadge t-new">NEW</span></td>
@@ -385,9 +463,9 @@ footer{max-width:1180px;margin:14px auto;color:var(--c-muted);font-size:var(--fs
 <tr data-lang="Python" data-focus="1">
       <td class="c-rank">10</td>
       <td class="c-repo"><a href="https://github.com/homeassistant-ai/ha-mcp" target="_blank" rel="noopener">homeassistant-ai/ha-mcp</a><span class="badge-focus" title="命中关注领域：AI / 智能体"><svg class="ico" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></svg>关注</span></td>
-      <td class="c-desc"><span class="zh">使用 Claude、ChatGPT 等 AI 助手配置和自动化 Home Assistant 智能家居</span><details class="orig"><summary>原文</summary><p>Configure and automate Home Assistant with Claude, ChatGPT, and other AI assistants.</p></details></td>
+      <td class="c-desc"><span class="zh">借助 Claude、ChatGPT 及其他 AI 助手配置并自动化 Home Assistant。</span><details class="orig"><summary>原文</summary><p>Configure and automate Home Assistant with Claude, ChatGPT, and other AI assistants.</p></details></td>
       <td class="c-lang"><span class="tag t-lang" style="background:#3572A5;color:#ffffff">Python</span></td>
-      <td class="c-num" data-v="5607">5,607</td>
+      <td class="c-num" data-v="5631">5,631</td>
       <td class="c-num up" data-v="31"><b>31</b></td>
       <td class="c-streak"><span class="muted">—</span></td>
       <td class="c-trend"><span class="tbadge t-new">NEW</span></td>
@@ -395,9 +473,9 @@ footer{max-width:1180px;margin:14px auto;color:var(--c-muted);font-size:var(--fs
 <tr data-lang="TypeScript">
       <td class="c-rank">11</td>
       <td class="c-repo"><a href="https://github.com/milind-soni/OpenMausBot" target="_blank" rel="noopener">milind-soni/OpenMausBot</a></td>
-      <td class="c-desc"><span class="zh">开源 Grok Bot 替代方案，为 AI Bot 提供虚拟机运行环境</span><details class="orig"><summary>原文</summary><p>Open-source Grok Bot alternative with a virtual machine that bots can use</p></details></td>
+      <td class="c-desc"><span class="zh">开源的 Grok Bot 替代品，附带机器人可使用的虚拟机。</span><details class="orig"><summary>原文</summary><p>Open-source Grok Bot alternative with a virtual machine that bots can use</p></details></td>
       <td class="c-lang"><span class="tag t-lang" style="background:#3178c6;color:#ffffff">TypeScript</span></td>
-      <td class="c-num" data-v="19264">19,264</td>
+      <td class="c-num" data-v="19305">19,305</td>
       <td class="c-num up" data-v="1589"><b>1,589</b></td>
       <td class="c-streak"><span class="streak">3 天</span></td>
       <td class="c-trend"><span class="tbadge t-flat">—</span></td>
@@ -435,39 +513,39 @@ footer{max-width:1180px;margin:14px auto;color:var(--c-muted);font-size:var(--fs
       <thead><tr><th class="c-type" style="width:13%">类型</th><th class="c-obj" style="width:26%">仓库</th><th style="width:22%">排名变化</th><th>备注</th></tr></thead>
       <tbody><tr>
       <td class="c-type"><span class="dot down"></span>排名回落</td>
-      <td class="c-obj"><a href="https://github.com/vercel-labs/agent-browser" target="_blank" rel="noopener"><b>vercel-labs/agent-browser</b></a></td>
-      <td>#1 → #7</td>
-      <td>回落 6 位</td>
-    </tr><tr>
-      <td class="c-type"><span class="dot up"></span>排名上升</td>
-      <td class="c-obj"><a href="https://github.com/sherlock-project/sherlock" target="_blank" rel="noopener"><b>sherlock-project/sherlock</b></a></td>
-      <td>#8 → #3</td>
-      <td>上升 5 位</td>
+      <td class="c-obj"><a href="https://github.com/milind-soni/OpenMausBot" target="_blank" rel="noopener"><b>milind-soni/OpenMausBot</b></a></td>
+      <td>#3 → #11</td>
+      <td>回落 8 位</td>
     </tr><tr>
       <td class="c-type"><span class="dot up"></span>排名上升</td>
       <td class="c-obj"><a href="https://github.com/anthropics/skills" target="_blank" rel="noopener"><b>anthropics/skills</b></a></td>
-      <td>#5 → #1</td>
-      <td>上升 4 位</td>
+      <td>#7 → #1</td>
+      <td>上升 6 位</td>
     </tr><tr>
       <td class="c-type"><span class="dot up"></span>排名上升</td>
       <td class="c-obj"><a href="https://github.com/meta/astryx" target="_blank" rel="noopener"><b>meta/astryx</b></a></td>
       <td>#6 → #2</td>
       <td>上升 4 位</td>
     </tr><tr>
+      <td class="c-type"><span class="dot up"></span>排名上升</td>
+      <td class="c-obj"><a href="https://github.com/google-deepmind/mujoco" target="_blank" rel="noopener"><b>google-deepmind/mujoco</b></a></td>
+      <td>#8 → #4</td>
+      <td>上升 4 位</td>
+    </tr><tr>
       <td class="c-type"><span class="dot down"></span>排名回落</td>
-      <td class="c-obj"><a href="https://github.com/milind-soni/OpenMausBot" target="_blank" rel="noopener"><b>milind-soni/OpenMausBot</b></a></td>
-      <td>#9 → #11</td>
+      <td class="c-obj"><a href="https://github.com/sherlock-project/sherlock" target="_blank" rel="noopener"><b>sherlock-project/sherlock</b></a></td>
+      <td>#1 → #3</td>
       <td>回落 2 位</td>
     </tr><tr>
-      <td class="c-type"><span class="dot evt"></span>新上榜</td>
-      <td class="c-obj"><a href="https://github.com/google-deepmind/mujoco" target="_blank" rel="noopener"><b>google-deepmind/mujoco</b></a></td>
-      <td>本期 #4</td>
-      <td>C++ · 今日新增 579</td>
+      <td class="c-type"><span class="dot down"></span>排名回落</td>
+      <td class="c-obj"><a href="https://github.com/vercel-labs/agent-browser" target="_blank" rel="noopener"><b>vercel-labs/agent-browser</b></a></td>
+      <td>#5 → #7</td>
+      <td>回落 2 位</td>
     </tr><tr>
-      <td class="c-type"><span class="dot evt"></span>新上榜</td>
+      <td class="c-type"><span class="dot down"></span>排名回落</td>
       <td class="c-obj"><a href="https://github.com/anthropics/claude-quickstarts" target="_blank" rel="noopener"><b>anthropics/claude-quickstarts</b></a></td>
-      <td>本期 #5</td>
-      <td>Python · 今日新增 560</td>
+      <td>#4 → #5</td>
+      <td>回落 1 位</td>
     </tr><tr>
       <td class="c-type"><span class="dot evt"></span>新上榜</td>
       <td class="c-obj"><a href="https://github.com/garrytan/gbrain" target="_blank" rel="noopener"><b>garrytan/gbrain</b></a></td>
@@ -490,72 +568,109 @@ footer{max-width:1180px;margin:14px auto;color:var(--c-muted);font-size:var(--fs
       <td>Python · 今日新增 31</td>
     </tr><tr>
       <td class="c-type"><span class="dot down"></span>跌出</td>
-      <td class="c-obj"><a href="https://github.com/cloudflare/security-audit-skill" target="_blank" rel="noopener"><b>cloudflare/security-audit-skill</b></a></td>
+      <td class="c-obj"><a href="https://github.com/dsx-ai-factory/nvke" target="_blank" rel="noopener"><b>dsx-ai-factory/nvke</b></a></td>
       <td>上期 #2</td>
-      <td>总 Star 65,845</td>
-    </tr><tr>
-      <td class="c-type"><span class="dot down"></span>跌出</td>
-      <td class="c-obj"><a href="https://github.com/google/skills" target="_blank" rel="noopener"><b>google/skills</b></a></td>
-      <td>上期 #3</td>
-      <td>总 Star 23,456</td>
-    </tr><tr>
-      <td class="c-type"><span class="dot down"></span>跌出</td>
-      <td class="c-obj"><a href="https://github.com/mattpocock/skills" target="_blank" rel="noopener"><b>mattpocock/skills</b></a></td>
-      <td>上期 #4</td>
-      <td>总 Star 317,794</td>
-    </tr><tr>
-      <td class="c-type"><span class="dot down"></span>跌出</td>
-      <td class="c-obj"><a href="https://github.com/prometheus/prometheus" target="_blank" rel="noopener"><b>prometheus/prometheus</b></a></td>
-      <td>上期 #7</td>
-      <td>总 Star 67,463</td>
-    </tr><tr>
-      <td class="c-type"><span class="dot down"></span>跌出</td>
-      <td class="c-obj"><a href="https://github.com/astral-sh/ruff" target="_blank" rel="noopener"><b>astral-sh/ruff</b></a></td>
-      <td>上期 #10</td>
-      <td>总 Star 50,996</td>
-    </tr><tr>
-      <td class="c-type"><span class="dot down"></span>跌出</td>
-      <td class="c-obj"><a href="https://github.com/tailwindlabs/tailwindcss" target="_blank" rel="noopener"><b>tailwindlabs/tailwindcss</b></a></td>
-      <td>上期 #11</td>
-      <td>总 Star 98,511</td>
-    </tr><tr>
-      <td class="c-type"><span class="dot down"></span>跌出</td>
-      <td class="c-obj"><a href="https://github.com/mbillow/localthings" target="_blank" rel="noopener"><b>mbillow/localthings</b></a></td>
-      <td>上期 #12</td>
-      <td>总 Star 1,077</td>
-    </tr><tr>
-      <td class="c-type"><span class="dot down"></span>跌出</td>
-      <td class="c-obj"><a href="https://github.com/zed-industries/zed" target="_blank" rel="noopener"><b>zed-industries/zed</b></a></td>
-      <td>上期 #13</td>
-      <td>总 Star 94,310</td>
+      <td>总 Star 710</td>
     </tr><tr>
       <td class="c-type"><span class="dot down"></span>跌出</td>
       <td class="c-obj"><a href="https://github.com/ranxianglei/billion-context" target="_blank" rel="noopener"><b>ranxianglei/billion-context</b></a></td>
-      <td>上期 #14</td>
-      <td>总 Star 4,661</td>
-    </tr><tr>
-      <td class="c-type"><span class="dot down"></span>跌出</td>
-      <td class="c-obj"><a href="https://github.com/dsx-ai-factory/nvke" target="_blank" rel="noopener"><b>dsx-ai-factory/nvke</b></a></td>
-      <td>上期 #15</td>
-      <td>总 Star 580</td>
+      <td>上期 #9</td>
+      <td>总 Star 4,888</td>
     </tr></tbody>
     </table></div>
+
+  
+  <h2 id="s-weekly"><svg class="ico" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22c4 0 7-3 7-7 0-5-4-6-4-11 0 0-3 2-3 6-1-1-2-2-2-4 0 0-5 4-5 9 0 4 3 7 7 7z"/></svg> 本周 GitHub 官方周榜</h2>
+  <div class="note">口径：<b>GitHub Trending 官方周榜</b>（<code>?since=weekly</code>），统计近一周新增 Star，与上方日榜为两套独立榜单、互不影响。<b>每日 21:45 同步</b>；含语言分布、Star 集中度、周榜 × 日榜重合度、两期对比与话题聚类；历史各日归档见本板块底部链接。数据由 <code>site/weekly-latest.js</code> 提供，未到位时显示「待核实」占位。</div>
+  <div id="weekly-root"><div class="note warn"><b>待核实：</b>周榜数据未到位（尚未生成或本期抓取失败）。禁止编造任何数据。</div></div>
+  <script src="../weekly-latest.js"></script>
+  <script>
+(function(){
+  var wkPrefix = '';
+  var root = document.getElementById('weekly-root');
+  if (!root) return;
+  var d = window.__WEEKLY_DATA__;
+  if (!d || !d.ok || !Array.isArray(d.rows) || !d.rows.length) {
+    root.innerHTML = '<div class="note warn"><b>待核实：</b>周榜数据未到位'
+      + (d && d.reason ? '（' + String(d.reason).replace(/</g,'&lt;') + '）' : '')
+      + '。数据源按「待核实」纪律留空，禁止编造。每日 21:45 同步。</div>';
+    return;
+  }
+  if (d.html) root.innerHTML = d.html.split('__WK_PREFIX__').join(wkPrefix);
+  if (!root.innerHTML.trim()) return;
+
+  // ---- 表头排序（仅周榜表格）----
+  var tbl = root.querySelector('.wk-tbl');
+  if (tbl && tbl.tHead) {
+    var tbody = tbl.tBodies[0], state = { col: -1, dir: 'asc' };
+    Array.prototype.forEach.call(tbl.tHead.rows[0].cells, function(th){
+      if (!th.dataset.sort) return;
+      th.tabIndex = 0;
+      function doSort(){
+        var col = th.cellIndex, type = th.dataset.sort;
+        state.dir = (state.col === col && state.dir === 'asc') ? 'desc' : 'asc';
+        state.col = col;
+        var rs = Array.prototype.slice.call(tbody.rows);
+        rs.sort(function(a,b){
+          var x = type === 'num'
+            ? (parseFloat(a.cells[col].dataset.v || a.cells[col].textContent.replace(/[^0-9.]/g,'')) || 0)
+            : a.cells[col].textContent.trim();
+          var y = type === 'num'
+            ? (parseFloat(b.cells[col].dataset.v || b.cells[col].textContent.replace(/[^0-9.]/g,'')) || 0)
+            : b.cells[col].textContent.trim();
+          return (x === y ? 0 : (x > y ? 1 : -1)) * (state.dir === 'asc' ? 1 : -1);
+        });
+        rs.forEach(function(r){ tbody.appendChild(r); });
+        Array.prototype.forEach.call(tbl.tHead.rows[0].cells, function(h){ h.removeAttribute('aria-sort'); });
+        th.setAttribute('aria-sort', state.dir === 'asc' ? 'ascending' : 'descending');
+      }
+      th.addEventListener('click', doSort);
+      th.addEventListener('keydown', function(e){ if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); doSort(); } });
+    });
+  }
+  // ---- 语言条过滤（同时作用于表格与卡片）----
+  var bars = root.querySelectorAll('.wk-bar[data-lang]');
+  Array.prototype.forEach.call(bars, function(bar){
+    function apply(){
+      var lang = bar.dataset.lang, on = !bar.classList.contains('filter-on');
+      Array.prototype.forEach.call(bars, function(b){ b.classList.remove('filter-on'); });
+      if (on) bar.classList.add('filter-on');
+      Array.prototype.forEach.call(root.querySelectorAll('.wk-tbl tbody tr, .wk-card'), function(el){
+        el.style.display = (!on || el.dataset.lang === lang) ? '' : 'none';
+      });
+    }
+    bar.addEventListener('click', apply);
+    bar.addEventListener('keydown', function(e){ if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); apply(); } });
+  });
+  // ---- 表格 / 卡片视图切换 ----
+  var btns = root.querySelectorAll('.wk-btn[data-view]');
+  Array.prototype.forEach.call(btns, function(btn){
+    btn.addEventListener('click', function(){
+      var v = btn.dataset.view;
+      Array.prototype.forEach.call(btns, function(b){ b.classList.toggle('on', b === btn); });
+      var t = root.querySelector('#wk-table-view'), c = root.querySelector('#wk-card-view');
+      if (t) t.hidden = v !== 'table';
+      if (c) c.hidden = v !== 'card';
+    });
+  });
+})();</script>
 
   <h2 id="s-src"><svg class="ico" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg> 数据说明</h2>
   <div class="note">
     <b>数据源：</b>GitHub Trending 日榜，公开页面抓取、无需认证。<br>
     <b>抓取策略：</b>单页请求，超时 45s，失败按 3s/8s/15s 退避重试 4 次；日榜连续失败自动降级为周榜口径并在页首标注。<br>
     <b>对比机制：</b>每日快照存于 <code>data/history.jsonl</code>，与最近一期做排名 diff；同日重跑覆盖当日快照（幂等可重复写）。<br>
+    <b>本周官方周榜：</b>独立的 GitHub Trending <code>?since=weekly</code> 口径（近一周新增 Star），每日 21:45 同步，与上方日榜互不影响；含语言分布、Star 集中度、周榜 × 日榜重合度、两期对比明细与话题聚类。数据由 <code>site/weekly-latest.js</code> 提供，各日归档于 <code>archive/weekly-&lt;date&gt;.html</code>。日榜基准滞后时显式告警；数据未到位时显示「待核实」占位，禁止编造。<br>
     <b>简介翻译：</b>上榜简介已由 AI 翻译为中文（点「原文」展开英文原文），语义以原文为准；翻译文件 <code>data/translations-2026-11-09.json</code>，未覆盖的条目显示英文原文。<br>
     <b>话题聚类：</b>聚类由 AI 按简介语义生成（非 GitHub 官方分类），文件 <code>data/topics-2026-11-09.json</code>；仅作风向参考。<br>
     <b>关注领域：</b>关键词匹配自 <code>config/domains.json</code>，仅作信息降噪提示，不代表质量评价。<br>
     <b>趋势与演化：</b>由 <code>scripts/analytics.mjs</code> 基于 7 期历史快照派生（<code>data/analytics-2026-11-09.json</code>），阈值固定、可复现；样本不足一律标注，不推断填充。<br>
     <b>完整性纪律：</b>数据源未到位时页面以「待核实」占位，<b>禁止编造任何数据</b>；解析行数不足（&lt;5 行）视为失败。<br>
-    <b>生成信息：</b>本文件由 <code>scripts/daily_trending.mjs</code> 自动生成于 2026-11-09 13:45，同日重跑为覆盖写（dated + latest 双轨）。
+    
   </div>
 </div>
 
-<footer>GitHub 热门话题排行榜 · 数据采集于 2026-11-09 13:45 · 数据版权归 GitHub 及各仓库作者所有 · 2026-11-09</footer>
+<footer>GitHub 热门话题排行榜 · 数据采集于 2026-11-09 22:25 · 数据版权归 GitHub 及各仓库作者所有 · 2026-11-09</footer>
 
 <script>
 (function(){
