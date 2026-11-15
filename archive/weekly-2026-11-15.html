@@ -1,0 +1,234 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GitHub 官方周榜归档 · 2026-11-15</title>
+<meta name="color-scheme" content="light dark">
+<style>
+
+:root{
+  --c-bg:#e7edf5;--c-ink:#1f2733;--c-muted:#6b7686;--c-line:#e2e8f0;
+  --c-blue:#1d4ed8;--c-blue2:#3b82f6;--c-blue-dk:#1e40af;
+  --c-up:#dc2626;--c-down:#15803d;--c-amber:#b45309;--c-slate:#475569;--c-focus:#7c3aed;
+  --th-bg1:#2f5fd0;--th-bg2:#1e40af;--th-ink:#ffffff;--th-sub:#e8effc;--th-line:#1b3a94;
+  --card:#ffffff;--card-line:#e2e8f0;--row-alt:#f8fafd;--row-hover:#eef4ff;--desc-zh:#1f2937;
+  --chip:#eef4ff;--radius-card:14px;--radius-ctl:8px;
+  --fs-125:12.5px;--fs-115:11.5px;--fs-13:13px;--fs-12:12px;--fs-table:13.5px;--fs-th:12.5px;
+  --fs-tag:11px;--fs-sub:11px;--fs-note:12px;--fs-micro:10px;
+  --ui-scroll-thumb:rgba(59,130,246,.55);--ui-scroll-track:rgba(148,163,184,.16);
+}
+@media (prefers-color-scheme: dark){
+  :root{--c-bg:#0f1620;--c-ink:#e5eaf2;--c-muted:#93a0b4;--c-line:#243044;--c-slate:#9db0c8;
+    --card:#141c28;--card-line:#243044;--row-alt:#182232;--row-hover:#1d2a3d;--desc-zh:#dbe4f0;
+    --c-focus:#a78bfa}
+}
+a:focus-visible,button:focus-visible,summary:focus-visible,[tabindex]:focus-visible{
+  outline:2px solid var(--c-blue2);outline-offset:2px;border-radius:6px
+}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:-apple-system,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;color:var(--c-ink);background:var(--c-bg);margin:0;padding:24px;line-height:1.6}
+.doc{max-width:1180px;margin:0 auto;background:var(--card);border:1px solid var(--card-line);border-radius:14px;padding:32px;box-shadow:0 2px 14px rgba(16,24,40,.07)}
+.doc h1{font-size:26px;margin:0 0 4px}
+.doc h2{font-size:19px;margin:30px 0 12px;padding-left:10px;border-left:4px solid var(--c-blue-dk);color:var(--c-blue-dk)}
+.meta{color:var(--c-muted);font-size:var(--fs-13);margin-bottom:14px}
+.note{background:#f8fafc;border:1px solid #e5e7eb;border-radius:8px;padding:12px 16px;font-size:var(--fs-13);color:#475569;margin:14px 0}
+.note.warn{background:#fff7e8;border-color:#f3dca0;color:#8a6400}
+.note code{background:rgba(148,163,184,.18);padding:1px 5px;border-radius:4px;font-size:var(--fs-12)}
+a{color:var(--c-blue)}
+.tbl-scroll{overflow-x:auto;margin:14px 0 10px}
+table{width:100%;border-collapse:separate;border-spacing:0;font-size:var(--fs-table);background:var(--card);border:1px solid #dfe5ee;border-radius:10px;overflow:hidden}
+th,td{border-bottom:1px solid #eef2f7;padding:9px 12px;vertical-align:top;text-align:left;line-height:1.55}
+th{background:linear-gradient(180deg,var(--th-bg1),var(--th-bg2));color:var(--th-ink);font-weight:700;font-size:var(--fs-th);white-space:nowrap}
+tbody tr:nth-child(even) td{background:var(--row-alt)}
+tbody tr:hover td{background:var(--row-hover)}
+td:first-child{font-weight:600}
+.zh{color:var(--desc-zh)}
+details.orig{margin-top:3px}
+details.orig summary{font-size:var(--fs-micro);color:var(--c-muted);cursor:pointer;list-style:none;display:inline-block;padding:1px 6px;border:1px solid #e5e7eb;border-radius:5px;background:#f8fafc}
+details.orig summary::-webkit-details-marker{display:none}
+details.orig p{font-size:11px;color:#6b7280;margin:5px 0 0;line-height:1.5;overflow-wrap:anywhere}
+.tag{display:inline-block;font-size:var(--fs-tag);padding:2px 9px;border-radius:4px;font-weight:600;white-space:nowrap}
+.topic-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:10px;margin:12px 0}
+.topic-card{background:var(--bg2,#f8fafc);border:1px solid var(--card-line);border-radius:10px;padding:12px 14px}
+.topic-head{display:flex;justify-content:space-between;font-weight:700;color:var(--c-blue-dk);font-size:var(--fs-13)}
+.topic-insight{font-size:var(--fs-12);color:var(--c-muted);margin:6px 0}
+.topic-repos{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+.topic-chip{font-size:var(--fs-115);color:var(--c-blue);background:#eef4ff;border:1px solid #d5e3fb;border-radius:999px;padding:2px 9px;text-decoration:none;white-space:nowrap}
+.wk-archives{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0 4px}
+.wk-archives a{font-size:var(--fs-125);color:var(--c-blue);text-decoration:none;background:var(--bg2,#f8fafc);border:1px solid var(--card-line);border-radius:8px;padding:4px 10px}
+.wk-current{background:var(--c-blue)!important;color:#fff!important;border-color:var(--c-blue)!important}
+footer{max-width:1180px;margin:16px auto 0;text-align:center;color:var(--c-muted);font-size:var(--fs-12)}
+@media (prefers-color-scheme: dark){
+  .doc{--bg2:#182232}
+  .note{background:#182232;border-color:#243044;color:#93a0b4}
+  .note.warn{background:#2a2313;border-color:#5a471b;color:#e8c477}
+  th,td{border-bottom-color:#243044}
+  table{border-color:#243044}
+  details.orig summary{background:#1a2434;border-color:#2b3a4f;color:#93a0b4}
+  .topic-chip{background:#1b2a44;border-color:#2c4368;color:#8ab4ff}
+  .wk-archives a{background:#1b2a44;border-color:#2c4368;color:#8ab4ff}
+}
+
+/* 周榜板块 */
+.weekly-meta{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0 12px}
+.weekly-chip{font-size:var(--fs-12);background:var(--bg2);border:1px solid var(--line);border-radius:999px;padding:3px 11px;color:var(--sub)}
+.weekly-chip b{color:var(--c-blue-dk)}
+.wk-tbl td,.wk-tbl th{padding:8px 11px}
+.wk-tbl .c-desc{min-width:220px}
+.wk-tbl .c-num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+.wk-tbl .c-lang{white-space:nowrap}
+.wk-tbl .c-rank{text-align:center;color:var(--c-slate);width:44px}
+.wk-tbl .c-repo a{color:var(--c-blue);text-decoration:none;font-weight:600}
+.wk-tbl .c-repo a:hover{text-decoration:underline}
+.wk-tbl .zh{color:var(--desc-zh)}
+.wk-tbl details.orig{margin-top:3px}
+.wk-tbl details.orig summary{font-size:var(--fs-micro);color:var(--c-muted);cursor:pointer;list-style:none;display:inline-block;padding:1px 6px;border:1px solid var(--line);border-radius:5px;background:var(--bg2)}
+.wk-tbl details.orig summary::-webkit-details-marker{display:none}
+.wk-tbl details.orig p{font-size:11px;color:var(--sub);margin:5px 0 0;line-height:1.5;overflow-wrap:anywhere}
+.wk-tbl .tag{display:inline-block;font-size:var(--fs-tag);padding:2px 9px;border-radius:4px;font-weight:600;white-space:nowrap;box-shadow:0 1px 2px rgba(16,24,40,.08)}
+.wk-archives{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0 4px}
+.wk-archives a{font-size:var(--fs-125);color:var(--c-blue);text-decoration:none;background:var(--bg2);border:1px solid var(--line);border-radius:8px;padding:4px 10px}
+.wk-archives a:hover{background:var(--c-blue);color:#fff;border-color:var(--c-blue)}
+.wk-current{background:var(--c-blue)!important;color:#fff!important;border-color:var(--c-blue)!important}
+@media (prefers-color-scheme: dark){
+  .weekly-chip{background:#1b2a44;border-color:#2c4368;color:#9db0c8}
+  .wk-tbl details.orig summary{background:#1a2434;border-color:#2b3a4f;color:#93a0b4}
+  .wk-archives a{background:#1b2a44;border-color:#2c4368;color:#8ab4ff}
+}
+</style>
+</head><body>
+<div class="doc">
+  <h1>GitHub 官方周榜 · 2026-11-15</h1>
+  <div class="meta">采集于 2026-11-15 23:47 · 口径：GitHub Trending 官方周榜（<code>?since=weekly</code>，近一周新增 Star） · 每周六 21:45 更新 · 本页为该周归档快照，数据已内联冻结</div>
+  <div class="note"><a href="../index.html">← 返回最新日报</a> · <a href="../explore.html">跨期检索</a></div>
+  
+  <div class="note">本期为周榜首期或暂无上一期快照，两期对比自下期起自动生成。</div>
+  <h2>本周榜单 Top 11</h2>
+  <div class="tbl-scroll"><table class="wk-tbl">
+    <thead><tr>
+      <th style="width:44px">排名</th><th style="width:200px">仓库</th><th>简介</th>
+      <th style="width:104px">语言</th><th style="width:92px">Star 总数</th><th style="width:96px">本周新增</th>
+    </tr></thead>
+    <tbody><tr>
+      <td class="c-rank">1</td>
+      <td class="c-repo"><a href="https://github.com/meta/astryx" target="_blank" rel="noopener">meta/astryx</a></td>
+      <td class="c-desc"><span class="zh">一套完全可定制、且为智能体（agent）就绪的开源设计系统。</span><details class="orig"><summary>原文</summary><p>An open source design system that&#39;s fully customizable and agent ready</p></details></td>
+      <td class="c-lang"><span class="tag" style="background:#3178c6;color:#ffffff">TypeScript</span></td>
+      <td class="c-num">28,616</td>
+      <td class="c-num"><b>13,660</b></td>
+    </tr>
+<tr>
+      <td class="c-rank">2</td>
+      <td class="c-repo"><a href="https://github.com/anthropics/skills" target="_blank" rel="noopener">anthropics/skills</a></td>
+      <td class="c-desc"><span class="zh">Agent Skills 的公开仓库。</span><details class="orig"><summary>原文</summary><p>Public repository for Agent Skills</p></details></td>
+      <td class="c-lang"><span class="tag" style="background:#3572A5;color:#ffffff">Python</span></td>
+      <td class="c-num">195,160</td>
+      <td class="c-num"><b>6,220</b></td>
+    </tr>
+<tr>
+      <td class="c-rank">3</td>
+      <td class="c-repo"><a href="https://github.com/sherlock-project/sherlock" target="_blank" rel="noopener">sherlock-project/sherlock</a></td>
+      <td class="c-desc"><span class="zh">通过用户名在各大社交网络上搜寻、定位社交媒体账号。</span><details class="orig"><summary>原文</summary><p>Hunt down social media accounts by username across social networks</p></details></td>
+      <td class="c-lang"><span class="tag" style="background:#3572A5;color:#ffffff">Python</span></td>
+      <td class="c-num">112,230</td>
+      <td class="c-num"><b>12,401</b></td>
+    </tr>
+<tr>
+      <td class="c-rank">4</td>
+      <td class="c-repo"><a href="https://github.com/backnotprop/plannotator" target="_blank" rel="noopener">backnotprop/plannotator</a></td>
+      <td class="c-desc"><span class="zh">一个让你始终掌握智能体进展的工作空间：构思、决策、规划、批注、审查代码、与团队共享，并可一键把所有反馈发送给智能体。</span><details class="orig"><summary>原文</summary><p>The workspace to stay in the loop and on top of agents - shape, decide, plan, annotate, review code, share with team, and send all feedback to agents with one click.</p></details></td>
+      <td class="c-lang"><span class="tag" style="background:#3178c6;color:#ffffff">TypeScript</span></td>
+      <td class="c-num">11,657</td>
+      <td class="c-num"><b>818</b></td>
+    </tr>
+<tr>
+      <td class="c-rank">5</td>
+      <td class="c-repo"><a href="https://github.com/vercel-labs/agent-browser" target="_blank" rel="noopener">vercel-labs/agent-browser</a></td>
+      <td class="c-desc"><span class="zh">面向 AI 智能体（AI agents）的浏览器自动化命令行工具（CLI）。</span><details class="orig"><summary>原文</summary><p>Browser automation CLI for AI agents</p></details></td>
+      <td class="c-lang"><span class="tag" style="background:#dea584;color:#1a2332">Rust</span></td>
+      <td class="c-num">51,469</td>
+      <td class="c-num"><b>4,601</b></td>
+    </tr>
+<tr>
+      <td class="c-rank">6</td>
+      <td class="c-repo"><a href="https://github.com/ZhuLinsen/daily_stock_analysis" target="_blank" rel="noopener">ZhuLinsen/daily_stock_analysis</a></td>
+      <td class="c-desc"><span class="zh">LLM 驱动的多市场股票智能分析系统：多源行情、实时新闻、决策看板与自动推送，支持零成本定时运行。</span><details class="orig"><summary>原文</summary><p>LLM 驱动的多市场股票智能分析系统：多源行情、实时新闻、决策看板与自动推送，支持零成本定时运行。 LLM-powered multi-market stock analysis system with multi-source market data, real-time news, decision dashboard, automated notifications, and cost-free scheduled runs.</p></details></td>
+      <td class="c-lang"><span class="tag" style="background:#3572A5;color:#ffffff">Python</span></td>
+      <td class="c-num">72,416</td>
+      <td class="c-num"><b>4,526</b></td>
+    </tr>
+<tr>
+      <td class="c-rank">7</td>
+      <td class="c-repo"><a href="https://github.com/we-promise/sure" target="_blank" rel="noopener">we-promise/sure</a></td>
+      <td class="c-desc"><span class="zh">面向所有人（也由所有人共同打造）的个人理财应用。</span><details class="orig"><summary>原文</summary><p>The personal finance app for everyone (by everyone)</p></details></td>
+      <td class="c-lang"><span class="tag" style="background:#701516;color:#ffffff">Ruby</span></td>
+      <td class="c-num">15,586</td>
+      <td class="c-num"><b>4,483</b></td>
+    </tr>
+<tr>
+      <td class="c-rank">8</td>
+      <td class="c-repo"><a href="https://github.com/milind-soni/OpenMausBot" target="_blank" rel="noopener">milind-soni/OpenMausBot</a></td>
+      <td class="c-desc"><span class="zh">开源的 Grok Bot 替代品，附带机器人可使用的虚拟机。</span><details class="orig"><summary>原文</summary><p>Open-source Grok Bot alternative with a virtual machine that bots can use</p></details></td>
+      <td class="c-lang"><span class="tag" style="background:#3178c6;color:#ffffff">TypeScript</span></td>
+      <td class="c-num">23,121</td>
+      <td class="c-num"><b>6,413</b></td>
+    </tr>
+<tr>
+      <td class="c-rank">9</td>
+      <td class="c-repo"><a href="https://github.com/google/elephant-goldfish-model" target="_blank" rel="noopener">google/elephant-goldfish-model</a></td>
+      <td class="c-desc"><span class="zh">用于与智能体协作设计、审查软件的开源插件。</span><details class="orig"><summary>原文</summary><p>Open-source plugin for designing and reviewing software with agents</p></details></td>
+      <td class="c-lang"><span class="tag" style="background:#3572A5;color:#ffffff">Python</span></td>
+      <td class="c-num">19,525</td>
+      <td class="c-num"><b>5,539</b></td>
+    </tr>
+<tr>
+      <td class="c-rank">10</td>
+      <td class="c-repo"><a href="https://github.com/google-deepmind/mujoco" target="_blank" rel="noopener">google-deepmind/mujoco</a></td>
+      <td class="c-desc"><span class="zh">多关节接触动力学（Multi-Joint dynamics with Contact）。一款通用物理模拟器。</span><details class="orig"><summary>原文</summary><p>Multi-Joint dynamics with Contact. A general purpose physics simulator.</p></details></td>
+      <td class="c-lang"><span class="tag" style="background:#f34b7d;color:#ffffff">C++</span></td>
+      <td class="c-num">18,044</td>
+      <td class="c-num"><b>1,859</b></td>
+    </tr>
+<tr>
+      <td class="c-rank">11</td>
+      <td class="c-repo"><a href="https://github.com/addyosmani/agent-skills" target="_blank" rel="noopener">addyosmani/agent-skills</a></td>
+      <td class="c-desc"><span class="zh">面向 AI 编程智能体的生产级工程技能。</span><details class="orig"><summary>原文</summary><p>Production-grade engineering skills for AI coding agents.</p></details></td>
+      <td class="c-lang"><span class="tag" style="background:#f1e05a;color:#1a2332">JavaScript</span></td>
+      <td class="c-num">117,799</td>
+      <td class="c-num"><b>3,670</b></td>
+    </tr></tbody>
+  </table></div>
+  <h2>话题聚类</h2><div class="topic-grid"><div class="topic-card">
+      <div class="topic-head"><span>智能体技能与工程规范</span><span>3 席</span></div>
+      <div class="topic-insight">本期周榜由 Agent Skills 生态领跑：官方公开仓库、生产级工程技能集，以及与智能体协作设计/审查软件的插件合计 3 席，其中 anthropics/skills 总 Star 已达 19.5 万。</div>
+      <div class="topic-repos"><a class="topic-chip" href="https://github.com/anthropics/skills" target="_blank" rel="noopener">anthropics/skills</a><a class="topic-chip" href="https://github.com/addyosmani/agent-skills" target="_blank" rel="noopener">addyosmani/agent-skills</a><a class="topic-chip" href="https://github.com/google/elephant-goldfish-model" target="_blank" rel="noopener">google/elephant-goldfish-model</a></div>
+    </div><div class="topic-card">
+      <div class="topic-head"><span>智能体工具链与协作工作台</span><span>3 席</span></div>
+      <div class="topic-insight">从浏览器自动化 CLI、人工介入与反馈闭环工作台，到带虚拟机的开源 Bot，3 个项目都围绕「让智能体可执行、可监督」展开。</div>
+      <div class="topic-repos"><a class="topic-chip" href="https://github.com/vercel-labs/agent-browser" target="_blank" rel="noopener">vercel-labs/agent-browser</a><a class="topic-chip" href="https://github.com/backnotprop/plannotator" target="_blank" rel="noopener">backnotprop/plannotator</a><a class="topic-chip" href="https://github.com/milind-soni/OpenMausBot" target="_blank" rel="noopener">milind-soni/OpenMausBot</a></div>
+    </div><div class="topic-card">
+      <div class="topic-head"><span>前端设计系统</span><span>1 席</span></div>
+      <div class="topic-insight">榜首 meta/astryx（本周 +13,660）明确打出「agent ready」，反映设计系统开始把智能体消费场景纳入设计目标。</div>
+      <div class="topic-repos"><a class="topic-chip" href="https://github.com/meta/astryx" target="_blank" rel="noopener">meta/astryx</a></div>
+    </div><div class="topic-card">
+      <div class="topic-head"><span>垂直应用与个人信息工具</span><span>3 席</span></div>
+      <div class="topic-insight">股票投研分析、个人理财与跨平台账号检索各占一席，均为面向具体场景的成熟应用；sherlock 本周 +12,401 为增速第二。</div>
+      <div class="topic-repos"><a class="topic-chip" href="https://github.com/ZhuLinsen/daily_stock_analysis" target="_blank" rel="noopener">ZhuLinsen/daily_stock_analysis</a><a class="topic-chip" href="https://github.com/we-promise/sure" target="_blank" rel="noopener">we-promise/sure</a><a class="topic-chip" href="https://github.com/sherlock-project/sherlock" target="_blank" rel="noopener">sherlock-project/sherlock</a></div>
+    </div><div class="topic-card">
+      <div class="topic-head"><span>物理仿真引擎</span><span>1 席</span></div>
+      <div class="topic-insight">google-deepmind/mujoco 是本期唯一的底层仿真项目，以多关节接触动力学提供通用物理模拟能力。</div>
+      <div class="topic-repos"><a class="topic-chip" href="https://github.com/google-deepmind/mujoco" target="_blank" rel="noopener">google-deepmind/mujoco</a></div>
+    </div></div>
+  <h2>往期周榜归档</h2>
+  <div class="wk-archives"><a href="weekly-2026-11-15.html" class="wk-current">2026-11-15</a></div>
+  <h2>数据说明</h2>
+  <div class="note">
+    <b>数据源：</b>GitHub Trending 官方周榜，公开页面抓取、无需认证。<br>
+    <b>抓取策略：</b>单页请求，超时 45s，失败按 3s/8s/15s 退避重试 4 次；解析行数 &lt;5 视为失败。<br>
+    <b>简介翻译：</b>已由 AI 翻译为中文，覆盖 11/11 条；点「原文」展开英文原文，语义以原文为准。<br>
+    <b>话题聚类：</b>由 AI 按简介语义生成（非 GitHub 官方分类），仅作风向参考。<br>
+    <b>完整性纪律：</b>数据源未到位时页面以「待核实」占位，<b>禁止编造任何数据</b>；历史归档只增不删。<br>
+  </div>
+</div>
+<footer>GitHub 官方周榜归档 · 2026-11-15 · 数据版权归 GitHub 及各仓库作者所有</footer>
+<script>window.__WEEKLY_DATA__={"ok":true,"placeholder":false,"date":"2026-11-15","fetchedAt":"2026-11-15 23:47","period":"weekly","sourceLabel":"GitHub Trending 官方周榜","rows":[{"rank":1,"repo":"meta/astryx","url":"https://github.com/meta/astryx","desc":"An open source design system that's fully customizable and agent ready","lang":"TypeScript","stars":28616,"forks":2235,"periodStars":13660,"periodUnit":"this week","zh":"一套完全可定制、且为智能体（agent）就绪的开源设计系统。","langBg":"#3178c6","langFg":"#ffffff"},{"rank":2,"repo":"anthropics/skills","url":"https://github.com/anthropics/skills","desc":"Public repository for Agent Skills","lang":"Python","stars":195160,"forks":22948,"periodStars":6220,"periodUnit":"this week","zh":"Agent Skills 的公开仓库。","langBg":"#3572A5","langFg":"#ffffff"},{"rank":3,"repo":"sherlock-project/sherlock","url":"https://github.com/sherlock-project/sherlock","desc":"Hunt down social media accounts by username across social networks","lang":"Python","stars":112230,"forks":12972,"periodStars":12401,"periodUnit":"this week","zh":"通过用户名在各大社交网络上搜寻、定位社交媒体账号。","langBg":"#3572A5","langFg":"#ffffff"},{"rank":4,"repo":"backnotprop/plannotator","url":"https://github.com/backnotprop/plannotator","desc":"The workspace to stay in the loop and on top of agents - shape, decide, plan, annotate, review code, share with team, and send all feedback to agents with one click.","lang":"TypeScript","stars":11657,"forks":1032,"periodStars":818,"periodUnit":"this week","zh":"一个让你始终掌握智能体进展的工作空间：构思、决策、规划、批注、审查代码、与团队共享，并可一键把所有反馈发送给智能体。","langBg":"#3178c6","langFg":"#ffffff"},{"rank":5,"repo":"vercel-labs/agent-browser","url":"https://github.com/vercel-labs/agent-browser","desc":"Browser automation CLI for AI agents","lang":"Rust","stars":51469,"forks":3595,"periodStars":4601,"periodUnit":"this week","zh":"面向 AI 智能体（AI agents）的浏览器自动化命令行工具（CLI）。","langBg":"#dea584","langFg":"#1a2332"},{"rank":6,"repo":"ZhuLinsen/daily_stock_analysis","url":"https://github.com/ZhuLinsen/daily_stock_analysis","desc":"LLM 驱动的多市场股票智能分析系统：多源行情、实时新闻、决策看板与自动推送，支持零成本定时运行。 LLM-powered multi-market stock analysis system with multi-source market data, real-time news, decision dashboard, automated notifications, and cost-free scheduled runs.","lang":"Python","stars":72416,"forks":57556,"periodStars":4526,"periodUnit":"this week","zh":"LLM 驱动的多市场股票智能分析系统：多源行情、实时新闻、决策看板与自动推送，支持零成本定时运行。","langBg":"#3572A5","langFg":"#ffffff"},{"rank":7,"repo":"we-promise/sure","url":"https://github.com/we-promise/sure","desc":"The personal finance app for everyone (by everyone)","lang":"Ruby","stars":15586,"forks":1365,"periodStars":4483,"periodUnit":"this week","zh":"面向所有人（也由所有人共同打造）的个人理财应用。","langBg":"#701516","langFg":"#ffffff"},{"rank":8,"repo":"milind-soni/OpenMausBot","url":"https://github.com/milind-soni/OpenMausBot","desc":"Open-source Grok Bot alternative with a virtual machine that bots can use","lang":"TypeScript","stars":23121,"forks":3215,"periodStars":6413,"periodUnit":"this week","zh":"开源的 Grok Bot 替代品，附带机器人可使用的虚拟机。","langBg":"#3178c6","langFg":"#ffffff"},{"rank":9,"repo":"google/elephant-goldfish-model","url":"https://github.com/google/elephant-goldfish-model","desc":"Open-source plugin for designing and reviewing software with agents","lang":"Python","stars":19525,"forks":1453,"periodStars":5539,"periodUnit":"this week","zh":"用于与智能体协作设计、审查软件的开源插件。","langBg":"#3572A5","langFg":"#ffffff"},{"rank":10,"repo":"google-deepmind/mujoco","url":"https://github.com/google-deepmind/mujoco","desc":"Multi-Joint dynamics with Contact. A general purpose physics simulator.","lang":"C++","stars":18044,"forks":2208,"periodStars":1859,"periodUnit":"this week","zh":"多关节接触动力学（Multi-Joint dynamics with Contact）。一款通用物理模拟器。","langBg":"#f34b7d","langFg":"#ffffff"},{"rank":11,"repo":"addyosmani/agent-skills","url":"https://github.com/addyosmani/agent-skills","desc":"Production-grade engineering skills for AI coding agents.","lang":"JavaScript","stars":117799,"forks":12330,"periodStars":3670,"periodUnit":"this week","zh":"面向 AI 编程智能体的生产级工程技能。","langBg":"#f1e05a","langFg":"#1a2332"}],"topics":{"categories":[{"name":"智能体技能与工程规范","insight":"本期周榜由 Agent Skills 生态领跑：官方公开仓库、生产级工程技能集，以及与智能体协作设计/审查软件的插件合计 3 席，其中 anthropics/skills 总 Star 已达 19.5 万。","repos":["anthropics/skills","addyosmani/agent-skills","google/elephant-goldfish-model"]},{"name":"智能体工具链与协作工作台","insight":"从浏览器自动化 CLI、人工介入与反馈闭环工作台，到带虚拟机的开源 Bot，3 个项目都围绕「让智能体可执行、可监督」展开。","repos":["vercel-labs/agent-browser","backnotprop/plannotator","milind-soni/OpenMausBot"]},{"name":"前端设计系统","insight":"榜首 meta/astryx（本周 +13,660）明确打出「agent ready」，反映设计系统开始把智能体消费场景纳入设计目标。","repos":["meta/astryx"]},{"name":"垂直应用与个人信息工具","insight":"股票投研分析、个人理财与跨平台账号检索各占一席，均为面向具体场景的成熟应用；sherlock 本周 +12,401 为增速第二。","repos":["ZhuLinsen/daily_stock_analysis","we-promise/sure","sherlock-project/sherlock"]},{"name":"物理仿真引擎","insight":"google-deepmind/mujoco 是本期唯一的底层仿真项目，以多关节接触动力学提供通用物理模拟能力。","repos":["google-deepmind/mujoco"]}],"unclassified":[]},"translated":11,"topicsCount":5,"archives":["2026-11-15"],"stats":{"count":11,"totalPeriod":64190,"langs":[["Python",4],["TypeScript",3],["Rust",1],["Ruby",1],["C++",1],["JavaScript",1]]},"diff":null,"issues":[]};</script>
+</body></html>
