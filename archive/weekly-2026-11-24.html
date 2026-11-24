@@ -1,0 +1,482 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GitHub 官方周榜归档 · 2026-11-24</title>
+<meta name="color-scheme" content="light dark">
+<style>
+
+:root{
+  --c-bg:#e7edf5;--c-ink:#1f2733;--c-muted:#6b7686;--c-line:#e2e8f0;
+  --c-blue:#1d4ed8;--c-blue2:#3b82f6;--c-blue-dk:#1e40af;
+  --c-up:#dc2626;--c-down:#15803d;--c-amber:#b45309;--c-slate:#475569;--c-focus:#7c3aed;
+  --th-bg1:#2f5fd0;--th-bg2:#1e40af;--th-ink:#ffffff;--th-sub:#e8effc;--th-line:#1b3a94;
+  --card:#ffffff;--card-line:#e2e8f0;--row-alt:#f8fafd;--row-hover:#eef4ff;--desc-zh:#1f2937;
+  --chip:#eef4ff;--radius-card:14px;--radius-ctl:8px;
+  --fs-125:12.5px;--fs-115:11.5px;--fs-13:13px;--fs-12:12px;--fs-table:13.5px;--fs-th:12.5px;
+  --fs-tag:11px;--fs-sub:11px;--fs-note:12px;--fs-micro:10px;
+  --ui-scroll-thumb:rgba(59,130,246,.55);--ui-scroll-track:rgba(148,163,184,.16);
+}
+@media (prefers-color-scheme: dark){
+  :root{--c-bg:#0f1620;--c-ink:#e5eaf2;--c-muted:#93a0b4;--c-line:#243044;--c-slate:#9db0c8;
+    --card:#141c28;--card-line:#243044;--row-alt:#182232;--row-hover:#1d2a3d;--desc-zh:#dbe4f0;
+    --c-focus:#a78bfa}
+}
+a:focus-visible,button:focus-visible,summary:focus-visible,[tabindex]:focus-visible{
+  outline:2px solid var(--c-blue2);outline-offset:2px;border-radius:6px
+}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:-apple-system,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;color:var(--c-ink);background:var(--c-bg);margin:0;padding:24px;line-height:1.6}
+.doc{--bg2:#f8fafc;--line:#e5e7eb;--sub:#6b7280;--muted:#6b7686;max-width:1180px;margin:0 auto;background:var(--card);border:1px solid var(--card-line);border-radius:14px;padding:32px;box-shadow:0 2px 14px rgba(16,24,40,.07)}
+.doc h1{font-size:26px;margin:0 0 4px}
+.doc h2{font-size:19px;margin:30px 0 12px;padding-left:10px;border-left:4px solid var(--c-blue-dk);color:var(--c-blue-dk)}
+.meta{color:var(--c-muted);font-size:var(--fs-13);margin-bottom:14px}
+.note{background:#f8fafc;border:1px solid #e5e7eb;border-radius:8px;padding:12px 16px;font-size:var(--fs-13);color:#475569;margin:14px 0}
+.note.warn{background:#fff7e8;border-color:#f3dca0;color:#8a6400}
+.note code{background:rgba(148,163,184,.18);padding:1px 5px;border-radius:4px;font-size:var(--fs-12)}
+a{color:var(--c-blue)}
+.tbl-scroll{overflow-x:auto;margin:14px 0 10px}
+table{width:100%;border-collapse:separate;border-spacing:0;font-size:var(--fs-table);background:var(--card);border:1px solid #dfe5ee;border-radius:10px;overflow:hidden}
+th,td{border-bottom:1px solid #eef2f7;padding:9px 12px;vertical-align:top;text-align:left;line-height:1.55}
+th{background:linear-gradient(180deg,var(--th-bg1),var(--th-bg2));color:var(--th-ink);font-weight:700;font-size:var(--fs-th);white-space:nowrap}
+tbody tr:nth-child(even) td{background:var(--row-alt)}
+tbody tr:hover td{background:var(--row-hover)}
+td:first-child{font-weight:600}
+.zh{color:var(--desc-zh)}
+details.orig{margin-top:3px}
+details.orig summary{font-size:var(--fs-micro);color:var(--c-muted);cursor:pointer;list-style:none;display:inline-block;padding:1px 6px;border:1px solid #e5e7eb;border-radius:5px;background:#f8fafc}
+details.orig summary::-webkit-details-marker{display:none}
+details.orig p{font-size:11px;color:#6b7280;margin:5px 0 0;line-height:1.5;overflow-wrap:anywhere}
+.tag{display:inline-block;font-size:var(--fs-tag);padding:2px 9px;border-radius:4px;font-weight:600;white-space:nowrap}
+.up{color:var(--c-up)}.down{color:var(--c-down)}
+footer{max-width:1180px;margin:16px auto 0;text-align:center;color:var(--c-muted);font-size:var(--fs-12)}
+@media (prefers-color-scheme: dark){
+  .doc{--bg2:#182232;--line:#243044;--sub:#93a0b4}
+  .note{background:#182232;border-color:#243044;color:#93a0b4}
+  .note.warn{background:#2a2313;border-color:#5a471b;color:#e8c477}
+  th,td{border-bottom-color:#243044}
+  table{border-color:#243044}
+  details.orig summary{background:#1a2434;border-color:#2b3a4f;color:#93a0b4}
+}
+
+/* ---- 周榜板块 ---- */
+.weekly-meta{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0 12px}
+.weekly-chip{font-size:var(--fs-12);background:var(--bg2);border:1px solid var(--line);border-radius:999px;padding:3px 11px;color:var(--sub)}
+.weekly-chip b{color:var(--c-blue-dk)}
+.wk-h3{font-size:var(--fs-13);margin:20px 0 8px;color:var(--c-blue-dk);font-weight:800}
+.wk-grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:12px;margin:12px 0}
+.wk-panel{background:var(--bg2);border:1px solid var(--line);border-radius:10px;padding:12px 14px}
+.wk-panel-t{font-size:var(--fs-13);font-weight:800;color:var(--c-blue-dk);margin:0 0 8px}
+.wk-bar{display:flex;align-items:center;gap:8px;margin:5px 0;font-size:var(--fs-12);cursor:pointer;user-select:none;color:var(--sub)}
+.wk-bar-l{width:96px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.wk-bar-t{flex:1;background:var(--c-line);border-radius:5px;height:15px;overflow:hidden}
+.wk-bar-f{height:100%;border-radius:5px;min-width:14px;font-size:var(--fs-micro);color:#fff;text-align:center;line-height:15px;font-weight:700}
+.wk-bar-n{width:52px;text-align:right;font-variant-numeric:tabular-nums}
+.wk-bar.filter-on{background:var(--chip);border-radius:6px}
+.wk-kpi{display:flex;gap:18px;flex-wrap:wrap;align-items:baseline}
+.wk-kpi-v{font-size:21px;font-weight:800;color:var(--c-up);font-variant-numeric:tabular-nums}
+.wk-kpi-l{font-size:var(--fs-115);color:var(--muted,#6b7686)}
+.wk-overlap{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:10px;margin:10px 0}
+.wk-ocol{background:var(--card);border:1px solid var(--line);border-radius:9px;padding:9px 11px}
+.wk-ocol h4{margin:0 0 7px;font-size:var(--fs-12);color:var(--c-slate)}
+.wk-ocol .n{font-weight:800;color:var(--c-blue-dk)}
+.wk-chips{display:flex;flex-wrap:wrap;gap:5px}
+.wk-chip2{font-size:var(--fs-micro);color:var(--c-blue);background:var(--chip);border:1px solid var(--line);border-radius:999px;padding:1px 7px;text-decoration:none;white-space:nowrap}
+.wk-chip2:hover{background:var(--c-blue);color:#fff}
+.wk-warn{background:#fff7e8;border-color:#f3dca0;color:#8a6400}
+.wk-toolbar{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin:14px 0 8px}
+.wk-btn{font-size:var(--fs-115);color:var(--c-slate);background:var(--bg2);border:1px solid var(--line);border-radius:7px;padding:4px 11px;cursor:pointer}
+.wk-btn:hover{border-color:var(--c-blue)}
+.wk-btn.on{background:var(--c-blue);color:#fff;border-color:var(--c-blue)}
+.wk-hint{font-size:var(--fs-micro);color:var(--muted,#6b7686)}
+.wk-tbl td,.wk-tbl th{padding:8px 11px}
+.wk-tbl th[data-sort]{cursor:pointer;user-select:none}
+.wk-tbl th[aria-sort="ascending"]::after{content:" ▲";font-size:9px}
+.wk-tbl th[aria-sort="descending"]::after{content:" ▼";font-size:9px}
+.wk-tbl .c-desc{min-width:220px}
+.wk-tbl .c-num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+.wk-tbl .c-lang{white-space:nowrap}
+.wk-tbl .c-rank{text-align:center;color:var(--c-slate);width:44px}
+.wk-tbl .c-repo a{color:var(--c-blue);text-decoration:none;font-weight:600}
+.wk-tbl .c-repo a:hover{text-decoration:underline}
+.wk-tbl .zh{color:var(--desc-zh)}
+.wk-tbl details.orig{margin-top:3px}
+.wk-tbl details.orig summary{font-size:var(--fs-micro);color:var(--c-muted);cursor:pointer;list-style:none;display:inline-block;padding:1px 6px;border:1px solid var(--line);border-radius:5px;background:var(--bg2)}
+.wk-tbl details.orig summary::-webkit-details-marker{display:none}
+.wk-tbl details.orig p{font-size:11px;color:var(--sub);margin:5px 0 0;line-height:1.5;overflow-wrap:anywhere}
+.wk-tbl .tag,.wk-card .tag{display:inline-block;font-size:var(--fs-tag);padding:2px 9px;border-radius:4px;font-weight:600;white-space:nowrap;box-shadow:0 1px 2px rgba(16,24,40,.08)}
+.badge-focus{display:inline-flex;align-items:center;vertical-align:1px;margin-left:6px;font-size:var(--fs-micro);font-weight:700;color:#fff;background:linear-gradient(180deg,#a78bfa,#7c3aed);border-radius:999px;padding:1px 7px;white-space:nowrap}
+.wk-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:10px;margin:12px 0}
+.wk-card{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:11px 13px}
+.wk-card-r{font-size:var(--fs-micro);color:var(--c-slate);margin-bottom:4px}
+.wk-card a.wk-card-t{font-size:var(--fs-13);font-weight:800;color:var(--c-blue);text-decoration:none}
+.wk-card a.wk-card-t:hover{text-decoration:underline}
+.wk-card-d{font-size:var(--fs-12);color:var(--desc-zh);margin:6px 0;line-height:1.5}
+.wk-card-m{display:flex;justify-content:space-between;font-size:var(--fs-micro);color:var(--c-slate);font-variant-numeric:tabular-nums}
+.wk-mini{font-size:var(--fs-12);width:100%;border-collapse:collapse}
+.wk-mini th,.wk-mini td{padding:5px 8px;border-bottom:1px solid var(--line);text-align:left}
+.wk-mini th{color:var(--c-slate);font-weight:700}
+.wk-mini .up{color:var(--c-up)}.wk-mini .down{color:var(--c-down)}
+.topic-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:10px;margin:12px 0}
+.topic-card{background:var(--bg2);border:1px solid var(--card-line);border-radius:10px;padding:12px 14px}
+.topic-head{display:flex;justify-content:space-between;font-weight:700;color:var(--c-blue-dk);font-size:var(--fs-13)}
+.topic-insight{font-size:var(--fs-12);color:var(--c-muted);margin:6px 0}
+.topic-repos{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+.topic-chip{font-size:var(--fs-115);color:var(--c-blue);background:#eef4ff;border:1px solid #d5e3fb;border-radius:999px;padding:2px 9px;text-decoration:none;white-space:nowrap}
+.wk-archives{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0 4px}
+.wk-archives a{font-size:var(--fs-125);color:var(--c-blue);text-decoration:none;background:var(--bg2);border:1px solid var(--line);border-radius:8px;padding:4px 10px}
+.wk-archives a:hover{background:var(--c-blue);color:#fff;border-color:var(--c-blue)}
+.wk-current{background:var(--c-blue)!important;color:#fff!important;border-color:var(--c-blue)!important}
+[hidden]{display:none!important}
+@media (prefers-color-scheme: dark){
+  .weekly-chip,.wk-panel{background:#1b2a44;border-color:#2c4368;color:#9db0c8}
+  .wk-btn,.wk-archives a,.wk-chip2{background:#1b2a44;border-color:#2c4368;color:#8ab4ff}
+  .wk-ocol{background:#141c28;border-color:#243044}
+  .wk-tbl details.orig summary{background:#1a2434;border-color:#2b3a4f;color:#93a0b4}
+  .topic-card{background:#182232;border-color:#243044}
+  .topic-chip{background:#1b2a44;border-color:#2c4368;color:#8ab4ff}
+  .wk-card{background:#141c28;border-color:#243044}
+  .wk-warn{background:#2a2313;border-color:#5a471b;color:#e8c477}
+}
+</style>
+</head><body>
+<div class="doc">
+  <h1>GitHub 官方周榜 · 2026-11-24</h1>
+  <div class="meta">采集于 2026-11-24 13:46 · 口径：GitHub Trending 官方周榜（<code>?since=weekly</code>，近一周新增 Star） · 每日 21:45 同步 · 本页为该日归档快照，数据已内联冻结</div>
+  <div class="note"><a href="../index.html">← 返回最新日报</a> · <a href="../explore.html">跨期检索</a> · 各日归档：<div class="wk-archives"><a href="weekly-2026-11-15.html">2026-11-15</a><a href="weekly-2026-11-16.html">2026-11-16</a><a href="weekly-2026-11-17.html">2026-11-17</a><a href="weekly-2026-11-18.html">2026-11-18</a><a href="weekly-2026-11-19.html">2026-11-19</a><a href="weekly-2026-11-20.html">2026-11-20</a><a href="weekly-2026-11-21.html">2026-11-21</a><a href="weekly-2026-11-22.html">2026-11-22</a><a href="weekly-2026-11-23.html">2026-11-23</a><a href="weekly-2026-11-24.html" class="wk-current">2026-11-24</a></div></div>
+  <div class="note">与上一期同步（2026-11-23）相比：<b>新上榜 0</b>、<b>跌出 0</b>。</div>
+  <div id="weekly-root"><div class="weekly-meta">
+    <span class="weekly-chip">数据日期 <b>2026-11-24</b></span>
+    <span class="weekly-chip">本周新增 Star 合计 <b>35,956</b></span>
+    <span class="weekly-chip">上榜 <b>13</b> 个仓库</span>
+    <span class="weekly-chip">中文简介 <b>13/13</b></span>
+    <span class="weekly-chip">话题聚类 <b>4</b> 类</span>
+    <span class="weekly-chip">关注命中 <b>12</b></span>
+  </div>
+  <div class="wk-grid2">
+    <div class="wk-panel"><div class="wk-panel-t">语言分布（点击过滤）</div><div class="wk-bar" data-lang="TypeScript" role="button" tabindex="0" title="点击过滤榜单">
+      <div class="wk-bar-l" title="TypeScript">TypeScript</div>
+      <div class="wk-bar-t"><div class="wk-bar-f" style="width:54%;background:#3178c6;color:#ffffff">7</div></div>
+      <div class="wk-bar-n">54%</div></div><div class="wk-bar" data-lang="Python" role="button" tabindex="0" title="点击过滤榜单">
+      <div class="wk-bar-l" title="Python">Python</div>
+      <div class="wk-bar-t"><div class="wk-bar-f" style="width:23%;background:#3572A5;color:#ffffff">3</div></div>
+      <div class="wk-bar-n">23%</div></div><div class="wk-bar" data-lang="Go" role="button" tabindex="0" title="点击过滤榜单">
+      <div class="wk-bar-l" title="Go">Go</div>
+      <div class="wk-bar-t"><div class="wk-bar-f" style="width:8%;background:#00ADD8;color:#ffffff">1</div></div>
+      <div class="wk-bar-n">8%</div></div><div class="wk-bar" data-lang="Objective-C" role="button" tabindex="0" title="点击过滤榜单">
+      <div class="wk-bar-l" title="Objective-C">Objective-C</div>
+      <div class="wk-bar-t"><div class="wk-bar-f" style="width:8%;background:#438eff;color:#ffffff">1</div></div>
+      <div class="wk-bar-n">8%</div></div><div class="wk-bar" data-lang="Ruby" role="button" tabindex="0" title="点击过滤榜单">
+      <div class="wk-bar-l" title="Ruby">Ruby</div>
+      <div class="wk-bar-t"><div class="wk-bar-f" style="width:8%;background:#701516;color:#ffffff">1</div></div>
+      <div class="wk-bar-n">8%</div></div></div>
+    <div class="wk-panel"><div class="wk-panel-t">Star 增量集中度</div><div class="wk-kpi">
+    <div><div class="wk-kpi-v">15%</div><div class="wk-kpi-l">榜首占本周新增<br><code>mvanhorn/last30days-skill</code> +5,448</div></div>
+    <div><div class="wk-kpi-v">38%</div><div class="wk-kpi-l">Top3 合计占比<br>合计新增 35,956</div></div>
+  </div></div>
+  </div>
+  <div class="wk-h3">周榜 × 日榜重合度</div>
+  
+  <div class="note">口径：以「最新一期日榜 Top 榜」与「本期官方周榜」按仓库名求交/差集。Jaccard = 交集 / 并集 = <b>8%</b>（周榜 13 席，日榜 15 席）。</div>
+  <div class="wk-overlap">
+    <div class="wk-ocol"><h4>两榜都在 <span class="n">2</span></h4><div class="wk-chips"><a class="wk-chip2" href="https://github.com/google-labs-code/stitch-skills" target="_blank" rel="noopener">google-labs-code/stitch-skills</a><a class="wk-chip2" href="https://github.com/mvanhorn/last30days-skill" target="_blank" rel="noopener">mvanhorn/last30days-skill</a></div></div>
+    <div class="wk-ocol"><h4>仅周榜 <span class="n">11</span></h4><div class="wk-chips"><a class="wk-chip2" href="https://github.com/backnotprop/plannotator" target="_blank" rel="noopener">backnotprop/plannotator</a><a class="wk-chip2" href="https://github.com/GoogleChrome/modern-web-guidance-src" target="_blank" rel="noopener">GoogleChrome/modern-web-guidance-src</a><a class="wk-chip2" href="https://github.com/alibaba/open-code-review" target="_blank" rel="noopener">alibaba/open-code-review</a><a class="wk-chip2" href="https://github.com/ChromeDevTools/chrome-devtools-mcp" target="_blank" rel="noopener">ChromeDevTools/chrome-devtools-mcp</a><a class="wk-chip2" href="https://github.com/tradermonty/claude-trading-skills" target="_blank" rel="noopener">tradermonty/claude-trading-skills</a><a class="wk-chip2" href="https://github.com/ag-ui-protocol/ag-ui" target="_blank" rel="noopener">ag-ui-protocol/ag-ui</a><a class="wk-chip2" href="https://github.com/meta/astryx" target="_blank" rel="noopener">meta/astryx</a><a class="wk-chip2" href="https://github.com/pookjw/HermesEnabler" target="_blank" rel="noopener">pookjw/HermesEnabler</a><a class="wk-chip2" href="https://github.com/we-promise/sure" target="_blank" rel="noopener">we-promise/sure</a><a class="wk-chip2" href="https://github.com/dream-num/univer" target="_blank" rel="noopener">dream-num/univer</a><a class="wk-chip2" href="https://github.com/kajisho5/ffmpeg-skill" target="_blank" rel="noopener">kajisho5/ffmpeg-skill</a></div></div>
+    <div class="wk-ocol"><h4>仅日榜 <span class="n">13</span></h4><div class="wk-chips"><a class="wk-chip2" href="https://github.com/elementalsouls/Claude-BugHunter" target="_blank" rel="noopener">elementalsouls/Claude-BugHunter</a><a class="wk-chip2" href="https://github.com/obra/superpowers" target="_blank" rel="noopener">obra/superpowers</a><a class="wk-chip2" href="https://github.com/HKUDS/CLI-Anything" target="_blank" rel="noopener">HKUDS/CLI-Anything</a><a class="wk-chip2" href="https://github.com/jingyaogong/minimind" target="_blank" rel="noopener">jingyaogong/minimind</a><a class="wk-chip2" href="https://github.com/cursor/plugins" target="_blank" rel="noopener">cursor/plugins</a><a class="wk-chip2" href="https://github.com/firecrawl/firecrawl" target="_blank" rel="noopener">firecrawl/firecrawl</a><a class="wk-chip2" href="https://github.com/nginx/nginx" target="_blank" rel="noopener">nginx/nginx</a><a class="wk-chip2" href="https://github.com/openvinotoolkit/openvino" target="_blank" rel="noopener">openvinotoolkit/openvino</a><a class="wk-chip2" href="https://github.com/cathrynlavery/diagram-design" target="_blank" rel="noopener">cathrynlavery/diagram-design</a><a class="wk-chip2" href="https://github.com/mjmirza/app-store-compliance" target="_blank" rel="noopener">mjmirza/app-store-compliance</a><a class="wk-chip2" href="https://github.com/Tracer-Cloud/opensre" target="_blank" rel="noopener">Tracer-Cloud/opensre</a><a class="wk-chip2" href="https://github.com/toeverything/AFFiNE" target="_blank" rel="noopener">toeverything/AFFiNE</a><a class="wk-chip2" href="https://github.com/XiaoYouChR/Ghost-Downloader-3" target="_blank" rel="noopener">XiaoYouChR/Ghost-Downloader-3</a></div></div>
+  </div>
+  <div class="wk-toolbar">
+    <span class="wk-h3" style="margin:0">本周榜单 Top 13</span>
+    <button class="wk-btn on" data-view="table" type="button">表格</button>
+    <button class="wk-btn" data-view="card" type="button">卡片</button>
+    <span class="wk-hint">点表头排序 · 点语言条过滤 · 两种视图共用同一筛选</span>
+  </div>
+  <div id="wk-table-view"><div class="tbl-scroll"><table class="wk-tbl">
+    <thead><tr>
+      <th style="width:44px" data-sort="num">排名</th><th style="width:200px" data-sort="text">仓库</th><th data-sort="text">简介</th>
+      <th style="width:104px" data-sort="text">语言</th><th style="width:92px" data-sort="num">Star 总数</th><th style="width:96px" data-sort="num">本周新增</th>
+    </tr></thead><tbody><tr data-lang="TypeScript">
+      <td class="c-rank">1</td>
+      <td class="c-repo"><a href="https://github.com/backnotprop/plannotator" target="_blank" rel="noopener">backnotprop/plannotator</a><span class="badge-focus" title="命中关注领域：AI / 智能体">关注</span></td>
+      <td class="c-desc"><span class="zh">一个工作空间，让你持续关注并掌控 Agent 动态——塑形、决策、规划、标注、审查代码、与团队共享，并通过一键发送所有反馈给 Agent。</span><details class="orig"><summary>原文</summary><p>The workspace to stay in the loop and on top of agents - shape, decide, plan, annotate, review code, share with team, and send all feedback to agents with one click.</p></details></td>
+      <td class="c-lang"><span class="tag" style="background:#3178c6;color:#ffffff">TypeScript</span></td>
+      <td class="c-num" data-v="14813">14,813</td>
+      <td class="c-num" data-v="2395"><b>2,395</b></td>
+    </tr>
+<tr data-lang="TypeScript">
+      <td class="c-rank">2</td>
+      <td class="c-repo"><a href="https://github.com/google-labs-code/stitch-skills" target="_blank" rel="noopener">google-labs-code/stitch-skills</a><span class="badge-focus" title="命中关注领域：AI / 智能体、开发工具 / 框架">关注</span></td>
+      <td class="c-desc"><span class="zh">一套专为 Stitch MCP 服务器设计的 Agent 技能库。每项技能遵循 Agent Skills 开放标准，兼容 Antigravity、Gemini CLI、Claude Code、Cursor 等编码 Agent。</span><details class="orig"><summary>原文</summary><p>A library of Agent Skills designed to work with the Stitch MCP server. Each skill follows the Agent Skills open standard, for compatibility with coding agents such as Antigravity, Gemini CLI, Claude Code, Cursor.</p></details></td>
+      <td class="c-lang"><span class="tag" style="background:#3178c6;color:#ffffff">TypeScript</span></td>
+      <td class="c-num" data-v="12519">12,519</td>
+      <td class="c-num" data-v="2572"><b>2,572</b></td>
+    </tr>
+<tr data-lang="TypeScript">
+      <td class="c-rank">3</td>
+      <td class="c-repo"><a href="https://github.com/GoogleChrome/modern-web-guidance-src" target="_blank" rel="noopener">GoogleChrome/modern-web-guidance-src</a><span class="badge-focus" title="命中关注领域：AI / 智能体">关注</span></td>
+      <td class="c-desc"><span class="zh">让你的编码 Agent 始终掌握最新 Web 最佳实践</span><details class="orig"><summary>原文</summary><p>Keep your coding agent up to date with the latest web best practices</p></details></td>
+      <td class="c-lang"><span class="tag" style="background:#3178c6;color:#ffffff">TypeScript</span></td>
+      <td class="c-num" data-v="10721">10,721</td>
+      <td class="c-num" data-v="2694"><b>2,694</b></td>
+    </tr>
+<tr data-lang="Go">
+      <td class="c-rank">4</td>
+      <td class="c-repo"><a href="https://github.com/alibaba/open-code-review" target="_blank" rel="noopener">alibaba/open-code-review</a><span class="badge-focus" title="命中关注领域：AI / 智能体">关注</span></td>
+      <td class="c-desc"><span class="zh">安全、快速、高效，在阿里巴巴规模下经受实战检验的混合架构代码审查工具：确定性流水线 + LLM Agent，精确到行级评论，内置多语言规则集（NPE、线程安全、XSS、SQL注入），兼容 OpenAI 和 Anthropic。</span><details class="orig"><summary>原文</summary><p>Secure, fast, efficient, battle-tested at Alibaba&#39;s scale. Hybrid architecture code review tool: deterministic pipelines + LLM Agent, precise line-level comments, built-in multi-language ruleset (NPE, thread-safety, XSS, SQL injection), OpenAI &amp; Anthropic compatible.</p></details></td>
+      <td class="c-lang"><span class="tag" style="background:#00ADD8;color:#ffffff">Go</span></td>
+      <td class="c-num" data-v="55943">55,943</td>
+      <td class="c-num" data-v="3015"><b>3,015</b></td>
+    </tr>
+<tr data-lang="Python">
+      <td class="c-rank">5</td>
+      <td class="c-repo"><a href="https://github.com/mvanhorn/last30days-skill" target="_blank" rel="noopener">mvanhorn/last30days-skill</a><span class="badge-focus" title="命中关注领域：AI / 智能体、数据 / 金融">关注</span></td>
+      <td class="c-desc"><span class="zh">AI Agent 技能，跨 Reddit、X、YouTube、HN、Polymarket 及全网调研任意主题，生成有据可查的综合摘要</span><details class="orig"><summary>原文</summary><p>AI agent skill that researches any topic across Reddit, X, YouTube, HN, Polymarket, and the web - then synthesizes a grounded summary</p></details></td>
+      <td class="c-lang"><span class="tag" style="background:#3572A5;color:#ffffff">Python</span></td>
+      <td class="c-num" data-v="73857">73,857</td>
+      <td class="c-num" data-v="5448"><b>5,448</b></td>
+    </tr>
+<tr data-lang="TypeScript">
+      <td class="c-rank">6</td>
+      <td class="c-repo"><a href="https://github.com/ChromeDevTools/chrome-devtools-mcp" target="_blank" rel="noopener">ChromeDevTools/chrome-devtools-mcp</a><span class="badge-focus" title="命中关注领域：AI / 智能体">关注</span></td>
+      <td class="c-desc"><span class="zh">面向编码 Agent 的 Chrome DevTools</span><details class="orig"><summary>原文</summary><p>Chrome DevTools for coding agents</p></details></td>
+      <td class="c-lang"><span class="tag" style="background:#3178c6;color:#ffffff">TypeScript</span></td>
+      <td class="c-num" data-v="59144">59,144</td>
+      <td class="c-num" data-v="1581"><b>1,581</b></td>
+    </tr>
+<tr data-lang="Python">
+      <td class="c-rank">7</td>
+      <td class="c-repo"><a href="https://github.com/tradermonty/claude-trading-skills" target="_blank" rel="noopener">tradermonty/claude-trading-skills</a><span class="badge-focus" title="命中关注领域：AI / 智能体、数据 / 金融、开发工具 / 框架">关注</span></td>
+      <td class="c-desc"><span class="zh">面向股票投资者和交易员的 Claude Code 技能——市场分析、技术图表、经济日历、选股器及交易策略开发。</span><details class="orig"><summary>原文</summary><p>Claude Code skills for equity investors and traders — market analysis, technical charting, economic calendars, screeners, and trading strategy development.</p></details></td>
+      <td class="c-lang"><span class="tag" style="background:#3572A5;color:#ffffff">Python</span></td>
+      <td class="c-num" data-v="8227">8,227</td>
+      <td class="c-num" data-v="1903"><b>1,903</b></td>
+    </tr>
+<tr data-lang="TypeScript">
+      <td class="c-rank">8</td>
+      <td class="c-repo"><a href="https://github.com/ag-ui-protocol/ag-ui" target="_blank" rel="noopener">ag-ui-protocol/ag-ui</a><span class="badge-focus" title="命中关注领域：AI / 智能体">关注</span></td>
+      <td class="c-desc"><span class="zh">AG-UI：Agent-用户交互协议。将 Agent 带入前端应用。</span><details class="orig"><summary>原文</summary><p>AG-UI: the Agent-User Interaction Protocol. Bring Agents into Frontend Applications.</p></details></td>
+      <td class="c-lang"><span class="tag" style="background:#3178c6;color:#ffffff">TypeScript</span></td>
+      <td class="c-num" data-v="21497">21,497</td>
+      <td class="c-num" data-v="2966"><b>2,966</b></td>
+    </tr>
+<tr data-lang="TypeScript">
+      <td class="c-rank">9</td>
+      <td class="c-repo"><a href="https://github.com/meta/astryx" target="_blank" rel="noopener">meta/astryx</a><span class="badge-focus" title="命中关注领域：AI / 智能体">关注</span></td>
+      <td class="c-desc"><span class="zh">一个完全可定制且 Agent 就绪的开源设计系统</span><details class="orig"><summary>原文</summary><p>An open source design system that&#39;s fully customizable and agent ready</p></details></td>
+      <td class="c-lang"><span class="tag" style="background:#3178c6;color:#ffffff">TypeScript</span></td>
+      <td class="c-num" data-v="32759">32,759</td>
+      <td class="c-num" data-v="3165"><b>3,165</b></td>
+    </tr>
+<tr data-lang="Objective-C">
+      <td class="c-rank">10</td>
+      <td class="c-repo"><a href="https://github.com/pookjw/HermesEnabler" target="_blank" rel="noopener">pookjw/HermesEnabler</a><span class="badge-focus" title="命中关注领域：AI / 智能体">关注</span></td>
+      <td class="c-desc"><span class="zh">在任何 Apple Watch 设备上启用 Hermès 表盘</span><details class="orig"><summary>原文</summary><p>Enable Hermès Watch Faces on any Apple Watch devices</p></details></td>
+      <td class="c-lang"><span class="tag" style="background:#438eff;color:#ffffff">Objective-C</span></td>
+      <td class="c-num" data-v="2477">2,477</td>
+      <td class="c-num" data-v="390"><b>390</b></td>
+    </tr>
+<tr data-lang="Ruby">
+      <td class="c-rank">11</td>
+      <td class="c-repo"><a href="https://github.com/we-promise/sure" target="_blank" rel="noopener">we-promise/sure</a></td>
+      <td class="c-desc"><span class="zh">人人可用的个人理财应用（由所有人共创）</span><details class="orig"><summary>原文</summary><p>The personal finance app for everyone (by everyone)</p></details></td>
+      <td class="c-lang"><span class="tag" style="background:#701516;color:#ffffff">Ruby</span></td>
+      <td class="c-num" data-v="17699">17,699</td>
+      <td class="c-num" data-v="1612"><b>1,612</b></td>
+    </tr>
+<tr data-lang="TypeScript">
+      <td class="c-rank">12</td>
+      <td class="c-repo"><a href="https://github.com/dream-num/univer" target="_blank" rel="noopener">dream-num/univer</a><span class="badge-focus" title="命中关注领域：AI / 智能体、开发工具 / 框架">关注</span></td>
+      <td class="c-desc"><span class="zh">使用 Univer Office SDK 构建你自己的 AI 办公套件。将编辑、计算、协作及文件处理融入你的产品，服务人与 AI Agent。基于可扩展的开源核心构建。</span><details class="orig"><summary>原文</summary><p>Build your own AI office with Univer Office SDK. Bring editing, calculation, collaboration, and file processing into your product for people and AI agents. Built on an extensible open-source core.</p></details></td>
+      <td class="c-lang"><span class="tag" style="background:#3178c6;color:#ffffff">TypeScript</span></td>
+      <td class="c-num" data-v="31635">31,635</td>
+      <td class="c-num" data-v="4324"><b>4,324</b></td>
+    </tr>
+<tr data-lang="Python">
+      <td class="c-rank">13</td>
+      <td class="c-repo"><a href="https://github.com/kajisho5/ffmpeg-skill" target="_blank" rel="noopener">kajisho5/ffmpeg-skill</a><span class="badge-focus" title="命中关注领域：AI / 智能体">关注</span></td>
+      <td class="c-desc"><span class="zh">面向编码 Agent 的本地视频编辑器：42 个 FFmpeg 工具配合机器可读契约及 MCP 服务器，支持 Claude Code、Cursor 和 Codex。剪辑、字幕、重新构图、响度调整、平台导出。无需云服务，无需 API Key。</span><details class="orig"><summary>原文</summary><p>Local video editor for coding agents: 42 FFmpeg tools with a machine-readable contract and an MCP server, for Claude Code, Cursor and Codex. Cut, captions, reframe, loudness, platform exports. No cloud, no API keys.</p></details></td>
+      <td class="c-lang"><span class="tag" style="background:#3572A5;color:#ffffff">Python</span></td>
+      <td class="c-num" data-v="10501">10,501</td>
+      <td class="c-num" data-v="3891"><b>3,891</b></td>
+    </tr></tbody></table></div></div>
+  <div id="wk-card-view" hidden><div class="wk-cards"><div class="wk-card" data-lang="TypeScript">
+    <div class="wk-card-r">#1 · 本周新增 <b>2,395</b></div>
+    <a class="wk-card-t" href="https://github.com/backnotprop/plannotator" target="_blank" rel="noopener">backnotprop/plannotator</a><span class="badge-focus" title="命中关注领域：AI / 智能体">关注</span>
+    <div class="wk-card-d">一个工作空间，让你持续关注并掌控 Agent 动态——塑形、决策、规划、标注、审查代码、与团队共享，并通过一键发送所有反馈给 Agent。</div>
+    <div class="wk-card-m"><span><span class="tag" style="background:#3178c6;color:#ffffff">TypeScript</span></span><span>★ 14,813</span></div>
+  </div><div class="wk-card" data-lang="TypeScript">
+    <div class="wk-card-r">#2 · 本周新增 <b>2,572</b></div>
+    <a class="wk-card-t" href="https://github.com/google-labs-code/stitch-skills" target="_blank" rel="noopener">google-labs-code/stitch-skills</a><span class="badge-focus" title="命中关注领域：AI / 智能体、开发工具 / 框架">关注</span>
+    <div class="wk-card-d">一套专为 Stitch MCP 服务器设计的 Agent 技能库。每项技能遵循 Agent Skills 开放标准，兼容 Antigravity、Gemini CLI、Claude Code、Cursor 等编码 Agent。</div>
+    <div class="wk-card-m"><span><span class="tag" style="background:#3178c6;color:#ffffff">TypeScript</span></span><span>★ 12,519</span></div>
+  </div><div class="wk-card" data-lang="TypeScript">
+    <div class="wk-card-r">#3 · 本周新增 <b>2,694</b></div>
+    <a class="wk-card-t" href="https://github.com/GoogleChrome/modern-web-guidance-src" target="_blank" rel="noopener">GoogleChrome/modern-web-guidance-src</a><span class="badge-focus" title="命中关注领域：AI / 智能体">关注</span>
+    <div class="wk-card-d">让你的编码 Agent 始终掌握最新 Web 最佳实践</div>
+    <div class="wk-card-m"><span><span class="tag" style="background:#3178c6;color:#ffffff">TypeScript</span></span><span>★ 10,721</span></div>
+  </div><div class="wk-card" data-lang="Go">
+    <div class="wk-card-r">#4 · 本周新增 <b>3,015</b></div>
+    <a class="wk-card-t" href="https://github.com/alibaba/open-code-review" target="_blank" rel="noopener">alibaba/open-code-review</a><span class="badge-focus" title="命中关注领域：AI / 智能体">关注</span>
+    <div class="wk-card-d">安全、快速、高效，在阿里巴巴规模下经受实战检验的混合架构代码审查工具：确定性流水线 + LLM Agent，精确到行级评论，内置多语言规则集（NPE、线程安全、XSS、SQL注入），兼容 OpenAI 和 Anthropic。</div>
+    <div class="wk-card-m"><span><span class="tag" style="background:#00ADD8;color:#ffffff">Go</span></span><span>★ 55,943</span></div>
+  </div><div class="wk-card" data-lang="Python">
+    <div class="wk-card-r">#5 · 本周新增 <b>5,448</b></div>
+    <a class="wk-card-t" href="https://github.com/mvanhorn/last30days-skill" target="_blank" rel="noopener">mvanhorn/last30days-skill</a><span class="badge-focus" title="命中关注领域：AI / 智能体、数据 / 金融">关注</span>
+    <div class="wk-card-d">AI Agent 技能，跨 Reddit、X、YouTube、HN、Polymarket 及全网调研任意主题，生成有据可查的综合摘要</div>
+    <div class="wk-card-m"><span><span class="tag" style="background:#3572A5;color:#ffffff">Python</span></span><span>★ 73,857</span></div>
+  </div><div class="wk-card" data-lang="TypeScript">
+    <div class="wk-card-r">#6 · 本周新增 <b>1,581</b></div>
+    <a class="wk-card-t" href="https://github.com/ChromeDevTools/chrome-devtools-mcp" target="_blank" rel="noopener">ChromeDevTools/chrome-devtools-mcp</a><span class="badge-focus" title="命中关注领域：AI / 智能体">关注</span>
+    <div class="wk-card-d">面向编码 Agent 的 Chrome DevTools</div>
+    <div class="wk-card-m"><span><span class="tag" style="background:#3178c6;color:#ffffff">TypeScript</span></span><span>★ 59,144</span></div>
+  </div><div class="wk-card" data-lang="Python">
+    <div class="wk-card-r">#7 · 本周新增 <b>1,903</b></div>
+    <a class="wk-card-t" href="https://github.com/tradermonty/claude-trading-skills" target="_blank" rel="noopener">tradermonty/claude-trading-skills</a><span class="badge-focus" title="命中关注领域：AI / 智能体、数据 / 金融、开发工具 / 框架">关注</span>
+    <div class="wk-card-d">面向股票投资者和交易员的 Claude Code 技能——市场分析、技术图表、经济日历、选股器及交易策略开发。</div>
+    <div class="wk-card-m"><span><span class="tag" style="background:#3572A5;color:#ffffff">Python</span></span><span>★ 8,227</span></div>
+  </div><div class="wk-card" data-lang="TypeScript">
+    <div class="wk-card-r">#8 · 本周新增 <b>2,966</b></div>
+    <a class="wk-card-t" href="https://github.com/ag-ui-protocol/ag-ui" target="_blank" rel="noopener">ag-ui-protocol/ag-ui</a><span class="badge-focus" title="命中关注领域：AI / 智能体">关注</span>
+    <div class="wk-card-d">AG-UI：Agent-用户交互协议。将 Agent 带入前端应用。</div>
+    <div class="wk-card-m"><span><span class="tag" style="background:#3178c6;color:#ffffff">TypeScript</span></span><span>★ 21,497</span></div>
+  </div><div class="wk-card" data-lang="TypeScript">
+    <div class="wk-card-r">#9 · 本周新增 <b>3,165</b></div>
+    <a class="wk-card-t" href="https://github.com/meta/astryx" target="_blank" rel="noopener">meta/astryx</a><span class="badge-focus" title="命中关注领域：AI / 智能体">关注</span>
+    <div class="wk-card-d">一个完全可定制且 Agent 就绪的开源设计系统</div>
+    <div class="wk-card-m"><span><span class="tag" style="background:#3178c6;color:#ffffff">TypeScript</span></span><span>★ 32,759</span></div>
+  </div><div class="wk-card" data-lang="Objective-C">
+    <div class="wk-card-r">#10 · 本周新增 <b>390</b></div>
+    <a class="wk-card-t" href="https://github.com/pookjw/HermesEnabler" target="_blank" rel="noopener">pookjw/HermesEnabler</a><span class="badge-focus" title="命中关注领域：AI / 智能体">关注</span>
+    <div class="wk-card-d">在任何 Apple Watch 设备上启用 Hermès 表盘</div>
+    <div class="wk-card-m"><span><span class="tag" style="background:#438eff;color:#ffffff">Objective-C</span></span><span>★ 2,477</span></div>
+  </div><div class="wk-card" data-lang="Ruby">
+    <div class="wk-card-r">#11 · 本周新增 <b>1,612</b></div>
+    <a class="wk-card-t" href="https://github.com/we-promise/sure" target="_blank" rel="noopener">we-promise/sure</a>
+    <div class="wk-card-d">人人可用的个人理财应用（由所有人共创）</div>
+    <div class="wk-card-m"><span><span class="tag" style="background:#701516;color:#ffffff">Ruby</span></span><span>★ 17,699</span></div>
+  </div><div class="wk-card" data-lang="TypeScript">
+    <div class="wk-card-r">#12 · 本周新增 <b>4,324</b></div>
+    <a class="wk-card-t" href="https://github.com/dream-num/univer" target="_blank" rel="noopener">dream-num/univer</a><span class="badge-focus" title="命中关注领域：AI / 智能体、开发工具 / 框架">关注</span>
+    <div class="wk-card-d">使用 Univer Office SDK 构建你自己的 AI 办公套件。将编辑、计算、协作及文件处理融入你的产品，服务人与 AI Agent。基于可扩展的开源核心构建。</div>
+    <div class="wk-card-m"><span><span class="tag" style="background:#3178c6;color:#ffffff">TypeScript</span></span><span>★ 31,635</span></div>
+  </div><div class="wk-card" data-lang="Python">
+    <div class="wk-card-r">#13 · 本周新增 <b>3,891</b></div>
+    <a class="wk-card-t" href="https://github.com/kajisho5/ffmpeg-skill" target="_blank" rel="noopener">kajisho5/ffmpeg-skill</a><span class="badge-focus" title="命中关注领域：AI / 智能体">关注</span>
+    <div class="wk-card-d">面向编码 Agent 的本地视频编辑器：42 个 FFmpeg 工具配合机器可读契约及 MCP 服务器，支持 Claude Code、Cursor 和 Codex。剪辑、字幕、重新构图、响度调整、平台导出。无需云服务，无需 API Key。</div>
+    <div class="wk-card-m"><span><span class="tag" style="background:#3572A5;color:#ffffff">Python</span></span><span>★ 10,501</span></div>
+  </div></div></div>
+  <div class="wk-h3">两期对比明细</div>
+  <div class="note">与上一期同步（<b>2026-11-23</b>）相比：<b>新上榜 0</b>、<b>跌出 0</b>、<b>排名变动 0</b>。</div>
+  <div style="display:flex;gap:12px;flex-wrap:wrap">
+    <div style="flex:1;min-width:230px">
+    <div class="wk-panel-t">新上榜 <span class="n">0</span></div>
+    <table class="wk-mini"><thead><tr><th>仓库</th><th>语言</th><th>备注</th></tr></thead>
+    <tbody><tr><td colspan="3">无</td></tr></tbody></table></div>
+    <div style="flex:1;min-width:230px">
+    <div class="wk-panel-t">跌出 <span class="n">0</span></div>
+    <table class="wk-mini"><thead><tr><th>仓库</th><th>语言</th><th>备注</th></tr></thead>
+    <tbody><tr><td colspan="3">无</td></tr></tbody></table></div>
+    <div style="flex:1;min-width:230px">
+    <div class="wk-panel-t">排名变动 <span class="n">0</span></div>
+    <table class="wk-mini"><thead><tr><th>仓库</th><th>语言</th><th>备注</th></tr></thead>
+    <tbody><tr><td colspan="3">无</td></tr></tbody></table></div>
+  </div>
+  <div class="wk-h3">话题聚类</div>
+  <div class="topic-grid"><div class="topic-card">
+      <div class="topic-head"><span>AI Agent 框架与技能生态</span><span>5 席</span></div>
+      <div class="topic-insight">本周 AI Agent 生态持续爆发，Google 发布 Stitch MCP 技能库统一 Agent 接口标准，Meta 推出 Astryx 设计系统；AG-UI 协议尝试规范 Agent 与前端应用的交互方式。同时 FFmpeg Skill 将本地视频编辑能力开放给编码 Agent，体现工具化趋势。</div>
+      <div class="topic-repos"><a class="topic-chip" href="https://github.com/google-labs-code/stitch-skills" target="_blank" rel="noopener">google-labs-code/stitch-skills</a><a class="topic-chip" href="https://github.com/meta/astryx" target="_blank" rel="noopener">meta/astryx</a><a class="topic-chip" href="https://github.com/ag-ui-protocol/ag-ui" target="_blank" rel="noopener">ag-ui-protocol/ag-ui</a><a class="topic-chip" href="https://github.com/kajisho5/ffmpeg-skill" target="_blank" rel="noopener">kajisho5/ffmpeg-skill</a><a class="topic-chip" href="https://github.com/ChromeDevTools/chrome-devtools-mcp" target="_blank" rel="noopener">ChromeDevTools/chrome-devtools-mcp</a></div>
+    </div><div class="topic-card">
+      <div class="topic-head"><span>开发者工具与工程实践</span><span>3 席</span></div>
+      <div class="topic-insight">阿里巴巴 open-code-review 以混合架构（确定性流水线+LLM）切入企业级代码审查市场，强调 NPE/XSS/SQL注入等多语言规则覆盖；plannotator 提供 Agent 协同工作空间的全流程管理；modern-web-guidance-src 确保编码 Agent 掌握最新 Web 最佳实践。</div>
+      <div class="topic-repos"><a class="topic-chip" href="https://github.com/alibaba/open-code-review" target="_blank" rel="noopener">alibaba/open-code-review</a><a class="topic-chip" href="https://github.com/backnotprop/plannotator" target="_blank" rel="noopener">backnotprop/plannotator</a><a class="topic-chip" href="https://github.com/GoogleChrome/modern-web-guidance-src" target="_blank" rel="noopener">GoogleChrome/modern-web-guidance-src</a></div>
+    </div><div class="topic-card">
+      <div class="topic-head"><span>数据调研与金融分析</span><span>2 席</span></div>
+      <div class="topic-insight">last30days-skill 是本周 Star 增量之王（+5448星），跨 Reddit、X、YouTube、HN、Polymarket 全网调研生成摘要；tradermonty/claude-trading-skills 专注股票投资者的市场分析、技术图表和交易策略开发，显示金融领域 Agent 应用正加速落地。</div>
+      <div class="topic-repos"><a class="topic-chip" href="https://github.com/mvanhorn/last30days-skill" target="_blank" rel="noopener">mvanhorn/last30days-skill</a><a class="topic-chip" href="https://github.com/tradermonty/claude-trading-skills" target="_blank" rel="noopener">tradermonty/claude-trading-skills</a></div>
+    </div><div class="topic-card">
+      <div class="topic-head"><span>办公协作与个性化应用</span><span>3 席</span></div>
+      <div class="topic-insight">Univer Office SDK 将编辑、计算、协作及文件处理融入产品，服务人与 AI Agent；Sure 主打去中心化的个人理财应用；HermesEnabler 满足 Apple Watch 用户的表盘个性化需求。</div>
+      <div class="topic-repos"><a class="topic-chip" href="https://github.com/dream-num/univer" target="_blank" rel="noopener">dream-num/univer</a><a class="topic-chip" href="https://github.com/we-promise/sure" target="_blank" rel="noopener">we-promise/sure</a><a class="topic-chip" href="https://github.com/pookjw/HermesEnabler" target="_blank" rel="noopener">pookjw/HermesEnabler</a></div>
+    </div></div></div>
+  <h2>数据说明</h2>
+  <div class="note">
+    <b>数据源：</b>GitHub Trending 官方周榜，公开页面抓取、无需认证。<br>
+    <b>抓取策略：</b>单页请求，超时 45s，失败按 3s/8s/15s 退避重试 4 次；解析行数 &lt;5 视为失败。<br>
+    <b>同步节奏：</b>每日 21:45 抓取当日官方周榜（近一周滚动窗口），归档按日只增不删。<br>
+    <b>重合度口径：</b>以本地最新一期日榜快照为基准求交/差集；基准日期滞后时显式告警，不推断同期性。<br>
+    <b>简介翻译：</b>已由 AI 翻译为中文，覆盖 13/13 条；点「原文」展开英文原文。<br>
+    <b>话题聚类：</b>按简介语义由 AI 生成（非 GitHub 官方分类），仅作风向参考。<br>
+    <b>完整性纪律：</b>数据源未到位时以「待核实」占位，<b>禁止编造任何数据</b>；样本不足不推断填充。<br>
+  </div>
+</div>
+<footer>GitHub 官方周榜归档 · 2026-11-24 · 数据版权归 GitHub 及各仓库作者所有</footer>
+<script>window.__WEEKLY_DATA__={"ok":true,"placeholder":false,"date":"2026-11-24","fetchedAt":"2026-11-24 13:46","period":"weekly","sourceLabel":"GitHub Trending 官方周榜","rows":[{"rank":1,"repo":"backnotprop/plannotator","url":"https://github.com/backnotprop/plannotator","desc":"The workspace to stay in the loop and on top of agents - shape, decide, plan, annotate, review code, share with team, and send all feedback to agents with one click.","lang":"TypeScript","stars":14813,"forks":1430,"periodStars":2395,"periodUnit":"this week","zh":"一个工作空间，让你持续关注并掌控 Agent 动态——塑形、决策、规划、标注、审查代码、与团队共享，并通过一键发送所有反馈给 Agent。","langBg":"#3178c6","langFg":"#ffffff","focus":["AI / 智能体"]},{"rank":2,"repo":"google-labs-code/stitch-skills","url":"https://github.com/google-labs-code/stitch-skills","desc":"A library of Agent Skills designed to work with the Stitch MCP server. Each skill follows the Agent Skills open standard, for compatibility with coding agents such as Antigravity, Gemini CLI, Claude Code, Cursor.","lang":"TypeScript","stars":12519,"forks":1521,"periodStars":2572,"periodUnit":"this week","zh":"一套专为 Stitch MCP 服务器设计的 Agent 技能库。每项技能遵循 Agent Skills 开放标准，兼容 Antigravity、Gemini CLI、Claude Code、Cursor 等编码 Agent。","langBg":"#3178c6","langFg":"#ffffff","focus":["AI / 智能体","开发工具 / 框架"]},{"rank":3,"repo":"GoogleChrome/modern-web-guidance-src","url":"https://github.com/GoogleChrome/modern-web-guidance-src","desc":"Keep your coding agent up to date with the latest web best practices","lang":"TypeScript","stars":10721,"forks":818,"periodStars":2694,"periodUnit":"this week","zh":"让你的编码 Agent 始终掌握最新 Web 最佳实践","langBg":"#3178c6","langFg":"#ffffff","focus":["AI / 智能体"]},{"rank":4,"repo":"alibaba/open-code-review","url":"https://github.com/alibaba/open-code-review","desc":"Secure, fast, efficient, battle-tested at Alibaba's scale. Hybrid architecture code review tool: deterministic pipelines + LLM Agent, precise line-level comments, built-in multi-language ruleset (NPE, thread-safety, XSS, SQL injection), OpenAI & Anthropic compatible.","lang":"Go","stars":55943,"forks":4622,"periodStars":3015,"periodUnit":"this week","zh":"安全、快速、高效，在阿里巴巴规模下经受实战检验的混合架构代码审查工具：确定性流水线 + LLM Agent，精确到行级评论，内置多语言规则集（NPE、线程安全、XSS、SQL注入），兼容 OpenAI 和 Anthropic。","langBg":"#00ADD8","langFg":"#ffffff","focus":["AI / 智能体"]},{"rank":5,"repo":"mvanhorn/last30days-skill","url":"https://github.com/mvanhorn/last30days-skill","desc":"AI agent skill that researches any topic across Reddit, X, YouTube, HN, Polymarket, and the web - then synthesizes a grounded summary","lang":"Python","stars":73857,"forks":6517,"periodStars":5448,"periodUnit":"this week","zh":"AI Agent 技能，跨 Reddit、X、YouTube、HN、Polymarket 及全网调研任意主题，生成有据可查的综合摘要","langBg":"#3572A5","langFg":"#ffffff","focus":["AI / 智能体","数据 / 金融"]},{"rank":6,"repo":"ChromeDevTools/chrome-devtools-mcp","url":"https://github.com/ChromeDevTools/chrome-devtools-mcp","desc":"Chrome DevTools for coding agents","lang":"TypeScript","stars":59144,"forks":4899,"periodStars":1581,"periodUnit":"this week","zh":"面向编码 Agent 的 Chrome DevTools","langBg":"#3178c6","langFg":"#ffffff","focus":["AI / 智能体"]},{"rank":7,"repo":"tradermonty/claude-trading-skills","url":"https://github.com/tradermonty/claude-trading-skills","desc":"Claude Code skills for equity investors and traders — market analysis, technical charting, economic calendars, screeners, and trading strategy development.","lang":"Python","stars":8227,"forks":1526,"periodStars":1903,"periodUnit":"this week","zh":"面向股票投资者和交易员的 Claude Code 技能——市场分析、技术图表、经济日历、选股器及交易策略开发。","langBg":"#3572A5","langFg":"#ffffff","focus":["AI / 智能体","数据 / 金融","开发工具 / 框架"]},{"rank":8,"repo":"ag-ui-protocol/ag-ui","url":"https://github.com/ag-ui-protocol/ag-ui","desc":"AG-UI: the Agent-User Interaction Protocol. Bring Agents into Frontend Applications.","lang":"TypeScript","stars":21497,"forks":2168,"periodStars":2966,"periodUnit":"this week","zh":"AG-UI：Agent-用户交互协议。将 Agent 带入前端应用。","langBg":"#3178c6","langFg":"#ffffff","focus":["AI / 智能体"]},{"rank":9,"repo":"meta/astryx","url":"https://github.com/meta/astryx","desc":"An open source design system that's fully customizable and agent ready","lang":"TypeScript","stars":32759,"forks":2569,"periodStars":3165,"periodUnit":"this week","zh":"一个完全可定制且 Agent 就绪的开源设计系统","langBg":"#3178c6","langFg":"#ffffff","focus":["AI / 智能体"]},{"rank":10,"repo":"pookjw/HermesEnabler","url":"https://github.com/pookjw/HermesEnabler","desc":"Enable Hermès Watch Faces on any Apple Watch devices","lang":"Objective-C","stars":2477,"forks":206,"periodStars":390,"periodUnit":"this week","zh":"在任何 Apple Watch 设备上启用 Hermès 表盘","langBg":"#438eff","langFg":"#ffffff","focus":["AI / 智能体"]},{"rank":11,"repo":"we-promise/sure","url":"https://github.com/we-promise/sure","desc":"The personal finance app for everyone (by everyone)","lang":"Ruby","stars":17699,"forks":1536,"periodStars":1612,"periodUnit":"this week","zh":"人人可用的个人理财应用（由所有人共创）","langBg":"#701516","langFg":"#ffffff","focus":null},{"rank":12,"repo":"dream-num/univer","url":"https://github.com/dream-num/univer","desc":"Build your own AI office with Univer Office SDK. Bring editing, calculation, collaboration, and file processing into your product for people and AI agents. Built on an extensible open-source core.","lang":"TypeScript","stars":31635,"forks":2853,"periodStars":4324,"periodUnit":"this week","zh":"使用 Univer Office SDK 构建你自己的 AI 办公套件。将编辑、计算、协作及文件处理融入你的产品，服务人与 AI Agent。基于可扩展的开源核心构建。","langBg":"#3178c6","langFg":"#ffffff","focus":["AI / 智能体","开发工具 / 框架"]},{"rank":13,"repo":"kajisho5/ffmpeg-skill","url":"https://github.com/kajisho5/ffmpeg-skill","desc":"Local video editor for coding agents: 42 FFmpeg tools with a machine-readable contract and an MCP server, for Claude Code, Cursor and Codex. Cut, captions, reframe, loudness, platform exports. No cloud, no API keys.","lang":"Python","stars":10501,"forks":908,"periodStars":3891,"periodUnit":"this week","zh":"面向编码 Agent 的本地视频编辑器：42 个 FFmpeg 工具配合机器可读契约及 MCP 服务器，支持 Claude Code、Cursor 和 Codex。剪辑、字幕、重新构图、响度调整、平台导出。无需云服务，无需 API Key。","langBg":"#3572A5","langFg":"#ffffff","focus":["AI / 智能体"]}],"topics":{"categories":[{"name":"AI Agent 框架与技能生态","insight":"本周 AI Agent 生态持续爆发，Google 发布 Stitch MCP 技能库统一 Agent 接口标准，Meta 推出 Astryx 设计系统；AG-UI 协议尝试规范 Agent 与前端应用的交互方式。同时 FFmpeg Skill 将本地视频编辑能力开放给编码 Agent，体现工具化趋势。","repos":["google-labs-code/stitch-skills","meta/astryx","ag-ui-protocol/ag-ui","kajisho5/ffmpeg-skill","ChromeDevTools/chrome-devtools-mcp"]},{"name":"开发者工具与工程实践","insight":"阿里巴巴 open-code-review 以混合架构（确定性流水线+LLM）切入企业级代码审查市场，强调 NPE/XSS/SQL注入等多语言规则覆盖；plannotator 提供 Agent 协同工作空间的全流程管理；modern-web-guidance-src 确保编码 Agent 掌握最新 Web 最佳实践。","repos":["alibaba/open-code-review","backnotprop/plannotator","GoogleChrome/modern-web-guidance-src"]},{"name":"数据调研与金融分析","insight":"last30days-skill 是本周 Star 增量之王（+5448星），跨 Reddit、X、YouTube、HN、Polymarket 全网调研生成摘要；tradermonty/claude-trading-skills 专注股票投资者的市场分析、技术图表和交易策略开发，显示金融领域 Agent 应用正加速落地。","repos":["mvanhorn/last30days-skill","tradermonty/claude-trading-skills"]},{"name":"办公协作与个性化应用","insight":"Univer Office SDK 将编辑、计算、协作及文件处理融入产品，服务人与 AI Agent；Sure 主打去中心化的个人理财应用；HermesEnabler 满足 Apple Watch 用户的表盘个性化需求。","repos":["dream-num/univer","we-promise/sure","pookjw/HermesEnabler"]}],"unclassified":[]},"translated":13,"topicsCount":4,"archives":["2026-11-15","2026-11-16","2026-11-17","2026-11-18","2026-11-19","2026-11-20","2026-11-21","2026-11-22","2026-11-23","2026-11-24"],"stats":{"count":13,"totalPeriod":35956,"langs":[["TypeScript",7],["Python",3],["Go",1],["Objective-C",1],["Ruby",1]]},"concentration":{"total":35956,"top1":5448,"top1Pct":15,"top3Pct":38},"focusHits":12,"overlap":{"has":true,"weeklyDate":"2026-11-24","dailyDate":"2026-11-24","staleDays":0,"reliable":true,"weeklyCount":13,"dailyCount":15,"both":["google-labs-code/stitch-skills","mvanhorn/last30days-skill"],"weeklyOnly":["backnotprop/plannotator","GoogleChrome/modern-web-guidance-src","alibaba/open-code-review","ChromeDevTools/chrome-devtools-mcp","tradermonty/claude-trading-skills","ag-ui-protocol/ag-ui","meta/astryx","pookjw/HermesEnabler","we-promise/sure","dream-num/univer","kajisho5/ffmpeg-skill"],"dailyOnly":["elementalsouls/Claude-BugHunter","obra/superpowers","HKUDS/CLI-Anything","jingyaogong/minimind","cursor/plugins","firecrawl/firecrawl","nginx/nginx","openvinotoolkit/openvino","cathrynlavery/diagram-design","mjmirza/app-store-compliance","Tracer-Cloud/opensre","toeverything/AFFiNE","XiaoYouChR/Ghost-Downloader-3"],"jaccard":8},"diff":{"has":true,"entered":0,"exited":0,"movers":0,"enteredRows":[],"exitedRows":[],"moverRows":[],"prevDate":"2026-11-23"},"issues":[]};</script>
+<script>
+(function(){
+  var wkPrefix = '';
+  var root = document.getElementById('weekly-root');
+  if (!root) return;
+  var d = window.__WEEKLY_DATA__;
+  if (!d || !d.ok || !Array.isArray(d.rows) || !d.rows.length) {
+    root.innerHTML = '<div class="note warn"><b>待核实：</b>周榜数据未到位'
+      + (d && d.reason ? '（' + String(d.reason).replace(/</g,'&lt;') + '）' : '')
+      + '。数据源按「待核实」纪律留空，禁止编造。每日 21:45 同步。</div>';
+    return;
+  }
+  if (d.html) root.innerHTML = d.html.split('__WK_PREFIX__').join(wkPrefix);
+  if (!root.innerHTML.trim()) return;
+
+  // ---- 表头排序（仅周榜表格）----
+  var tbl = root.querySelector('.wk-tbl');
+  if (tbl && tbl.tHead) {
+    var tbody = tbl.tBodies[0], state = { col: -1, dir: 'asc' };
+    Array.prototype.forEach.call(tbl.tHead.rows[0].cells, function(th){
+      if (!th.dataset.sort) return;
+      th.tabIndex = 0;
+      function doSort(){
+        var col = th.cellIndex, type = th.dataset.sort;
+        state.dir = (state.col === col && state.dir === 'asc') ? 'desc' : 'asc';
+        state.col = col;
+        var rs = Array.prototype.slice.call(tbody.rows);
+        rs.sort(function(a,b){
+          var x = type === 'num'
+            ? (parseFloat(a.cells[col].dataset.v || a.cells[col].textContent.replace(/[^0-9.]/g,'')) || 0)
+            : a.cells[col].textContent.trim();
+          var y = type === 'num'
+            ? (parseFloat(b.cells[col].dataset.v || b.cells[col].textContent.replace(/[^0-9.]/g,'')) || 0)
+            : b.cells[col].textContent.trim();
+          return (x === y ? 0 : (x > y ? 1 : -1)) * (state.dir === 'asc' ? 1 : -1);
+        });
+        rs.forEach(function(r){ tbody.appendChild(r); });
+        Array.prototype.forEach.call(tbl.tHead.rows[0].cells, function(h){ h.removeAttribute('aria-sort'); });
+        th.setAttribute('aria-sort', state.dir === 'asc' ? 'ascending' : 'descending');
+      }
+      th.addEventListener('click', doSort);
+      th.addEventListener('keydown', function(e){ if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); doSort(); } });
+    });
+  }
+  // ---- 语言条过滤（同时作用于表格与卡片）----
+  var bars = root.querySelectorAll('.wk-bar[data-lang]');
+  Array.prototype.forEach.call(bars, function(bar){
+    function apply(){
+      var lang = bar.dataset.lang, on = !bar.classList.contains('filter-on');
+      Array.prototype.forEach.call(bars, function(b){ b.classList.remove('filter-on'); });
+      if (on) bar.classList.add('filter-on');
+      Array.prototype.forEach.call(root.querySelectorAll('.wk-tbl tbody tr, .wk-card'), function(el){
+        el.style.display = (!on || el.dataset.lang === lang) ? '' : 'none';
+      });
+    }
+    bar.addEventListener('click', apply);
+    bar.addEventListener('keydown', function(e){ if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); apply(); } });
+  });
+  // ---- 表格 / 卡片视图切换 ----
+  var btns = root.querySelectorAll('.wk-btn[data-view]');
+  Array.prototype.forEach.call(btns, function(btn){
+    btn.addEventListener('click', function(){
+      var v = btn.dataset.view;
+      Array.prototype.forEach.call(btns, function(b){ b.classList.toggle('on', b === btn); });
+      var t = root.querySelector('#wk-table-view'), c = root.querySelector('#wk-card-view');
+      if (t) t.hidden = v !== 'table';
+      if (c) c.hidden = v !== 'card';
+    });
+  });
+})();</script>
+</body></html>
